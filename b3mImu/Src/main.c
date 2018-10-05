@@ -163,6 +163,9 @@ int main(void)
   SD_MPU6050_Result result ;
   uint8_t mpu_ok[15] = {"MPU WORK FINE\n"};
   uint8_t mpu_not[17] = {"MPU NOT WORKING\n"};
+
+  int16_t diff = 0; //IMU出力角度
+
   /* MCU Configuration----------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -180,6 +183,7 @@ int main(void)
   MX_I2C1_Init();
   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,GPIO_PIN_SET);
 
+
   result = SD_MPU6050_Init(&hi2c1,&mpu1,SD_MPU6050_Device_0,SD_MPU6050_Accelerometer_16G,SD_MPU6050_Gyroscope_2000s );
 
   if(result == SD_MPU6050_Result_Ok)
@@ -191,22 +195,28 @@ int main(void)
     HAL_UART_Transmit(&huart2, mpu_not, (uint16_t)17, HAL_MAX_DELAY);
   }
 
+  B3M_RunNormal(huart1, SERVO_ID_1);
+  B3M_RunNormal(huart6, SERVO_ID_6);
+
   /* Infinite loop */
   while (1)
   {
+    if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)==GPIO_PIN_RESET){
+      B3M_RunNormal(huart1, SERVO_ID_1);
+      B3M_RunNormal(huart6, SERVO_ID_6);
+      HAL_Delay(100);
+    }
 
     //setModeToNormal();
     //HAL_Delay(1000);
-     B3M_RunNormal(huart1, SERVO_ID_1);
-     B3M_RunNormal(huart6, SERVO_ID_6);
     // HAL_Delay(1);
     //B3M_Write_1B(huart1, SERVO_ID_0, OPERATION_MODE_RunNormal, SERVO_TORQUE_ON);
     //HAL_Delay(100);
 
     /*サーボ回転角度指定 */
 
-
-  /*  B3M_SetDesirePostion(huart1, SERVO_ID_0, 1000);
+    /*
+    B3M_SetDesirePostion(huart1, SERVO_ID_0, 1000);
     B3M_SetDesirePostion(huart6, SERVO_ID_0, 6000);
     HAL_Delay(1000);
 
@@ -215,50 +225,82 @@ int main(void)
     HAL_Delay(1000);
     */
 
-
-
     char gyro[20], acc[20];
+    /*
     SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
     int16_t g_x = mpu1.Gyroscope_X;
     int16_t g_y = mpu1.Gyroscope_Y;
     int16_t g_z = mpu1.Gyroscope_Z;
+    */
     //default int16_t
     //HAL_UART_Transmit(&huart2, (uint16_t*)(&g_x), 16,HAL_MAX_DELAY);
 
     SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);
+    /*
     int16_t a_x = mpu1.Accelerometer_X / 4095;
     int16_t a_y = mpu1.Accelerometer_Y / 4095;
     int16_t a_z = mpu1.Accelerometer_Z / 4095;
 
-    int16_t acc_angle_x = atan2(mpu1.Accelerometer_X / 4095, mpu1.Accelerometer_Z / 4095) * 360 / 2.0 / 3.1415;
+    int16_t acc_angle_x = atan2(a_x, a_z) * 360 / 2.0 / 3.1415;
     int16_t acc_angle_y = atan2(a_y, a_z) * 360 / 2.0 / 3.1415;
     int16_t acc_angle_z = atan2(a_x, a_y) * 360 / 2.0 / 3.1415;
-
-    /*ジャイロ*/
+    */
     /*
+    収縮化
+    for(u_int i=0; i<10; i++){
+      SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);
+      diff = mpu1.Accelerometer_X + diff;
+    }
+
+    diff = diff * 0.5 / 10 ;
+    */
+
+    /*ジャイロ
     sprintf(gyro, "gyr x: %d y: %d z: %d  \n\r", g_x, g_y, g_z);
     HAL_UART_Transmit(&huart2, (uint8_t*)gyro, strlen(gyro), HAL_MAX_DELAY);
     */
-    sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
-    HAL_UART_Transmit(&huart2, (uint8_t*)acc, strlen(acc), HAL_MAX_DELAY);
 
-/*
+
+    //加速度角度表記
+    //  sprintf(acc, " acc x: %i\n\r\n\r", mpu1.Accelerometer_X);
+    //  sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
+
+    //HAL_UART_Transmit(&huart2, (uint8_t*)acc, strlen(acc), HAL_MAX_DELAY);
+
+    diff = mpu1.Accelerometer_X * 0.5;
+
+    if(diff > 9000)
+      diff = 9000;
+
+    if(diff < -10000)
+      diff = -10000;
+
+    B3M_SetDesirePostion(huart1, SERVO_ID_1, diff);
+    //B3M_SetDesirePostion(huart6, SERVO_ID_6, diff);
+
+
+    /*
     if(acc_angle_x == 90){
       B3M_SetDesirePostion(huart6, SERVO_ID_0, 0);
           HAL_Delay(10);
     }
     */
+    /*
+    for(u_int i=0; i<90; i++){
+      B3M_SetDesirePostion(huart1, SERVO_ID_1, diff);
+      diff = diff + 100;
+    }
+    B3M_SetDesirePostion(huart1, SERVO_ID_1, 0);
+    diff =0;
+    HAL_Delay(250);
+    */
 
-    int16_t diff = 67.7 * (90 - (atan2(mpu1.Accelerometer_X / 4095, mpu1.Accelerometer_Z / 4095) * 360 / 2.0 / 3.1415));
-
-    if(diff>9000)
-    diff=9000;
-    else if(diff<-10000)
-    diff=-10000;
-
-    B3M_SetDesirePostion(huart1, SERVO_ID_1, diff);
-    B3M_SetDesirePostion(huart6, SERVO_ID_6, diff);
-
+    /*
+    B3M_SetDesirePostion(huart1, SERVO_ID_1, -4000);
+    HAL_Delay(250);
+    B3M_SetDesirePostion(huart1, SERVO_ID_1, 4000);
+    HAL_Delay(250);
+    */
 
 
 
@@ -272,17 +314,14 @@ int main(void)
       B3M_SetDesirePostion(huart6, SERVO_ID_0, 5000);
           HAL_Delay(500);
         }
-        */
-
-
-  //  if(acc)
+    */
 
 
   }
 
 }
 
-/** System Clock Configuration
+/** System Clock Configuration　
 */
 void SystemClock_Config(void)
 {
