@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccdQEwdV.s 			page 1
+ARM GAS  /tmp/cc15eTPJ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
   28:Src/main.c    ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   29:Src/main.c    ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   30:Src/main.c    ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-ARM GAS  /tmp/ccdQEwdV.s 			page 2
+ARM GAS  /tmp/cc15eTPJ.s 			page 2
 
 
   31:Src/main.c    ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
   85:Src/main.c    **** 
   86:Src/main.c    **** }
   87:Src/main.c    **** 
-ARM GAS  /tmp/ccdQEwdV.s 			page 3
+ARM GAS  /tmp/cc15eTPJ.s 			page 3
 
 
   88:Src/main.c    **** void setAngle(int16_t angle)
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  142:Src/main.c    **** 
  143:Src/main.c    **** //void setGain (/*unsigned char ID*/){
  144:Src/main.c    **** //  uint8_t TxData[8];   // TransmitByteData [10byte]
-ARM GAS  /tmp/ccdQEwdV.s 			page 4
+ARM GAS  /tmp/cc15eTPJ.s 			page 4
 
 
  145:Src/main.c    **** //
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  199:Src/main.c    ****   B3M_RunNormal(huart6, SERVO_ID_6);
  200:Src/main.c    **** 
  201:Src/main.c    ****   /* Infinite loop */
-ARM GAS  /tmp/ccdQEwdV.s 			page 5
+ARM GAS  /tmp/cc15eTPJ.s 			page 5
 
 
  202:Src/main.c    ****   while (1)
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  256:Src/main.c    ****     */
  257:Src/main.c    **** 
  258:Src/main.c    ****     /*ジャイロ
-ARM GAS  /tmp/ccdQEwdV.s 			page 6
+ARM GAS  /tmp/cc15eTPJ.s 			page 6
 
 
  259:Src/main.c    ****     sprintf(gyro, "gyr x: %d y: %d z: %d  \n\r", g_x, g_y, g_z);
@@ -307,10 +307,10 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  262:Src/main.c    **** 
  263:Src/main.c    **** 
  264:Src/main.c    ****     //加速度角度表記
- 265:Src/main.c    ****     //  sprintf(acc, " acc x: %i\n\r\n\r", mpu1.Accelerometer_X);
- 266:Src/main.c    ****     //  sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
+ 265:Src/main.c    ****     sprintf(acc, " acc x: %i\n\r", mpu1.Accelerometer_X);
+ 266:Src/main.c    ****     //sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
  267:Src/main.c    **** 
- 268:Src/main.c    ****     //HAL_UART_Transmit(&huart2, (uint8_t*)acc, strlen(acc), HAL_MAX_DELAY);
+ 268:Src/main.c    ****     HAL_UART_Transmit(&huart2, (uint8_t*)acc, strlen(acc), HAL_MAX_DELAY);
  269:Src/main.c    **** 
  270:Src/main.c    ****     diff = mpu1.Accelerometer_X * 0.5;
  271:Src/main.c    **** 
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  313:Src/main.c    ****     else if(acc_angle_x > -40){
  314:Src/main.c    ****       B3M_SetDesirePostion(huart6, SERVO_ID_0, 5000);
  315:Src/main.c    ****           HAL_Delay(500);
-ARM GAS  /tmp/ccdQEwdV.s 			page 7
+ARM GAS  /tmp/cc15eTPJ.s 			page 7
 
 
  316:Src/main.c    ****         }
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  370:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
  371:Src/main.c    **** 
  372:Src/main.c    ****     /**Configure the Systick
-ARM GAS  /tmp/ccdQEwdV.s 			page 8
+ARM GAS  /tmp/cc15eTPJ.s 			page 8
 
 
  373:Src/main.c    ****     */
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  427:Src/main.c    ****   huart2.Init.BaudRate = 115200;
  428:Src/main.c    ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
  429:Src/main.c    ****   huart2.Init.StopBits = UART_STOPBITS_1;
-ARM GAS  /tmp/ccdQEwdV.s 			page 9
+ARM GAS  /tmp/cc15eTPJ.s 			page 9
 
 
  430:Src/main.c    ****   huart2.Init.Parity = UART_PARITY_NONE;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  484:Src/main.c    **** static void MX_GPIO_Init(void)
  485:Src/main.c    **** {
   29              		.loc 1 485 0
-ARM GAS  /tmp/ccdQEwdV.s 			page 10
+ARM GAS  /tmp/cc15eTPJ.s 			page 10
 
 
   30              		.cfi_startproc
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
   77 0042 039A     		ldr	r2, [sp, #12]
   78              	.LBE4:
   79              	.LBB5:
-ARM GAS  /tmp/ccdQEwdV.s 			page 11
+ARM GAS  /tmp/cc15eTPJ.s 			page 11
 
 
  493:Src/main.c    ****   __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  119 0088 0593     		str	r3, [sp, #20]
  508:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
  120              		.loc 1 508 0
-ARM GAS  /tmp/ccdQEwdV.s 			page 12
+ARM GAS  /tmp/cc15eTPJ.s 			page 12
 
 
  121 008a 0126     		movs	r6, #1
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  164              		.global	setModeToNormal
  165              		.thumb
  166              		.thumb_func
-ARM GAS  /tmp/ccdQEwdV.s 			page 13
+ARM GAS  /tmp/cc15eTPJ.s 			page 13
 
 
  168              	setModeToNormal:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  211 003c 2046     		mov	r0, r4
  212 003e FFF7FEFF 		bl	HAL_Delay
  213              	.LVL6:
-ARM GAS  /tmp/ccdQEwdV.s 			page 14
+ARM GAS  /tmp/cc15eTPJ.s 			page 14
 
 
   86:Src/main.c    **** 
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  262              		.loc 1 102 0
  263 001e C0F30720 		ubfx	r0, r0, #8, #8
  264              	.LVL9:
-ARM GAS  /tmp/ccdQEwdV.s 			page 15
+ARM GAS  /tmp/cc15eTPJ.s 			page 15
 
 
  265 0022 8DF81100 		strb	r0, [sp, #17]
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  310 005e 0120     		movs	r0, #1
  311 0060 FFF7FEFF 		bl	HAL_Delay
  312              	.LVL19:
-ARM GAS  /tmp/ccdQEwdV.s 			page 16
+ARM GAS  /tmp/cc15eTPJ.s 			page 16
 
 
  116:Src/main.c    ****     HAL_Delay(1);
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  361              		.section	.text.setFree,"ax",%progbits
  362              		.align	2
  363              		.global	setFree
-ARM GAS  /tmp/ccdQEwdV.s 			page 17
+ARM GAS  /tmp/cc15eTPJ.s 			page 17
 
 
  364              		.thumb
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  409 003a 0748     		ldr	r0, .L17
  410 003c FFF7FEFF 		bl	HAL_UART_Transmit
  411              	.LVL26:
-ARM GAS  /tmp/ccdQEwdV.s 			page 18
+ARM GAS  /tmp/cc15eTPJ.s 			page 18
 
 
  139:Src/main.c    ****     HAL_Delay(1);
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  457 0002 00BF     		.section	.text.MX_USART1_UART_Init,"ax",%progbits
  458              		.align	2
  459              		.thumb
-ARM GAS  /tmp/ccdQEwdV.s 			page 19
+ARM GAS  /tmp/cc15eTPJ.s 			page 19
 
 
  460              		.thumb_func
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  503              	.LVL31:
  504              	.L21:
  505 002e 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccdQEwdV.s 			page 20
+ARM GAS  /tmp/cc15eTPJ.s 			page 20
 
 
  506              	.L25:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  552              		.loc 1 454 0
  553 001e FFF7FEFF 		bl	HAL_UART_Init
  554              	.LVL32:
-ARM GAS  /tmp/ccdQEwdV.s 			page 21
+ARM GAS  /tmp/cc15eTPJ.s 			page 21
 
 
  555 0022 20B1     		cbz	r0, .L26
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  603 0016 0C22     		movs	r2, #12
  604 0018 4261     		str	r2, [r0, #20]
  432:Src/main.c    ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-ARM GAS  /tmp/ccdQEwdV.s 			page 22
+ARM GAS  /tmp/cc15eTPJ.s 			page 22
 
 
  605              		.loc 1 432 0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  654 000e C360     		str	r3, [r0, #12]
  388:Src/main.c    ****   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
  655              		.loc 1 388 0
-ARM GAS  /tmp/ccdQEwdV.s 			page 23
+ARM GAS  /tmp/cc15eTPJ.s 			page 23
 
 
  656 0010 4FF48042 		mov	r2, #16384
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  704 0000 00B5     		push	{lr}
  705              	.LCFI16:
  706              		.cfi_def_cfa_offset 4
-ARM GAS  /tmp/ccdQEwdV.s 			page 24
+ARM GAS  /tmp/cc15eTPJ.s 			page 24
 
 
  707              		.cfi_offset 14, -4
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  752              		.loc 1 346 0
  753 0048 4FF4A873 		mov	r3, #336
  754 004c 1193     		str	r3, [sp, #68]
-ARM GAS  /tmp/ccdQEwdV.s 			page 25
+ARM GAS  /tmp/cc15eTPJ.s 			page 25
 
 
  347:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  797              		.loc 1 370 0
  798 008e FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
  799              	.LVL43:
-ARM GAS  /tmp/ccdQEwdV.s 			page 26
+ARM GAS  /tmp/cc15eTPJ.s 			page 26
 
 
  800 0092 0C4B     		ldr	r3, .L45+12
@@ -1547,7 +1547,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  162:Src/main.c    ****   SD_MPU6050_Result result ;
  842              		.loc 1 162 0
  843              		.cfi_startproc
- 844              		@ args = 0, pretend = 0, frame = 40
+ 844              		@ args = 0, pretend = 0, frame = 56
  845              		@ frame_needed = 0, uses_anonymous_args = 0
  846 0000 70B5     		push	{r4, r5, r6, lr}
  847              	.LCFI19:
@@ -1556,16 +1556,16 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  850              		.cfi_offset 5, -12
  851              		.cfi_offset 6, -8
  852              		.cfi_offset 14, -4
- 853 0002 98B0     		sub	sp, sp, #96
+ 853 0002 9CB0     		sub	sp, sp, #112
  854              	.LCFI20:
-ARM GAS  /tmp/ccdQEwdV.s 			page 27
+ARM GAS  /tmp/cc15eTPJ.s 			page 27
 
 
- 855              		.cfi_def_cfa_offset 112
+ 855              		.cfi_def_cfa_offset 128
  164:Src/main.c    ****   uint8_t mpu_not[17] = {"MPU NOT WORKING\n"};
  856              		.loc 1 164 0
- 857 0004 5B4B     		ldr	r3, .L57
- 858 0006 14AC     		add	r4, sp, #80
+ 857 0004 634B     		ldr	r3, .L57
+ 858 0006 18AC     		add	r4, sp, #96
  859 0008 0FCB     		ldmia	r3, {r0, r1, r2, r3}
  860 000a 07C4     		stmia	r4!, {r0, r1, r2}
  861 000c 24F8023B 		strh	r3, [r4], #2	@ movhi
@@ -1573,8 +1573,8 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  863 0012 2370     		strb	r3, [r4]
  165:Src/main.c    **** 
  864              		.loc 1 165 0
- 865 0014 0FAC     		add	r4, sp, #60
- 866 0016 584D     		ldr	r5, .L57+4
+ 865 0014 13AC     		add	r4, sp, #76
+ 866 0016 604D     		ldr	r5, .L57+4
  867 0018 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
  868 001a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
  869 001c 2B68     		ldr	r3, [r5]
@@ -1612,19 +1612,19 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  893              		.loc 1 184 0
  894 003c 0122     		movs	r2, #1
  895 003e 4FF48071 		mov	r1, #256
- 896 0042 4E48     		ldr	r0, .L57+8
+ 896 0042 5648     		ldr	r0, .L57+8
  897 0044 FFF7FEFF 		bl	HAL_GPIO_WritePin
  898              	.LVL55:
  187:Src/main.c    **** 
  899              		.loc 1 187 0
  900 0048 0323     		movs	r3, #3
-ARM GAS  /tmp/ccdQEwdV.s 			page 28
+ARM GAS  /tmp/cc15eTPJ.s 			page 28
 
 
  901 004a 0093     		str	r3, [sp]
  902 004c 0022     		movs	r2, #0
- 903 004e 4C49     		ldr	r1, .L57+12
- 904 0050 4C48     		ldr	r0, .L57+16
+ 903 004e 5449     		ldr	r1, .L57+12
+ 904 0050 5448     		ldr	r0, .L57+16
  905 0052 FFF7FEFF 		bl	SD_MPU6050_Init
  906              	.LVL56:
  189:Src/main.c    ****   {
@@ -1634,8 +1634,8 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  909              		.loc 1 191 0
  910 0058 4FF0FF33 		mov	r3, #-1
  911 005c 0F22     		movs	r2, #15
- 912 005e 14A9     		add	r1, sp, #80
- 913 0060 4948     		ldr	r0, .L57+20
+ 912 005e 18A9     		add	r1, sp, #96
+ 913 0060 5148     		ldr	r0, .L57+20
  914              	.LVL57:
  915 0062 FFF7FEFF 		bl	HAL_UART_Transmit
  916              	.LVL58:
@@ -1646,15 +1646,15 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  920              		.loc 1 195 0
  921 0068 4FF0FF33 		mov	r3, #-1
  922 006c 1122     		movs	r2, #17
- 923 006e 0FA9     		add	r1, sp, #60
- 924 0070 4548     		ldr	r0, .L57+20
+ 923 006e 13A9     		add	r1, sp, #76
+ 924 0070 4D48     		ldr	r0, .L57+20
  925              	.LVL60:
  926 0072 FFF7FEFF 		bl	HAL_UART_Transmit
  927              	.LVL61:
  928              	.L49:
  198:Src/main.c    ****   B3M_RunNormal(huart6, SERVO_ID_6);
  929              		.loc 1 198 0
- 930 0076 454E     		ldr	r6, .L57+24
+ 930 0076 4D4E     		ldr	r6, .L57+24
  931 0078 0123     		movs	r3, #1
  932 007a 0C93     		str	r3, [sp, #48]
  933 007c 6C46     		mov	r4, sp
@@ -1670,7 +1670,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  943              	.LVL62:
  199:Src/main.c    **** 
  944              		.loc 1 199 0
- 945 009a 3D4E     		ldr	r6, .L57+28
+ 945 009a 454E     		ldr	r6, .L57+28
  946 009c 0623     		movs	r3, #6
  947 009e 0C93     		str	r3, [sp, #48]
  948 00a0 6C46     		mov	r4, sp
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  950 00a6 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
  951 00a8 0FC4     		stmia	r4!, {r0, r1, r2, r3}
  952 00aa 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
-ARM GAS  /tmp/ccdQEwdV.s 			page 29
+ARM GAS  /tmp/cc15eTPJ.s 			page 29
 
 
  953 00ac 0FC4     		stmia	r4!, {r0, r1, r2, r3}
@@ -1692,13 +1692,13 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  204:Src/main.c    ****       B3M_RunNormal(huart1, SERVO_ID_1);
  961              		.loc 1 204 0
  962 00be 4FF40051 		mov	r1, #8192
- 963 00c2 2E48     		ldr	r0, .L57+8
+ 963 00c2 3648     		ldr	r0, .L57+8
  964 00c4 FFF7FEFF 		bl	HAL_GPIO_ReadPin
  965              	.LVL64:
  966 00c8 30BB     		cbnz	r0, .L50
  205:Src/main.c    ****       B3M_RunNormal(huart6, SERVO_ID_6);
  967              		.loc 1 205 0
- 968 00ca 304E     		ldr	r6, .L57+24
+ 968 00ca 384E     		ldr	r6, .L57+24
  969 00cc 0123     		movs	r3, #1
  970 00ce 0C93     		str	r3, [sp, #48]
  971 00d0 6C46     		mov	r4, sp
@@ -1714,7 +1714,7 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  981              	.LVL65:
  206:Src/main.c    ****       HAL_Delay(100);
  982              		.loc 1 206 0
- 983 00ee 284E     		ldr	r6, .L57+28
+ 983 00ee 304E     		ldr	r6, .L57+28
  984 00f0 0623     		movs	r3, #6
  985 00f2 0C93     		str	r3, [sp, #48]
  986 00f4 6C46     		mov	r4, sp
@@ -1736,175 +1736,202 @@ ARM GAS  /tmp/ccdQEwdV.s 			page 1
  1001              	.L50:
  238:Src/main.c    ****     /*
  1002              		.loc 1 238 0
- 1003 0118 194C     		ldr	r4, .L57+12
+ 1003 0118 214C     		ldr	r4, .L57+12
  1004 011a 2146     		mov	r1, r4
-ARM GAS  /tmp/ccdQEwdV.s 			page 30
+ARM GAS  /tmp/cc15eTPJ.s 			page 30
 
 
- 1005 011c 1948     		ldr	r0, .L57+16
+ 1005 011c 2148     		ldr	r0, .L57+16
  1006 011e FFF7FEFF 		bl	SD_MPU6050_ReadAccelerometer
  1007              	.LVL68:
+ 265:Src/main.c    ****     //sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
+ 1008              		.loc 1 265 0
+ 1009 0122 B4F90C20 		ldrsh	r2, [r4, #12]
+ 1010 0126 2349     		ldr	r1, .L57+32
+ 1011 0128 0EA8     		add	r0, sp, #56
+ 1012 012a FFF7FEFF 		bl	sprintf
+ 1013              	.LVL69:
+ 268:Src/main.c    **** 
+ 1014              		.loc 1 268 0
+ 1015 012e 0EA8     		add	r0, sp, #56
+ 1016 0130 FFF7FEFF 		bl	strlen
+ 1017              	.LVL70:
+ 1018 0134 4FF0FF33 		mov	r3, #-1
+ 1019 0138 82B2     		uxth	r2, r0
+ 1020 013a 0EA9     		add	r1, sp, #56
+ 1021 013c 1A48     		ldr	r0, .L57+20
+ 1022 013e FFF7FEFF 		bl	HAL_UART_Transmit
+ 1023              	.LVL71:
  270:Src/main.c    **** 
- 1008              		.loc 1 270 0
- 1009 0122 B4F90C00 		ldrsh	r0, [r4, #12]
- 1010 0126 FFF7FEFF 		bl	__aeabi_i2d
- 1011              	.LVL69:
- 1012 012a 0022     		movs	r2, #0
- 1013 012c 194B     		ldr	r3, .L57+32
- 1014 012e FFF7FEFF 		bl	__aeabi_dmul
- 1015              	.LVL70:
- 1016 0132 FFF7FEFF 		bl	__aeabi_d2iz
- 1017              	.LVL71:
- 1018 0136 00B2     		sxth	r0, r0
- 1019              	.LVL72:
+ 1024              		.loc 1 270 0
+ 1025 0142 B4F90C00 		ldrsh	r0, [r4, #12]
+ 1026 0146 FFF7FEFF 		bl	__aeabi_i2d
+ 1027              	.LVL72:
+ 1028 014a 0022     		movs	r2, #0
+ 1029 014c 1A4B     		ldr	r3, .L57+36
+ 1030 014e FFF7FEFF 		bl	__aeabi_dmul
+ 1031              	.LVL73:
+ 1032 0152 FFF7FEFF 		bl	__aeabi_d2iz
+ 1033              	.LVL74:
+ 1034 0156 00B2     		sxth	r0, r0
+ 1035              	.LVL75:
  272:Src/main.c    ****       diff = 9000;
- 1020              		.loc 1 272 0
- 1021 0138 42F22833 		movw	r3, #9000
- 1022 013c 9842     		cmp	r0, r3
- 1023 013e 00DD     		ble	.L51
+ 1036              		.loc 1 272 0
+ 1037 0158 42F22833 		movw	r3, #9000
+ 1038 015c 9842     		cmp	r0, r3
+ 1039 015e 00DD     		ble	.L51
  273:Src/main.c    **** 
- 1024              		.loc 1 273 0
- 1025 0140 1846     		mov	r0, r3
- 1026              	.LVL73:
- 1027              	.L51:
+ 1040              		.loc 1 273 0
+ 1041 0160 1846     		mov	r0, r3
+ 1042              	.LVL76:
+ 1043              	.L51:
  275:Src/main.c    ****       diff = -10000;
- 1028              		.loc 1 275 0
- 1029 0142 154B     		ldr	r3, .L57+36
- 1030 0144 9842     		cmp	r0, r3
- 1031 0146 00DA     		bge	.L52
+ 1044              		.loc 1 275 0
+ 1045 0162 164B     		ldr	r3, .L57+40
+ 1046 0164 9842     		cmp	r0, r3
+ 1047 0166 00DA     		bge	.L52
  276:Src/main.c    **** 
- 1032              		.loc 1 276 0
- 1033 0148 1846     		mov	r0, r3
- 1034              	.LVL74:
- 1035              	.L52:
+ 1048              		.loc 1 276 0
+ 1049 0168 1846     		mov	r0, r3
+ 1050              	.LVL77:
+ 1051              	.L52:
  278:Src/main.c    ****     //B3M_SetDesirePostion(huart6, SERVO_ID_6, diff);
- 1036              		.loc 1 278 0
- 1037 014a 104E     		ldr	r6, .L57+24
- 1038 014c 0D90     		str	r0, [sp, #52]
- 1039 014e 0123     		movs	r3, #1
- 1040 0150 0C93     		str	r3, [sp, #48]
- 1041 0152 6C46     		mov	r4, sp
- 1042 0154 06F11005 		add	r5, r6, #16
- 1043 0158 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 1044              	.LVL75:
- 1045 015a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 1046 015c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 1047 015e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 1048 0160 95E80F00 		ldmia	r5, {r0, r1, r2, r3}
- 1049 0164 84E80F00 		stmia	r4, {r0, r1, r2, r3}
- 1050 0168 96E80F00 		ldmia	r6, {r0, r1, r2, r3}
- 1051 016c FFF7FEFF 		bl	B3M_SetDesirePostion
- 1052              	.LVL76:
- 1053              	.LBE9:
+ 1052              		.loc 1 278 0
+ 1053 016a 104E     		ldr	r6, .L57+24
+ARM GAS  /tmp/cc15eTPJ.s 			page 31
+
+
+ 1054 016c 0D90     		str	r0, [sp, #52]
+ 1055 016e 0123     		movs	r3, #1
+ 1056 0170 0C93     		str	r3, [sp, #48]
+ 1057 0172 6C46     		mov	r4, sp
+ 1058 0174 06F11005 		add	r5, r6, #16
+ 1059 0178 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 1060              	.LVL78:
+ 1061 017a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 1062 017c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 1063 017e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 1064 0180 95E80F00 		ldmia	r5, {r0, r1, r2, r3}
+ 1065 0184 84E80F00 		stmia	r4, {r0, r1, r2, r3}
+ 1066 0188 96E80F00 		ldmia	r6, {r0, r1, r2, r3}
+ 1067 018c FFF7FEFF 		bl	B3M_SetDesirePostion
+ 1068              	.LVL79:
+ 1069              	.LBE9:
  320:Src/main.c    **** 
- 1054              		.loc 1 320 0
-ARM GAS  /tmp/ccdQEwdV.s 			page 31
+ 1070              		.loc 1 320 0
+ 1071 0190 95E7     		b	.L53
+ 1072              	.L58:
+ 1073 0192 00BF     		.align	2
+ 1074              	.L57:
+ 1075 0194 1C000000 		.word	.LC1
+ 1076 0198 2C000000 		.word	.LC2
+ 1077 019c 00080240 		.word	1073874944
+ 1078 01a0 00000000 		.word	mpu1
+ 1079 01a4 00000000 		.word	hi2c1
+ 1080 01a8 00000000 		.word	huart2
+ 1081 01ac 00000000 		.word	huart1
+ 1082 01b0 00000000 		.word	huart6
+ 1083 01b4 0C000000 		.word	.LC3
+ 1084 01b8 0000E03F 		.word	1071644672
+ 1085 01bc F0D8FFFF 		.word	-10000
+ 1086              		.cfi_endproc
+ 1087              	.LFE127:
+ 1089              		.comm	mpu1,28,4
+ 1090              		.comm	hi2c1,84,4
+ 1091              		.comm	huart6,64,4
+ 1092              		.comm	huart2,64,4
+ 1093              		.comm	huart1,64,4
+ 1094              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1095              		.align	2
+ 1096              	.LC0:
+ 1097 0000 5372632F 		.ascii	"Src/main.c\000"
+ 1097      6D61696E 
+ 1097      2E6300
+ 1098 000b 00       		.space	1
+ 1099              	.LC3:
+ 1100 000c 20616363 		.ascii	" acc x: %i\012\015\000"
+ 1100      20783A20 
+ 1100      25690A0D 
+ 1100      00
+ 1101 0019 000000   		.space	3
+ 1102              	.LC1:
+ 1103 001c 4D505520 		.ascii	"MPU WORK FINE\012\000"
+ 1103      574F524B 
+ 1103      2046494E 
+ARM GAS  /tmp/cc15eTPJ.s 			page 32
 
 
- 1055 0170 A5E7     		b	.L53
- 1056              	.L58:
- 1057 0172 00BF     		.align	2
- 1058              	.L57:
- 1059 0174 0C000000 		.word	.LC1
- 1060 0178 1C000000 		.word	.LC2
- 1061 017c 00080240 		.word	1073874944
- 1062 0180 00000000 		.word	mpu1
- 1063 0184 00000000 		.word	hi2c1
- 1064 0188 00000000 		.word	huart2
- 1065 018c 00000000 		.word	huart1
- 1066 0190 00000000 		.word	huart6
- 1067 0194 0000E03F 		.word	1071644672
- 1068 0198 F0D8FFFF 		.word	-10000
- 1069              		.cfi_endproc
- 1070              	.LFE127:
- 1072              		.comm	mpu1,28,4
- 1073              		.comm	hi2c1,84,4
- 1074              		.comm	huart6,64,4
- 1075              		.comm	huart2,64,4
- 1076              		.comm	huart1,64,4
- 1077              		.section	.rodata.str1.4,"aMS",%progbits,1
- 1078              		.align	2
- 1079              	.LC0:
- 1080 0000 5372632F 		.ascii	"Src/main.c\000"
- 1080      6D61696E 
- 1080      2E6300
- 1081 000b 00       		.space	1
- 1082              	.LC1:
- 1083 000c 4D505520 		.ascii	"MPU WORK FINE\012\000"
- 1083      574F524B 
- 1083      2046494E 
- 1083      450A00
- 1084 001b 00       		.space	1
- 1085              	.LC2:
- 1086 001c 4D505520 		.ascii	"MPU NOT WORKING\012\000"
- 1086      4E4F5420 
- 1086      574F524B 
- 1086      494E470A 
- 1086      00
- 1087              		.text
- 1088              	.Letext0:
- 1089              		.file 2 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/machine/
- 1090              		.file 3 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/sys/_std
- 1091              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 1092              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1093              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 1094              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 1095              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 1096              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 1097              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 1098              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 1099              		.file 12 "Inc/sd_hal_mpu6050.h"
- 1100              		.file 13 "Drivers/CMSIS/Include/core_cm4.h"
- 1101              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 1102              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h"
- 1103              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /tmp/ccdQEwdV.s 			page 32
-
-
- 1104              		.file 17 "Inc/B3M.h"
-ARM GAS  /tmp/ccdQEwdV.s 			page 33
+ 1103      450A00
+ 1104 002b 00       		.space	1
+ 1105              	.LC2:
+ 1106 002c 4D505520 		.ascii	"MPU NOT WORKING\012\000"
+ 1106      4E4F5420 
+ 1106      574F524B 
+ 1106      494E470A 
+ 1106      00
+ 1107              		.text
+ 1108              	.Letext0:
+ 1109              		.file 2 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/machine/
+ 1110              		.file 3 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/sys/_std
+ 1111              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 1112              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1113              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 1114              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 1115              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1116              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1117              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 1118              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 1119              		.file 12 "Inc/sd_hal_mpu6050.h"
+ 1120              		.file 13 "Drivers/CMSIS/Include/core_cm4.h"
+ 1121              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1122              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h"
+ 1123              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 1124              		.file 17 "Inc/B3M.h"
+ 1125              		.file 18 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/stdio.h
+ 1126              		.file 19 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/string.
+ARM GAS  /tmp/cc15eTPJ.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-     /tmp/ccdQEwdV.s:22     .text.MX_GPIO_Init:00000000 $t
-     /tmp/ccdQEwdV.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-     /tmp/ccdQEwdV.s:155    .text.MX_GPIO_Init:000000b4 $d
-     /tmp/ccdQEwdV.s:163    .text.setModeToNormal:00000000 $t
-     /tmp/ccdQEwdV.s:168    .text.setModeToNormal:00000000 setModeToNormal
-     /tmp/ccdQEwdV.s:223    .text.setModeToNormal:00000048 $d
+     /tmp/cc15eTPJ.s:22     .text.MX_GPIO_Init:00000000 $t
+     /tmp/cc15eTPJ.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+     /tmp/cc15eTPJ.s:155    .text.MX_GPIO_Init:000000b4 $d
+     /tmp/cc15eTPJ.s:163    .text.setModeToNormal:00000000 $t
+     /tmp/cc15eTPJ.s:168    .text.setModeToNormal:00000000 setModeToNormal
+     /tmp/cc15eTPJ.s:223    .text.setModeToNormal:00000048 $d
                             *COM*:00000040 huart1
-     /tmp/ccdQEwdV.s:228    .text.setAngle:00000000 $t
-     /tmp/ccdQEwdV.s:233    .text.setAngle:00000000 setAngle
-     /tmp/ccdQEwdV.s:356    .text.setAngle:000000a8 $d
+     /tmp/cc15eTPJ.s:228    .text.setAngle:00000000 $t
+     /tmp/cc15eTPJ.s:233    .text.setAngle:00000000 setAngle
+     /tmp/cc15eTPJ.s:356    .text.setAngle:000000a8 $d
                             *COM*:00000040 huart2
-     /tmp/ccdQEwdV.s:362    .text.setFree:00000000 $t
-     /tmp/ccdQEwdV.s:367    .text.setFree:00000000 setFree
-     /tmp/ccdQEwdV.s:432    .text.setFree:00000058 $d
-     /tmp/ccdQEwdV.s:438    .text._Error_Handler:00000000 $t
-     /tmp/ccdQEwdV.s:443    .text._Error_Handler:00000000 _Error_Handler
-     /tmp/ccdQEwdV.s:458    .text.MX_USART1_UART_Init:00000000 $t
-     /tmp/ccdQEwdV.s:462    .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
-     /tmp/ccdQEwdV.s:509    .text.MX_USART1_UART_Init:00000030 $d
-     /tmp/ccdQEwdV.s:516    .text.MX_USART6_UART_Init:00000000 $t
-     /tmp/ccdQEwdV.s:520    .text.MX_USART6_UART_Init:00000000 MX_USART6_UART_Init
-     /tmp/ccdQEwdV.s:566    .text.MX_USART6_UART_Init:00000030 $d
+     /tmp/cc15eTPJ.s:362    .text.setFree:00000000 $t
+     /tmp/cc15eTPJ.s:367    .text.setFree:00000000 setFree
+     /tmp/cc15eTPJ.s:432    .text.setFree:00000058 $d
+     /tmp/cc15eTPJ.s:438    .text._Error_Handler:00000000 $t
+     /tmp/cc15eTPJ.s:443    .text._Error_Handler:00000000 _Error_Handler
+     /tmp/cc15eTPJ.s:458    .text.MX_USART1_UART_Init:00000000 $t
+     /tmp/cc15eTPJ.s:462    .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+     /tmp/cc15eTPJ.s:509    .text.MX_USART1_UART_Init:00000030 $d
+     /tmp/cc15eTPJ.s:516    .text.MX_USART6_UART_Init:00000000 $t
+     /tmp/cc15eTPJ.s:520    .text.MX_USART6_UART_Init:00000000 MX_USART6_UART_Init
+     /tmp/cc15eTPJ.s:566    .text.MX_USART6_UART_Init:00000030 $d
                             *COM*:00000040 huart6
-     /tmp/ccdQEwdV.s:573    .text.MX_USART2_UART_Init:00000000 $t
-     /tmp/ccdQEwdV.s:577    .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
-     /tmp/ccdQEwdV.s:623    .text.MX_USART2_UART_Init:00000030 $d
-     /tmp/ccdQEwdV.s:630    .text.MX_I2C1_Init:00000000 $t
-     /tmp/ccdQEwdV.s:634    .text.MX_I2C1_Init:00000000 MX_I2C1_Init
-     /tmp/ccdQEwdV.s:685    .text.MX_I2C1_Init:00000038 $d
+     /tmp/cc15eTPJ.s:573    .text.MX_USART2_UART_Init:00000000 $t
+     /tmp/cc15eTPJ.s:577    .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+     /tmp/cc15eTPJ.s:623    .text.MX_USART2_UART_Init:00000030 $d
+     /tmp/cc15eTPJ.s:630    .text.MX_I2C1_Init:00000000 $t
+     /tmp/cc15eTPJ.s:634    .text.MX_I2C1_Init:00000000 MX_I2C1_Init
+     /tmp/cc15eTPJ.s:685    .text.MX_I2C1_Init:00000038 $d
                             *COM*:00000054 hi2c1
-     /tmp/ccdQEwdV.s:693    .text.SystemClock_Config:00000000 $t
-     /tmp/ccdQEwdV.s:698    .text.SystemClock_Config:00000000 SystemClock_Config
-     /tmp/ccdQEwdV.s:824    .text.SystemClock_Config:000000b8 $d
-     /tmp/ccdQEwdV.s:835    .text.main:00000000 $t
-     /tmp/ccdQEwdV.s:840    .text.main:00000000 main
-     /tmp/ccdQEwdV.s:1059   .text.main:00000174 $d
+     /tmp/cc15eTPJ.s:693    .text.SystemClock_Config:00000000 $t
+     /tmp/cc15eTPJ.s:698    .text.SystemClock_Config:00000000 SystemClock_Config
+     /tmp/cc15eTPJ.s:824    .text.SystemClock_Config:000000b8 $d
+     /tmp/cc15eTPJ.s:835    .text.main:00000000 $t
+     /tmp/cc15eTPJ.s:840    .text.main:00000000 main
+     /tmp/cc15eTPJ.s:1075   .text.main:00000194 $d
                             *COM*:0000001c mpu1
-     /tmp/ccdQEwdV.s:1078   .rodata.str1.4:00000000 $d
+     /tmp/cc15eTPJ.s:1095   .rodata.str1.4:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -1922,7 +1949,7 @@ HAL_RCC_ClockConfig
 HAL_RCC_GetHCLKFreq
 HAL_SYSTICK_Config
 HAL_SYSTICK_CLKSourceConfig
-ARM GAS  /tmp/ccdQEwdV.s 			page 34
+ARM GAS  /tmp/cc15eTPJ.s 			page 34
 
 
 HAL_NVIC_SetPriority
@@ -1934,4 +1961,6 @@ SD_MPU6050_Init
 B3M_RunNormal
 HAL_GPIO_ReadPin
 SD_MPU6050_ReadAccelerometer
+sprintf
+strlen
 B3M_SetDesirePostion

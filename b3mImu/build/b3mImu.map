@@ -8,6 +8,36 @@ Archive member included to satisfy reference by file (symbol)
                               /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o (__libc_init_array)
 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memset.o)
                               /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o (memset)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+                              build/main.o (sprintf)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-strlen.o)
+                              build/main.o (strlen)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o) (_svfprintf_r)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o) (_printf_i)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memchr.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o) (memchr)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o) (memcpy)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o) (memmove)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o) (_free_r)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o) (_malloc_r)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o) (_realloc_r)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o) (_sbrk_r)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o) (__malloc_lock)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o) (_malloc_usable_size_r)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o) (errno)
+/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
+                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o) (_sbrk)
 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
                               /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-exit.o) (_exit)
 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
@@ -20,6 +50,7 @@ Archive member included to satisfy reference by file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
+errno               0x4               /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
 hi2c1               0x54              build/main.o
 uwTick              0x4               build/stm32f4xx_hal.o
 pFlash              0x20              build/stm32f4xx_hal_flash.o
@@ -975,14 +1006,8 @@ Discarded input sections
  .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
  .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
  .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
- .data.impure_data
-                0x00000000       0x60 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
- .data._impure_ptr
-                0x00000000        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
  .rodata._global_impure_ptr
                 0x00000000        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
- .ARM.attributes
-                0x00000000       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
  .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
  .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
  .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
@@ -993,6 +1018,57 @@ Discarded input sections
  .debug_frame   0x00000000       0x20 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memset.o)
  .ARM.attributes
                 0x00000000       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+ .text._sprintf_r
+                0x00000000       0x40 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-strlen.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+ .text.__ssprint_r
+                0x00000000       0xfe /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memchr.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memchr.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+ .text.cleanup_glue
+                0x00000000       0x1a /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+ .text._reclaim_reent
+                0x00000000       0xb4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+ .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
+ .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
+ .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
  .text          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
  .data          0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
  .bss           0x00000000        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
@@ -1077,340 +1153,392 @@ LOAD /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/a
                 0x08000000                g_pfnVectors
                 0x08000194                . = ALIGN (0x4)
 
-.text           0x08000194     0x2cfc
-                0x08000194                . = ALIGN (0x4)
+.text           0x080001a0     0x3634
+                0x080001a0                . = ALIGN (0x4)
  *(.text)
- .text          0x08000194       0x5c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
- .text          0x080001f0      0x370 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
-                0x080001f0                __aeabi_drsub
-                0x080001f8                __aeabi_dsub
-                0x080001f8                __subdf3
-                0x080001fc                __adddf3
-                0x080001fc                __aeabi_dadd
-                0x08000474                __aeabi_ui2d
-                0x08000474                __floatunsidf
-                0x08000494                __floatsidf
-                0x08000494                __aeabi_i2d
-                0x080004b8                __extendsfdf2
-                0x080004b8                __aeabi_f2d
-                0x080004f4                __aeabi_ul2d
-                0x080004f4                __floatundidf
-                0x08000504                __floatdidf
-                0x08000504                __aeabi_l2d
- .text          0x08000560      0x424 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_muldivdf3.o)
-                0x08000560                __aeabi_dmul
-                0x08000560                __muldf3
-                0x080007b4                __aeabi_ddiv
-                0x080007b4                __divdf3
- .text          0x08000984       0x50 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_fixdfsi.o)
-                0x08000984                __fixdfsi
-                0x08000984                __aeabi_d2iz
+ .text          0x080001a0       0x5c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+ .text          0x080001fc       0x10 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-strlen.o)
+                0x080001fc                strlen
+ *fill*         0x0800020c        0x4 
+ .text          0x08000210       0xa0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memchr.o)
+                0x08000210                memchr
+ .text          0x080002b0      0x370 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
+                0x080002b0                __aeabi_drsub
+                0x080002b8                __aeabi_dsub
+                0x080002b8                __subdf3
+                0x080002bc                __adddf3
+                0x080002bc                __aeabi_dadd
+                0x08000534                __aeabi_ui2d
+                0x08000534                __floatunsidf
+                0x08000554                __floatsidf
+                0x08000554                __aeabi_i2d
+                0x08000578                __extendsfdf2
+                0x08000578                __aeabi_f2d
+                0x080005b4                __aeabi_ul2d
+                0x080005b4                __floatundidf
+                0x080005c4                __floatdidf
+                0x080005c4                __aeabi_l2d
+ .text          0x08000620      0x424 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_muldivdf3.o)
+                0x08000620                __aeabi_dmul
+                0x08000620                __muldf3
+                0x08000874                __aeabi_ddiv
+                0x08000874                __divdf3
+ .text          0x08000a44       0x50 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_fixdfsi.o)
+                0x08000a44                __fixdfsi
+                0x08000a44                __aeabi_d2iz
  *(.text*)
  .text.SysTick_Handler
-                0x080009d4        0xc build/stm32f4xx_it.o
-                0x080009d4                SysTick_Handler
+                0x08000a94        0xc build/stm32f4xx_it.o
+                0x08000a94                SysTick_Handler
  .text.HAL_I2CEx_ConfigAnalogFilter
-                0x080009e0       0x44 build/stm32f4xx_hal_i2c_ex.o
-                0x080009e0                HAL_I2CEx_ConfigAnalogFilter
+                0x08000aa0       0x44 build/stm32f4xx_hal_i2c_ex.o
+                0x08000aa0                HAL_I2CEx_ConfigAnalogFilter
  .text.MX_GPIO_Init
-                0x08000a24       0xc4 build/main.o
+                0x08000ae4       0xc4 build/main.o
  .text._Error_Handler
-                0x08000ae8        0x4 build/main.o
-                0x08000ae8                _Error_Handler
+                0x08000ba8        0x4 build/main.o
+                0x08000ba8                _Error_Handler
  .text.MX_USART1_UART_Init
-                0x08000aec       0x3c build/main.o
+                0x08000bac       0x3c build/main.o
  .text.MX_USART6_UART_Init
-                0x08000b28       0x3c build/main.o
+                0x08000be8       0x3c build/main.o
  .text.MX_USART2_UART_Init
-                0x08000b64       0x3c build/main.o
+                0x08000c24       0x3c build/main.o
  .text.MX_I2C1_Init
-                0x08000ba0       0x48 build/main.o
+                0x08000c60       0x48 build/main.o
  .text.SystemClock_Config
-                0x08000be8       0xc8 build/main.o
-                0x08000be8                SystemClock_Config
- .text.main     0x08000cb0      0x19c build/main.o
-                0x08000cb0                main
+                0x08000ca8       0xc8 build/main.o
+                0x08000ca8                SystemClock_Config
+ .text.main     0x08000d70      0x1c0 build/main.o
+                0x08000d70                main
  .text.B3M_Write_1B
-                0x08000e4c       0x7c build/B3M.o
-                0x08000e4c                B3M_Write_1B
+                0x08000f30       0x7c build/B3M.o
+                0x08000f30                B3M_Write_1B
  .text.B3M_SetDesirePostion
-                0x08000ec8       0x80 build/B3M.o
-                0x08000ec8                B3M_SetDesirePostion
+                0x08000fac       0x80 build/B3M.o
+                0x08000fac                B3M_SetDesirePostion
  .text.B3M_RunNormal
-                0x08000f48       0x44 build/B3M.o
-                0x08000f48                B3M_RunNormal
+                0x0800102c       0x44 build/B3M.o
+                0x0800102c                B3M_RunNormal
  .text.SD_MPU6050_SetDataRate
-                0x08000f8c       0x2c build/sd_hal_mpu6050.o
-                0x08000f8c                SD_MPU6050_SetDataRate
+                0x08001070       0x2c build/sd_hal_mpu6050.o
+                0x08001070                SD_MPU6050_SetDataRate
  .text.SD_MPU6050_SetAccelerometer
-                0x08000fb8       0xa8 build/sd_hal_mpu6050.o
-                0x08000fb8                SD_MPU6050_SetAccelerometer
+                0x0800109c       0xa8 build/sd_hal_mpu6050.o
+                0x0800109c                SD_MPU6050_SetAccelerometer
  .text.SD_MPU6050_SetGyroscope
-                0x08001060       0xb0 build/sd_hal_mpu6050.o
-                0x08001060                SD_MPU6050_SetGyroscope
+                0x08001144       0xb0 build/sd_hal_mpu6050.o
+                0x08001144                SD_MPU6050_SetGyroscope
  .text.SD_MPU6050_Init
-                0x08001110       0xb4 build/sd_hal_mpu6050.o
-                0x08001110                SD_MPU6050_Init
+                0x080011f4       0xb4 build/sd_hal_mpu6050.o
+                0x080011f4                SD_MPU6050_Init
  .text.SD_MPU6050_ReadAccelerometer
-                0x080011c4       0x70 build/sd_hal_mpu6050.o
-                0x080011c4                SD_MPU6050_ReadAccelerometer
+                0x080012a8       0x70 build/sd_hal_mpu6050.o
+                0x080012a8                SD_MPU6050_ReadAccelerometer
  .text.HAL_MspInit
-                0x08001234       0x60 build/stm32f4xx_hal_msp.o
-                0x08001234                HAL_MspInit
+                0x08001318       0x60 build/stm32f4xx_hal_msp.o
+                0x08001318                HAL_MspInit
  .text.HAL_I2C_MspInit
-                0x08001294       0x58 build/stm32f4xx_hal_msp.o
-                0x08001294                HAL_I2C_MspInit
+                0x08001378       0x58 build/stm32f4xx_hal_msp.o
+                0x08001378                HAL_I2C_MspInit
  .text.HAL_UART_MspInit
-                0x080012ec       0xd8 build/stm32f4xx_hal_msp.o
-                0x080012ec                HAL_UART_MspInit
+                0x080013d0       0xd8 build/stm32f4xx_hal_msp.o
+                0x080013d0                HAL_UART_MspInit
  .text.HAL_InitTick
-                0x080013c4       0x2c build/stm32f4xx_hal.o
-                0x080013c4                HAL_InitTick
+                0x080014a8       0x2c build/stm32f4xx_hal.o
+                0x080014a8                HAL_InitTick
  .text.HAL_Init
-                0x080013f0       0x34 build/stm32f4xx_hal.o
-                0x080013f0                HAL_Init
+                0x080014d4       0x34 build/stm32f4xx_hal.o
+                0x080014d4                HAL_Init
  .text.HAL_IncTick
-                0x08001424       0x10 build/stm32f4xx_hal.o
-                0x08001424                HAL_IncTick
+                0x08001508       0x10 build/stm32f4xx_hal.o
+                0x08001508                HAL_IncTick
  .text.HAL_GetTick
-                0x08001434        0xc build/stm32f4xx_hal.o
-                0x08001434                HAL_GetTick
+                0x08001518        0xc build/stm32f4xx_hal.o
+                0x08001518                HAL_GetTick
  .text.HAL_Delay
-                0x08001440       0x24 build/stm32f4xx_hal.o
-                0x08001440                HAL_Delay
+                0x08001524       0x24 build/stm32f4xx_hal.o
+                0x08001524                HAL_Delay
  .text.SystemInit
-                0x08001464       0x4c build/system_stm32f4xx.o
-                0x08001464                SystemInit
+                0x08001548       0x4c build/system_stm32f4xx.o
+                0x08001548                SystemInit
  .text.I2C_IsAcknowledgeFailed
-                0x080014b0       0x2c build/stm32f4xx_hal_i2c.o
+                0x08001594       0x2c build/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnFlagUntilTimeout
-                0x080014dc       0x68 build/stm32f4xx_hal_i2c.o
+                0x080015c0       0x68 build/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnMasterAddressFlagUntilTimeout
-                0x08001544       0x94 build/stm32f4xx_hal_i2c.o
+                0x08001628       0x94 build/stm32f4xx_hal_i2c.o
  .text.I2C_MasterRequestWrite
-                0x080015d8       0xbc build/stm32f4xx_hal_i2c.o
+                0x080016bc       0xbc build/stm32f4xx_hal_i2c.o
  .text.I2C_MasterRequestRead
-                0x08001694      0x120 build/stm32f4xx_hal_i2c.o
+                0x08001778      0x120 build/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnTXEFlagUntilTimeout
-                0x080017b4       0x50 build/stm32f4xx_hal_i2c.o
+                0x08001898       0x50 build/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnBTFFlagUntilTimeout
-                0x08001804       0x50 build/stm32f4xx_hal_i2c.o
+                0x080018e8       0x50 build/stm32f4xx_hal_i2c.o
  .text.I2C_WaitOnRXNEFlagUntilTimeout
-                0x08001854       0x60 build/stm32f4xx_hal_i2c.o
+                0x08001938       0x60 build/stm32f4xx_hal_i2c.o
  .text.HAL_I2C_Init
-                0x080018b4      0x11c build/stm32f4xx_hal_i2c.o
-                0x080018b4                HAL_I2C_Init
+                0x08001998      0x11c build/stm32f4xx_hal_i2c.o
+                0x08001998                HAL_I2C_Init
  .text.HAL_I2C_Master_Transmit
-                0x080019d0      0x180 build/stm32f4xx_hal_i2c.o
-                0x080019d0                HAL_I2C_Master_Transmit
+                0x08001ab4      0x180 build/stm32f4xx_hal_i2c.o
+                0x08001ab4                HAL_I2C_Master_Transmit
  .text.HAL_I2C_Master_Receive
-                0x08001b50      0x300 build/stm32f4xx_hal_i2c.o
-                0x08001b50                HAL_I2C_Master_Receive
+                0x08001c34      0x300 build/stm32f4xx_hal_i2c.o
+                0x08001c34                HAL_I2C_Master_Receive
  .text.HAL_I2C_IsDeviceReady
-                0x08001e50      0x18c build/stm32f4xx_hal_i2c.o
-                0x08001e50                HAL_I2C_IsDeviceReady
+                0x08001f34      0x18c build/stm32f4xx_hal_i2c.o
+                0x08001f34                HAL_I2C_IsDeviceReady
  .text.UART_SetConfig
-                0x08001fdc      0x32c build/stm32f4xx_hal_uart.o
+                0x080020c0      0x32c build/stm32f4xx_hal_uart.o
  .text.UART_WaitOnFlagUntilTimeout
-                0x08002308       0x68 build/stm32f4xx_hal_uart.o
+                0x080023ec       0x68 build/stm32f4xx_hal_uart.o
  .text.HAL_UART_Init
-                0x08002370       0x64 build/stm32f4xx_hal_uart.o
-                0x08002370                HAL_UART_Init
+                0x08002454       0x64 build/stm32f4xx_hal_uart.o
+                0x08002454                HAL_UART_Init
  .text.HAL_UART_Transmit
-                0x080023d4       0xe4 build/stm32f4xx_hal_uart.o
-                0x080023d4                HAL_UART_Transmit
+                0x080024b8       0xe4 build/stm32f4xx_hal_uart.o
+                0x080024b8                HAL_UART_Transmit
  .text.HAL_GPIO_Init
-                0x080024b8      0x19c build/stm32f4xx_hal_gpio.o
-                0x080024b8                HAL_GPIO_Init
+                0x0800259c      0x19c build/stm32f4xx_hal_gpio.o
+                0x0800259c                HAL_GPIO_Init
  .text.HAL_GPIO_ReadPin
-                0x08002654       0x10 build/stm32f4xx_hal_gpio.o
-                0x08002654                HAL_GPIO_ReadPin
+                0x08002738       0x10 build/stm32f4xx_hal_gpio.o
+                0x08002738                HAL_GPIO_ReadPin
  .text.HAL_GPIO_WritePin
-                0x08002664        0xc build/stm32f4xx_hal_gpio.o
-                0x08002664                HAL_GPIO_WritePin
+                0x08002748        0xc build/stm32f4xx_hal_gpio.o
+                0x08002748                HAL_GPIO_WritePin
  .text.HAL_RCC_OscConfig
-                0x08002670      0x3c8 build/stm32f4xx_hal_rcc.o
-                0x08002670                HAL_RCC_OscConfig
+                0x08002754      0x3c8 build/stm32f4xx_hal_rcc.o
+                0x08002754                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x08002a38       0xa4 build/stm32f4xx_hal_rcc.o
-                0x08002a38                HAL_RCC_GetSysClockFreq
+                0x08002b1c       0xa4 build/stm32f4xx_hal_rcc.o
+                0x08002b1c                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x08002adc      0x1b0 build/stm32f4xx_hal_rcc.o
-                0x08002adc                HAL_RCC_ClockConfig
+                0x08002bc0      0x1b0 build/stm32f4xx_hal_rcc.o
+                0x08002bc0                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetHCLKFreq
-                0x08002c8c        0xc build/stm32f4xx_hal_rcc.o
-                0x08002c8c                HAL_RCC_GetHCLKFreq
+                0x08002d70        0xc build/stm32f4xx_hal_rcc.o
+                0x08002d70                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x08002c98       0x30 build/stm32f4xx_hal_rcc.o
-                0x08002c98                HAL_RCC_GetPCLK1Freq
+                0x08002d7c       0x30 build/stm32f4xx_hal_rcc.o
+                0x08002d7c                HAL_RCC_GetPCLK1Freq
  .text.HAL_RCC_GetPCLK2Freq
-                0x08002cc8       0x30 build/stm32f4xx_hal_rcc.o
-                0x08002cc8                HAL_RCC_GetPCLK2Freq
+                0x08002dac       0x30 build/stm32f4xx_hal_rcc.o
+                0x08002dac                HAL_RCC_GetPCLK2Freq
  .text.HAL_NVIC_SetPriorityGrouping
-                0x08002cf8       0x24 build/stm32f4xx_hal_cortex.o
-                0x08002cf8                HAL_NVIC_SetPriorityGrouping
+                0x08002ddc       0x24 build/stm32f4xx_hal_cortex.o
+                0x08002ddc                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x08002d1c       0x64 build/stm32f4xx_hal_cortex.o
-                0x08002d1c                HAL_NVIC_SetPriority
+                0x08002e00       0x64 build/stm32f4xx_hal_cortex.o
+                0x08002e00                HAL_NVIC_SetPriority
  .text.HAL_SYSTICK_Config
-                0x08002d80       0x2c build/stm32f4xx_hal_cortex.o
-                0x08002d80                HAL_SYSTICK_Config
+                0x08002e64       0x2c build/stm32f4xx_hal_cortex.o
+                0x08002e64                HAL_SYSTICK_Config
  .text.HAL_SYSTICK_CLKSourceConfig
-                0x08002dac       0x20 build/stm32f4xx_hal_cortex.o
-                0x08002dac                HAL_SYSTICK_CLKSourceConfig
+                0x08002e90       0x20 build/stm32f4xx_hal_cortex.o
+                0x08002e90                HAL_SYSTICK_CLKSourceConfig
  .text.HAL_SYSTICK_Callback
-                0x08002dcc        0x4 build/stm32f4xx_hal_cortex.o
-                0x08002dcc                HAL_SYSTICK_Callback
+                0x08002eb0        0x4 build/stm32f4xx_hal_cortex.o
+                0x08002eb0                HAL_SYSTICK_Callback
  .text.HAL_SYSTICK_IRQHandler
-                0x08002dd0        0x8 build/stm32f4xx_hal_cortex.o
-                0x08002dd0                HAL_SYSTICK_IRQHandler
+                0x08002eb4        0x8 build/stm32f4xx_hal_cortex.o
+                0x08002eb4                HAL_SYSTICK_IRQHandler
  .text.Reset_Handler
-                0x08002dd8       0x50 build/startup_stm32f401xe.o
-                0x08002dd8                Reset_Handler
+                0x08002ebc       0x50 build/startup_stm32f401xe.o
+                0x08002ebc                Reset_Handler
  .text.Default_Handler
-                0x08002e28        0x2 build/startup_stm32f401xe.o
-                0x08002e28                RTC_Alarm_IRQHandler
-                0x08002e28                EXTI2_IRQHandler
-                0x08002e28                DebugMon_Handler
-                0x08002e28                SPI4_IRQHandler
-                0x08002e28                TIM1_CC_IRQHandler
-                0x08002e28                DMA2_Stream5_IRQHandler
-                0x08002e28                HardFault_Handler
-                0x08002e28                DMA1_Stream5_IRQHandler
-                0x08002e28                PVD_IRQHandler
-                0x08002e28                SDIO_IRQHandler
-                0x08002e28                TAMP_STAMP_IRQHandler
-                0x08002e28                PendSV_Handler
-                0x08002e28                NMI_Handler
-                0x08002e28                EXTI3_IRQHandler
-                0x08002e28                TIM1_UP_TIM10_IRQHandler
-                0x08002e28                I2C3_ER_IRQHandler
-                0x08002e28                EXTI0_IRQHandler
-                0x08002e28                I2C2_EV_IRQHandler
-                0x08002e28                DMA1_Stream2_IRQHandler
-                0x08002e28                FPU_IRQHandler
-                0x08002e28                UsageFault_Handler
-                0x08002e28                DMA2_Stream2_IRQHandler
-                0x08002e28                SPI1_IRQHandler
-                0x08002e28                TIM1_BRK_TIM9_IRQHandler
-                0x08002e28                DMA2_Stream3_IRQHandler
-                0x08002e28                USART6_IRQHandler
-                0x08002e28                DMA2_Stream0_IRQHandler
-                0x08002e28                TIM4_IRQHandler
-                0x08002e28                I2C1_EV_IRQHandler
-                0x08002e28                DMA1_Stream6_IRQHandler
-                0x08002e28                DMA1_Stream1_IRQHandler
-                0x08002e28                TIM3_IRQHandler
-                0x08002e28                RCC_IRQHandler
-                0x08002e28                Default_Handler
-                0x08002e28                EXTI15_10_IRQHandler
-                0x08002e28                ADC_IRQHandler
-                0x08002e28                DMA1_Stream7_IRQHandler
-                0x08002e28                TIM5_IRQHandler
-                0x08002e28                DMA2_Stream7_IRQHandler
-                0x08002e28                I2C3_EV_IRQHandler
-                0x08002e28                EXTI9_5_IRQHandler
-                0x08002e28                RTC_WKUP_IRQHandler
-                0x08002e28                SPI2_IRQHandler
-                0x08002e28                MemManage_Handler
-                0x08002e28                DMA1_Stream0_IRQHandler
-                0x08002e28                SVC_Handler
-                0x08002e28                EXTI4_IRQHandler
-                0x08002e28                WWDG_IRQHandler
-                0x08002e28                TIM2_IRQHandler
-                0x08002e28                OTG_FS_WKUP_IRQHandler
-                0x08002e28                TIM1_TRG_COM_TIM11_IRQHandler
-                0x08002e28                EXTI1_IRQHandler
-                0x08002e28                USART2_IRQHandler
-                0x08002e28                I2C2_ER_IRQHandler
-                0x08002e28                DMA2_Stream1_IRQHandler
-                0x08002e28                FLASH_IRQHandler
-                0x08002e28                DMA2_Stream4_IRQHandler
-                0x08002e28                BusFault_Handler
-                0x08002e28                USART1_IRQHandler
-                0x08002e28                OTG_FS_IRQHandler
-                0x08002e28                SPI3_IRQHandler
-                0x08002e28                DMA1_Stream4_IRQHandler
-                0x08002e28                I2C1_ER_IRQHandler
-                0x08002e28                DMA2_Stream6_IRQHandler
-                0x08002e28                DMA1_Stream3_IRQHandler
- *fill*         0x08002e2a        0x2 
+                0x08002f0c        0x2 build/startup_stm32f401xe.o
+                0x08002f0c                RTC_Alarm_IRQHandler
+                0x08002f0c                EXTI2_IRQHandler
+                0x08002f0c                DebugMon_Handler
+                0x08002f0c                SPI4_IRQHandler
+                0x08002f0c                TIM1_CC_IRQHandler
+                0x08002f0c                DMA2_Stream5_IRQHandler
+                0x08002f0c                HardFault_Handler
+                0x08002f0c                DMA1_Stream5_IRQHandler
+                0x08002f0c                PVD_IRQHandler
+                0x08002f0c                SDIO_IRQHandler
+                0x08002f0c                TAMP_STAMP_IRQHandler
+                0x08002f0c                PendSV_Handler
+                0x08002f0c                NMI_Handler
+                0x08002f0c                EXTI3_IRQHandler
+                0x08002f0c                TIM1_UP_TIM10_IRQHandler
+                0x08002f0c                I2C3_ER_IRQHandler
+                0x08002f0c                EXTI0_IRQHandler
+                0x08002f0c                I2C2_EV_IRQHandler
+                0x08002f0c                DMA1_Stream2_IRQHandler
+                0x08002f0c                FPU_IRQHandler
+                0x08002f0c                UsageFault_Handler
+                0x08002f0c                DMA2_Stream2_IRQHandler
+                0x08002f0c                SPI1_IRQHandler
+                0x08002f0c                TIM1_BRK_TIM9_IRQHandler
+                0x08002f0c                DMA2_Stream3_IRQHandler
+                0x08002f0c                USART6_IRQHandler
+                0x08002f0c                DMA2_Stream0_IRQHandler
+                0x08002f0c                TIM4_IRQHandler
+                0x08002f0c                I2C1_EV_IRQHandler
+                0x08002f0c                DMA1_Stream6_IRQHandler
+                0x08002f0c                DMA1_Stream1_IRQHandler
+                0x08002f0c                TIM3_IRQHandler
+                0x08002f0c                RCC_IRQHandler
+                0x08002f0c                Default_Handler
+                0x08002f0c                EXTI15_10_IRQHandler
+                0x08002f0c                ADC_IRQHandler
+                0x08002f0c                DMA1_Stream7_IRQHandler
+                0x08002f0c                TIM5_IRQHandler
+                0x08002f0c                DMA2_Stream7_IRQHandler
+                0x08002f0c                I2C3_EV_IRQHandler
+                0x08002f0c                EXTI9_5_IRQHandler
+                0x08002f0c                RTC_WKUP_IRQHandler
+                0x08002f0c                SPI2_IRQHandler
+                0x08002f0c                MemManage_Handler
+                0x08002f0c                DMA1_Stream0_IRQHandler
+                0x08002f0c                SVC_Handler
+                0x08002f0c                EXTI4_IRQHandler
+                0x08002f0c                WWDG_IRQHandler
+                0x08002f0c                TIM2_IRQHandler
+                0x08002f0c                OTG_FS_WKUP_IRQHandler
+                0x08002f0c                TIM1_TRG_COM_TIM11_IRQHandler
+                0x08002f0c                EXTI1_IRQHandler
+                0x08002f0c                USART2_IRQHandler
+                0x08002f0c                I2C2_ER_IRQHandler
+                0x08002f0c                DMA2_Stream1_IRQHandler
+                0x08002f0c                FLASH_IRQHandler
+                0x08002f0c                DMA2_Stream4_IRQHandler
+                0x08002f0c                BusFault_Handler
+                0x08002f0c                USART1_IRQHandler
+                0x08002f0c                OTG_FS_IRQHandler
+                0x08002f0c                SPI3_IRQHandler
+                0x08002f0c                DMA1_Stream4_IRQHandler
+                0x08002f0c                I2C1_ER_IRQHandler
+                0x08002f0c                DMA2_Stream6_IRQHandler
+                0x08002f0c                DMA1_Stream3_IRQHandler
+ *fill*         0x08002f0e        0x2 
  .text.__libc_init_array
-                0x08002e2c       0x4c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
-                0x08002e2c                __libc_init_array
+                0x08002f10       0x4c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
+                0x08002f10                __libc_init_array
+ .text.sprintf  0x08002f5c       0x48 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+                0x08002f5c                sprintf
+                0x08002f5c                siprintf
+ .text.__ssputs_r
+                0x08002fa4       0xb2 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x08002fa4                __ssputs_r
+ *fill*         0x08003056        0x2 
+ .text._svfprintf_r
+                0x08003058      0x1e8 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x08003058                _svfprintf_r
+                0x08003058                _svfiprintf_r
+ .text._printf_common
+                0x08003240       0xec /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08003240                _printf_common
+ .text._printf_i
+                0x0800332c      0x24c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0800332c                _printf_i
+ .text.memcpy   0x08003578       0x16 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+                0x08003578                memcpy
+ .text.memmove  0x0800358e       0x36 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+                0x0800358e                memmove
+ .text._free_r  0x080035c4       0x9c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+                0x080035c4                _free_r
+ .text._malloc_r
+                0x08003660       0xbc /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                0x08003660                _malloc_r
+ .text._realloc_r
+                0x0800371c       0x4c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+                0x0800371c                _realloc_r
+ .text._sbrk_r  0x08003768       0x20 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+                0x08003768                _sbrk_r
+ .text.__malloc_lock
+                0x08003788        0x2 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+                0x08003788                __malloc_lock
+ .text.__malloc_unlock
+                0x0800378a        0x2 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+                0x0800378a                __malloc_unlock
+ .text._malloc_usable_size_r
+                0x0800378c       0x14 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+                0x0800378c                _malloc_usable_size_r
+ .text._sbrk    0x080037a0       0x1c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
+                0x080037a0                _sbrk
  *(.glue_7)
- .glue_7        0x08002e78        0x0 linker stubs
+ .glue_7        0x080037bc        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08002e78        0x0 linker stubs
+ .glue_7t       0x080037bc        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08002e78        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+ .eh_frame      0x080037bc        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
  *(.init)
- .init          0x08002e78        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crti.o
-                0x08002e78                _init
- .init          0x08002e7c        0x8 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtn.o
+ .init          0x080037bc        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crti.o
+                0x080037bc                _init
+ .init          0x080037c0        0x8 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtn.o
  *(.fini)
- .fini          0x08002e84        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crti.o
-                0x08002e84                _fini
- .fini          0x08002e88        0x8 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtn.o
-                0x08002e90                . = ALIGN (0x4)
-                0x08002e90                _etext = .
+ .fini          0x080037c8        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crti.o
+                0x080037c8                _fini
+ .fini          0x080037cc        0x8 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtn.o
+                0x080037d4                . = ALIGN (0x4)
+                0x080037d4                _etext = .
 
-.vfp11_veneer   0x08002e90        0x0
- .vfp11_veneer  0x08002e90        0x0 linker stubs
+.vfp11_veneer   0x080037d4        0x0
+ .vfp11_veneer  0x080037d4        0x0 linker stubs
 
-.v4_bx          0x08002e90        0x0
- .v4_bx         0x08002e90        0x0 linker stubs
+.v4_bx          0x080037d4        0x0
+ .v4_bx         0x080037d4        0x0 linker stubs
 
-.iplt           0x08002e90        0x0
- .iplt          0x08002e90        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+.iplt           0x080037d4        0x0
+ .iplt          0x080037d4        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
 
-.rodata         0x08002e90       0x48
-                0x08002e90                . = ALIGN (0x4)
+.rodata         0x080037d4       0x8c
+                0x080037d4                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.4
-                0x08002e90       0x30 build/main.o
-                                 0x2d (size before relaxing)
+                0x080037d4       0x40 build/main.o
+                                 0x3d (size before relaxing)
  .rodata.AHBPrescTable
-                0x08002ec0       0x10 build/system_stm32f4xx.o
-                0x08002ec0                AHBPrescTable
+                0x08003814       0x10 build/system_stm32f4xx.o
+                0x08003814                AHBPrescTable
  .rodata.APBPrescTable
-                0x08002ed0        0x8 build/system_stm32f4xx.o
-                0x08002ed0                APBPrescTable
-                0x08002ed8                . = ALIGN (0x4)
+                0x08003824        0x8 build/system_stm32f4xx.o
+                0x08003824                APBPrescTable
+ .rodata.str1.1
+                0x0800382c       0x11 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+ .rodata.str1.1
+                0x0800383d       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08003860                . = ALIGN (0x4)
+ *fill*         0x0800385f        0x1 
 
-.rel.dyn        0x08002ed8        0x0
- .rel.iplt      0x08002ed8        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+.rel.dyn        0x08003860        0x0
+ .rel.iplt      0x08003860        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08002ed8        0x0
-                0x08002ed8                __exidx_start = .
+.ARM            0x08003860        0x0
+                0x08003860                __exidx_start = .
  *(.ARM.exidx*)
-                0x08002ed8                __exidx_end = .
+                0x08003860                __exidx_end = .
 
-.preinit_array  0x08002ed8        0x0
-                0x08002ed8                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x08003860        0x0
+                0x08003860                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x08002ed8                PROVIDE (__preinit_array_end, .)
+                0x08003860                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x08002ed8        0x4
-                0x08002ed8                PROVIDE (__init_array_start, .)
+.init_array     0x08003860        0x4
+                0x08003860                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x08002ed8        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
-                0x08002edc                PROVIDE (__init_array_end, .)
+ .init_array    0x08003860        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+                0x08003864                PROVIDE (__init_array_end, .)
 
-.fini_array     0x08002edc        0x4
+.fini_array     0x08003864        0x4
                 [!provide]                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08002edc        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+ .fini_array    0x08003864        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end, .)
-                0x08002ee0                _sidata = LOADADDR (.data)
+                0x08003868                _sidata = LOADADDR (.data)
 
-.data           0x20000000        0x4 load address 0x08002ee0
+.data           0x20000000       0x68 load address 0x08003868
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -1418,46 +1546,60 @@ LOAD /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/a
  .data.SystemCoreClock
                 0x20000000        0x4 build/system_stm32f4xx.o
                 0x20000000                SystemCoreClock
-                0x20000004                . = ALIGN (0x4)
-                0x20000004                _edata = .
+ .data.impure_data
+                0x20000004       0x60 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x20000064        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
+                0x20000064                _impure_ptr
+                0x20000068                . = ALIGN (0x4)
+                0x20000068                _edata = .
 
-.jcr            0x20000004        0x0 load address 0x08002ee4
- .jcr           0x20000004        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+.jcr            0x20000068        0x0 load address 0x080038d0
+ .jcr           0x20000068        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
 
-.igot.plt       0x20000004        0x0 load address 0x08002ee4
- .igot.plt      0x20000004        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
-                0x20000004                . = ALIGN (0x4)
+.igot.plt       0x20000068        0x0 load address 0x080038d0
+ .igot.plt      0x20000068        0x0 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+                0x20000068                . = ALIGN (0x4)
 
-.bss            0x20000004      0x150 load address 0x08002ee4
-                0x20000004                _sbss = .
-                0x20000004                __bss_start__ = _sbss
+.bss            0x20000068      0x160 load address 0x080038d0
+                0x20000068                _sbss = .
+                0x20000068                __bss_start__ = _sbss
  *(.bss)
- .bss           0x20000004       0x1c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
+ .bss           0x20000068       0x1c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtbegin.o
  *(.bss*)
+ .bss.__malloc_sbrk_start
+                0x20000084        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                0x20000084                __malloc_sbrk_start
+ .bss.__malloc_free_list
+                0x20000088        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                0x20000088                __malloc_free_list
+ .bss.heap_end.4169
+                0x2000008c        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
  *(COMMON)
- COMMON         0x20000020      0x130 build/main.o
-                0x20000020                hi2c1
-                0x20000074                huart1
-                0x200000b4                huart6
-                0x200000f4                huart2
-                0x20000134                mpu1
- COMMON         0x20000150        0x4 build/stm32f4xx_hal.o
-                0x20000150                uwTick
-                0x20000154                . = ALIGN (0x4)
-                0x20000154                _ebss = .
-                0x20000154                __bss_end__ = _ebss
+ COMMON         0x20000090      0x130 build/main.o
+                0x20000090                hi2c1
+                0x200000e4                huart1
+                0x20000124                huart6
+                0x20000164                huart2
+                0x200001a4                mpu1
+ COMMON         0x200001c0        0x4 build/stm32f4xx_hal.o
+                0x200001c0                uwTick
+ COMMON         0x200001c4        0x4 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+                0x200001c4                errno
+                0x200001c8                . = ALIGN (0x4)
+                0x200001c8                _ebss = .
+                0x200001c8                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000154      0x604 load address 0x08002ee4
-                0x20000158                . = ALIGN (0x8)
- *fill*         0x20000154        0x4 
-                [!provide]                PROVIDE (end, .)
+                0x200001c8      0x600 load address 0x080038d0
+                0x200001c8                . = ALIGN (0x8)
+                0x200001c8                PROVIDE (end, .)
                 [!provide]                PROVIDE (_end, .)
-                0x20000358                . = (. + _Min_Heap_Size)
- *fill*         0x20000158      0x200 
-                0x20000758                . = (. + _Min_Stack_Size)
- *fill*         0x20000358      0x400 
-                0x20000758                . = ALIGN (0x8)
+                0x200003c8                . = (. + _Min_Heap_Size)
+ *fill*         0x200001c8      0x200 
+                0x200007c8                . = (. + _Min_Stack_Size)
+ *fill*         0x200003c8      0x400 
+                0x200007c8                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -1500,48 +1642,80 @@ LOAD /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/a
  .ARM.attributes
                 0x0000033b       0x21 build/startup_stm32f401xe.o
  .ARM.attributes
-                0x0000035c       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
+                0x0000035c       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000390       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
+                0x00000390       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x000003b2       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_muldivdf3.o)
+                0x000003c4       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
  .ARM.attributes
-                0x000003d4       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_fixdfsi.o)
+                0x000003f8       0x1b /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-strlen.o)
  .ARM.attributes
-                0x000003f6       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtn.o
+                0x00000413       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+ .ARM.attributes
+                0x00000447       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .ARM.attributes
+                0x0000047b       0x20 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memchr.o)
+ .ARM.attributes
+                0x0000049b       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x000004cf       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+ .ARM.attributes
+                0x00000503       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+ .ARM.attributes
+                0x00000537       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+ .ARM.attributes
+                0x0000056b       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+ .ARM.attributes
+                0x0000059f       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+ .ARM.attributes
+                0x000005d3       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x00000607       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+ .ARM.attributes
+                0x0000063b       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+ .ARM.attributes
+                0x0000066f       0x34 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
+ .ARM.attributes
+                0x000006a3       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x000006c5       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x000006e7       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x00000709       0x22 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crtn.o
 OUTPUT(build/b3mImu.elf elf32-littlearm)
 
-.debug_info     0x00000000     0xef5b
+.debug_info     0x00000000     0xefd0
  .debug_info    0x00000000       0xf6 build/stm32f4xx_it.o
  .debug_info    0x000000f6      0x712 build/stm32f4xx_hal_i2c_ex.o
- .debug_info    0x00000808     0x19db build/main.o
- .debug_info    0x000021e3     0x2c50 build/B3M.o
- .debug_info    0x00004e33     0x137d build/sd_hal_mpu6050.o
- .debug_info    0x000061b0     0x1070 build/stm32f4xx_hal_msp.o
- .debug_info    0x00007220      0x980 build/stm32f4xx_hal.o
- .debug_info    0x00007ba0      0x5a6 build/system_stm32f4xx.o
- .debug_info    0x00008146     0x3061 build/stm32f4xx_hal_i2c.o
- .debug_info    0x0000b1a7     0x181e build/stm32f4xx_hal_uart.o
- .debug_info    0x0000c9c5      0x7ef build/stm32f4xx_hal_gpio.o
- .debug_info    0x0000d1b4      0xdf3 build/stm32f4xx_hal_rcc.o
- .debug_info    0x0000dfa7      0xf53 build/stm32f4xx_hal_cortex.o
- .debug_info    0x0000eefa       0x61 build/startup_stm32f401xe.o
+ .debug_info    0x00000808     0x1a50 build/main.o
+ .debug_info    0x00002258     0x2c50 build/B3M.o
+ .debug_info    0x00004ea8     0x137d build/sd_hal_mpu6050.o
+ .debug_info    0x00006225     0x1070 build/stm32f4xx_hal_msp.o
+ .debug_info    0x00007295      0x980 build/stm32f4xx_hal.o
+ .debug_info    0x00007c15      0x5a6 build/system_stm32f4xx.o
+ .debug_info    0x000081bb     0x3061 build/stm32f4xx_hal_i2c.o
+ .debug_info    0x0000b21c     0x181e build/stm32f4xx_hal_uart.o
+ .debug_info    0x0000ca3a      0x7ef build/stm32f4xx_hal_gpio.o
+ .debug_info    0x0000d229      0xdf3 build/stm32f4xx_hal_rcc.o
+ .debug_info    0x0000e01c      0xf53 build/stm32f4xx_hal_cortex.o
+ .debug_info    0x0000ef6f       0x61 build/startup_stm32f401xe.o
 
-.debug_abbrev   0x00000000     0x1ba7
+.debug_abbrev   0x00000000     0x1ba9
  .debug_abbrev  0x00000000       0x9a build/stm32f4xx_it.o
  .debug_abbrev  0x0000009a      0x135 build/stm32f4xx_hal_i2c_ex.o
- .debug_abbrev  0x000001cf      0x2b1 build/main.o
- .debug_abbrev  0x00000480      0x24f build/B3M.o
- .debug_abbrev  0x000006cf      0x23e build/sd_hal_mpu6050.o
- .debug_abbrev  0x0000090d      0x1a1 build/stm32f4xx_hal_msp.o
- .debug_abbrev  0x00000aae      0x2a1 build/stm32f4xx_hal.o
- .debug_abbrev  0x00000d4f      0x103 build/system_stm32f4xx.o
- .debug_abbrev  0x00000e52      0x297 build/stm32f4xx_hal_i2c.o
- .debug_abbrev  0x000010e9      0x2cd build/stm32f4xx_hal_uart.o
- .debug_abbrev  0x000013b6      0x202 build/stm32f4xx_hal_gpio.o
- .debug_abbrev  0x000015b8      0x2ca build/stm32f4xx_hal_rcc.o
- .debug_abbrev  0x00001882      0x313 build/stm32f4xx_hal_cortex.o
- .debug_abbrev  0x00001b95       0x12 build/startup_stm32f401xe.o
+ .debug_abbrev  0x000001cf      0x2b3 build/main.o
+ .debug_abbrev  0x00000482      0x24f build/B3M.o
+ .debug_abbrev  0x000006d1      0x23e build/sd_hal_mpu6050.o
+ .debug_abbrev  0x0000090f      0x1a1 build/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x00000ab0      0x2a1 build/stm32f4xx_hal.o
+ .debug_abbrev  0x00000d51      0x103 build/system_stm32f4xx.o
+ .debug_abbrev  0x00000e54      0x297 build/stm32f4xx_hal_i2c.o
+ .debug_abbrev  0x000010eb      0x2cd build/stm32f4xx_hal_uart.o
+ .debug_abbrev  0x000013b8      0x202 build/stm32f4xx_hal_gpio.o
+ .debug_abbrev  0x000015ba      0x2ca build/stm32f4xx_hal_rcc.o
+ .debug_abbrev  0x00001884      0x313 build/stm32f4xx_hal_cortex.o
+ .debug_abbrev  0x00001b97       0x12 build/startup_stm32f401xe.o
 
 .debug_loc      0x00000000     0x9fce
  .debug_loc     0x00000000       0x20 build/stm32f4xx_it.o
@@ -1604,48 +1778,48 @@ OUTPUT(build/b3mImu.elf elf32-littlearm)
  .debug_ranges  0x00000a60       0x98 build/stm32f4xx_hal_cortex.o
  .debug_ranges  0x00000af8       0x20 build/startup_stm32f401xe.o
 
-.debug_line     0x00000000     0x4855
+.debug_line     0x00000000     0x48bf
  .debug_line    0x00000000      0x185 build/stm32f4xx_it.o
  .debug_line    0x00000185      0x222 build/stm32f4xx_hal_i2c_ex.o
- .debug_line    0x000003a7      0x3f1 build/main.o
- .debug_line    0x00000798      0xb40 build/B3M.o
- .debug_line    0x000012d8      0x361 build/sd_hal_mpu6050.o
- .debug_line    0x00001639      0x29e build/stm32f4xx_hal_msp.o
- .debug_line    0x000018d7      0x3ad build/stm32f4xx_hal.o
- .debug_line    0x00001c84      0x1a0 build/system_stm32f4xx.o
- .debug_line    0x00001e24     0x1276 build/stm32f4xx_hal_i2c.o
- .debug_line    0x0000309a      0xac1 build/stm32f4xx_hal_uart.o
- .debug_line    0x00003b5b      0x33d build/stm32f4xx_hal_gpio.o
- .debug_line    0x00003e98      0x56c build/stm32f4xx_hal_rcc.o
- .debug_line    0x00004404      0x3dd build/stm32f4xx_hal_cortex.o
- .debug_line    0x000047e1       0x74 build/startup_stm32f401xe.o
+ .debug_line    0x000003a7      0x45b build/main.o
+ .debug_line    0x00000802      0xb40 build/B3M.o
+ .debug_line    0x00001342      0x361 build/sd_hal_mpu6050.o
+ .debug_line    0x000016a3      0x29e build/stm32f4xx_hal_msp.o
+ .debug_line    0x00001941      0x3ad build/stm32f4xx_hal.o
+ .debug_line    0x00001cee      0x1a0 build/system_stm32f4xx.o
+ .debug_line    0x00001e8e     0x1276 build/stm32f4xx_hal_i2c.o
+ .debug_line    0x00003104      0xac1 build/stm32f4xx_hal_uart.o
+ .debug_line    0x00003bc5      0x33d build/stm32f4xx_hal_gpio.o
+ .debug_line    0x00003f02      0x56c build/stm32f4xx_hal_rcc.o
+ .debug_line    0x0000446e      0x3dd build/stm32f4xx_hal_cortex.o
+ .debug_line    0x0000484b       0x74 build/startup_stm32f401xe.o
 
-.debug_str      0x00000000     0x3797
+.debug_str      0x00000000     0x37a6
  .debug_str     0x00000000      0x1a2 build/stm32f4xx_it.o
                                 0x1e3 (size before relaxing)
  .debug_str     0x000001a2      0x553 build/stm32f4xx_hal_i2c_ex.o
                                 0x779 (size before relaxing)
- .debug_str     0x000006f5      0xc5a build/main.o
-                               0x134b (size before relaxing)
- .debug_str     0x0000134f      0xc10 build/B3M.o
+ .debug_str     0x000006f5      0xc69 build/main.o
+                               0x135a (size before relaxing)
+ .debug_str     0x0000135e      0xc10 build/B3M.o
                                0x1242 (size before relaxing)
- .debug_str     0x00001f5f      0x26f build/sd_hal_mpu6050.o
+ .debug_str     0x00001f6e      0x26f build/sd_hal_mpu6050.o
                                 0xb9e (size before relaxing)
- .debug_str     0x000021ce       0x97 build/stm32f4xx_hal_msp.o
+ .debug_str     0x000021dd       0x97 build/stm32f4xx_hal_msp.o
                                 0xe02 (size before relaxing)
- .debug_str     0x00002265      0x256 build/stm32f4xx_hal.o
+ .debug_str     0x00002274      0x256 build/stm32f4xx_hal.o
                                 0x961 (size before relaxing)
- .debug_str     0x000024bb       0xc3 build/system_stm32f4xx.o
+ .debug_str     0x000024ca       0xc3 build/system_stm32f4xx.o
                                 0x3a4 (size before relaxing)
- .debug_str     0x0000257e      0x7b7 build/stm32f4xx_hal_i2c.o
+ .debug_str     0x0000258d      0x7b7 build/stm32f4xx_hal_i2c.o
                                 0xf5d (size before relaxing)
- .debug_str     0x00002d35      0x4f7 build/stm32f4xx_hal_uart.o
+ .debug_str     0x00002d44      0x4f7 build/stm32f4xx_hal_uart.o
                                 0xc04 (size before relaxing)
- .debug_str     0x0000322c      0x10f build/stm32f4xx_hal_gpio.o
+ .debug_str     0x0000323b      0x10f build/stm32f4xx_hal_gpio.o
                                 0x514 (size before relaxing)
- .debug_str     0x0000333b      0x123 build/stm32f4xx_hal_rcc.o
+ .debug_str     0x0000334a      0x123 build/stm32f4xx_hal_rcc.o
                                 0x6fa (size before relaxing)
- .debug_str     0x0000345e      0x339 build/stm32f4xx_hal_cortex.o
+ .debug_str     0x0000346d      0x339 build/stm32f4xx_hal_cortex.o
                                 0xaca (size before relaxing)
 
 .comment        0x00000000       0x6e
@@ -1664,7 +1838,7 @@ OUTPUT(build/b3mImu.elf elf32-littlearm)
  .comment       0x0000006e       0x6f build/stm32f4xx_hal_rcc.o
  .comment       0x0000006e       0x6f build/stm32f4xx_hal_cortex.o
 
-.debug_frame    0x00000000     0x2f60
+.debug_frame    0x00000000     0x32a8
  .debug_frame   0x00000000       0x2c build/stm32f4xx_it.o
  .debug_frame   0x0000002c       0x30 build/stm32f4xx_hal_i2c_ex.o
  .debug_frame   0x0000005c      0x164 build/main.o
@@ -1679,6 +1853,19 @@ OUTPUT(build/b3mImu.elf elf32-littlearm)
  .debug_frame   0x00002c68      0x168 build/stm32f4xx_hal_rcc.o
  .debug_frame   0x00002dd0      0x164 build/stm32f4xx_hal_cortex.o
  .debug_frame   0x00002f34       0x2c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00002f60       0x70 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+ .debug_frame   0x00002fd0       0x90 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x00003060       0x60 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x000030c0       0x28 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x000030e8       0x28 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+ .debug_frame   0x00003110       0x38 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00003148       0x2c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00003174       0x3c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x000031b0       0x2c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x000031dc       0x30 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000320c       0x20 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x0000322c       0x5c /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x00003288       0x20 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
 
 Cross Reference Table
 
@@ -2195,6 +2382,15 @@ __libc_fini_array                                 /home/ryouya/STM32Toolchain/gc
 __libc_init_array                                 /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
                                                   build/startup_stm32f401xe.o
                                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+__malloc_free_list                                /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+__malloc_lock                                     /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+__malloc_sbrk_start                               /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+__malloc_unlock                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-mlock.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
 __muldf3                                          /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_muldivdf3.o)
 __preinit_array_end                               /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
 __preinit_array_start                             /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
@@ -2202,6 +2398,8 @@ __register_frame_info                             /home/ryouya/STM32Toolchain/gc
 __sf_fake_stderr                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
 __sf_fake_stdin                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
 __sf_fake_stdout                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
+__ssprint_r                                       /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+__ssputs_r                                        /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
 __stack                                           /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
 __subdf3                                          /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a(_arm_addsubdf3.o)
 _ebss                                             build/startup_stm32f401xe.o
@@ -2210,17 +2408,48 @@ _estack                                           build/startup_stm32f401xe.o
 _exit                                             /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
                                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-exit.o)
 _fini                                             /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crti.o
+_free_r                                           /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-freer.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
 _global_impure_ptr                                /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
                                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-exit.o)
 _impure_ptr                                       /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-impure.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
 _init                                             /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/crti.o
                                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-init.o)
 _mainCRTStartup                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+_malloc_r                                         /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+_malloc_usable_size_r                             /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-msizer.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+_printf_common                                    /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+_printf_float                                     /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+_printf_i                                         /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+_realloc_r                                        /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+_reclaim_reent                                    /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+_sbrk                                             /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+_sbrk_r                                           /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-mallocr.o)
 _sbss                                             build/startup_stm32f401xe.o
 _sdata                                            build/startup_stm32f401xe.o
 _sidata                                           build/startup_stm32f401xe.o
+_siprintf_r                                       /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+_sprintf_r                                        /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
 _start                                            /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+_svfiprintf_r                                     /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+_svfprintf_r                                      /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
 atexit                                            /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+cleanup_glue                                      /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+end                                               /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(sbrk.o)
+errno                                             /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-reent.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sbrkr.o)
 exit                                              /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-exit.o)
                                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
 g_pfnVectors                                      build/startup_stm32f401xe.o
@@ -2232,6 +2461,14 @@ huart6                                            build/main.o
 main                                              build/main.o
                                                   build/startup_stm32f401xe.o
                                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+memchr                                            /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memchr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+memcpy                                            /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memcpy-stub.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-reallocr.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
+memmove                                           /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memmove.o)
+                                                  /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-nano-svfprintf.o)
 memset                                            /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-memset.o)
                                                   /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
 mpu1                                              build/main.o
@@ -2240,5 +2477,10 @@ pFlash                                            build/stm32f4xx_hal_flash.o
 setAngle                                          build/main.o
 setFree                                           build/main.o
 setModeToNormal                                   build/main.o
+siprintf                                          /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
 software_init_hook                                /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+sprintf                                           /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-sprintf.o)
+                                                  build/main.o
+strlen                                            /home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc_nano.a(lib_a-strlen.o)
+                                                  build/main.o
 uwTick                                            build/stm32f4xx_hal.o

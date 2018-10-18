@@ -262,10 +262,10 @@ int main(void)
 
 
     //加速度角度表記
-    //  sprintf(acc, " acc x: %i\n\r\n\r", mpu1.Accelerometer_X);
-    //  sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
+    sprintf(acc, " acc x: %i\n\r", mpu1.Accelerometer_X);
+    //sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
 
-    //HAL_UART_Transmit(&huart2, (uint8_t*)acc, strlen(acc), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart2, (uint8_t*)acc, strlen(acc), HAL_MAX_DELAY);
 
     diff = mpu1.Accelerometer_X * 0.5;
 
