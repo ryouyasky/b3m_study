@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccT96zsI.s 			page 1
+ARM GAS  /tmp/ccX55lCW.s 			page 1
 
 
    1              		.syntax unified
@@ -41,7 +41,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
   10:Src/stm32f4xx_hal_msp.c ****   * inserted by the user or by software development tools
   11:Src/stm32f4xx_hal_msp.c ****   * are owned by their respective copyright owners.
   12:Src/stm32f4xx_hal_msp.c ****   *
-  13:Src/stm32f4xx_hal_msp.c ****   * COPYRIGHT(c) 2017 STMicroelectronics
+  13:Src/stm32f4xx_hal_msp.c ****   * COPYRIGHT(c) 2018 STMicroelectronics
   14:Src/stm32f4xx_hal_msp.c ****   *
   15:Src/stm32f4xx_hal_msp.c ****   * Redistribution and use in source and binary forms, with or without modification,
   16:Src/stm32f4xx_hal_msp.c ****   * are permitted provided that the following conditions are met:
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
   27:Src/stm32f4xx_hal_msp.c ****   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
   28:Src/stm32f4xx_hal_msp.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
   29:Src/stm32f4xx_hal_msp.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-ARM GAS  /tmp/ccT96zsI.s 			page 2
+ARM GAS  /tmp/ccX55lCW.s 			page 2
 
 
   30:Src/stm32f4xx_hal_msp.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
   52 0018 6FF00A00 		mvn	r0, #10
   53 001c FFF7FEFF 		bl	HAL_NVIC_SetPriority
   54              	.LVL2:
-ARM GAS  /tmp/ccT96zsI.s 			page 3
+ARM GAS  /tmp/ccX55lCW.s 			page 3
 
 
   62:Src/stm32f4xx_hal_msp.c ****   /* UsageFault_IRQn interrupt configuration */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
   76:Src/stm32f4xx_hal_msp.c **** }
   77:Src/stm32f4xx_hal_msp.c **** 
   78:Src/stm32f4xx_hal_msp.c **** void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
-ARM GAS  /tmp/ccT96zsI.s 			page 4
+ARM GAS  /tmp/ccX55lCW.s 			page 4
 
 
   79:Src/stm32f4xx_hal_msp.c **** {
@@ -194,7 +194,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  103 0000 0268     		ldr	r2, [r0]
  104 0002 124B     		ldr	r3, .L7
  105 0004 9A42     		cmp	r2, r3
- 106 0006 20D1     		bne	.L6
+ 106 0006 1FD1     		bne	.L6
   79:Src/stm32f4xx_hal_msp.c **** 
  107              		.loc 1 79 0
  108 0008 00B5     		push	{lr}
@@ -210,54 +210,54 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
   86:Src/stm32f4xx_hal_msp.c ****   /* USER CODE END I2C1_MspInit 0 */
   87:Src/stm32f4xx_hal_msp.c ****   
   88:Src/stm32f4xx_hal_msp.c ****     /**I2C1 GPIO Configuration    
-  89:Src/stm32f4xx_hal_msp.c ****     PB8     ------> I2C1_SCL
-  90:Src/stm32f4xx_hal_msp.c ****     PB9     ------> I2C1_SDA 
+  89:Src/stm32f4xx_hal_msp.c ****     PB6     ------> I2C1_SCL
+  90:Src/stm32f4xx_hal_msp.c ****     PB7     ------> I2C1_SDA 
   91:Src/stm32f4xx_hal_msp.c ****     */
-  92:Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+  92:Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
  115              		.loc 1 92 0
- 116 000c 4FF44073 		mov	r3, #768
- 117 0010 0193     		str	r3, [sp, #4]
+ 116 000c C023     		movs	r3, #192
+ 117 000e 0193     		str	r3, [sp, #4]
   93:Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
  118              		.loc 1 93 0
- 119 0012 1223     		movs	r3, #18
- 120 0014 0293     		str	r3, [sp, #8]
+ 119 0010 1223     		movs	r3, #18
+ 120 0012 0293     		str	r3, [sp, #8]
   94:Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Pull = GPIO_PULLUP;
  121              		.loc 1 94 0
- 122 0016 0123     		movs	r3, #1
- 123 0018 0393     		str	r3, [sp, #12]
+ 122 0014 0123     		movs	r3, #1
+ 123 0016 0393     		str	r3, [sp, #12]
   95:Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  124              		.loc 1 95 0
- 125 001a 0323     		movs	r3, #3
- 126 001c 0493     		str	r3, [sp, #16]
+ 125 0018 0323     		movs	r3, #3
+ 126 001a 0493     		str	r3, [sp, #16]
   96:Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
  127              		.loc 1 96 0
- 128 001e 0423     		movs	r3, #4
- 129 0020 0593     		str	r3, [sp, #20]
+ 128 001c 0423     		movs	r3, #4
+ 129 001e 0593     		str	r3, [sp, #20]
   97:Src/stm32f4xx_hal_msp.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
  130              		.loc 1 97 0
- 131 0022 0DEB0301 		add	r1, sp, r3
- 132 0026 0A48     		ldr	r0, .L7+4
+ 131 0020 0DEB0301 		add	r1, sp, r3
+ 132 0024 0A48     		ldr	r0, .L7+4
  133              	.LVL9:
-ARM GAS  /tmp/ccT96zsI.s 			page 5
+ARM GAS  /tmp/ccX55lCW.s 			page 5
 
 
- 134 0028 FFF7FEFF 		bl	HAL_GPIO_Init
+ 134 0026 FFF7FEFF 		bl	HAL_GPIO_Init
  135              	.LVL10:
  136              	.LBB2:
   98:Src/stm32f4xx_hal_msp.c **** 
   99:Src/stm32f4xx_hal_msp.c ****     /* Peripheral clock enable */
  100:Src/stm32f4xx_hal_msp.c ****     __HAL_RCC_I2C1_CLK_ENABLE();
  137              		.loc 1 100 0
- 138 002c 0023     		movs	r3, #0
- 139 002e 0093     		str	r3, [sp]
- 140 0030 084B     		ldr	r3, .L7+8
- 141 0032 1A6C     		ldr	r2, [r3, #64]
- 142 0034 42F40012 		orr	r2, r2, #2097152
- 143 0038 1A64     		str	r2, [r3, #64]
- 144 003a 1B6C     		ldr	r3, [r3, #64]
- 145 003c 03F40013 		and	r3, r3, #2097152
- 146 0040 0093     		str	r3, [sp]
- 147 0042 009B     		ldr	r3, [sp]
+ 138 002a 0023     		movs	r3, #0
+ 139 002c 0093     		str	r3, [sp]
+ 140 002e 094B     		ldr	r3, .L7+8
+ 141 0030 1A6C     		ldr	r2, [r3, #64]
+ 142 0032 42F40012 		orr	r2, r2, #2097152
+ 143 0036 1A64     		str	r2, [r3, #64]
+ 144 0038 1B6C     		ldr	r3, [r3, #64]
+ 145 003a 03F40013 		and	r3, r3, #2097152
+ 146 003e 0093     		str	r3, [sp]
+ 147 0040 009B     		ldr	r3, [sp]
  148              	.LBE2:
  101:Src/stm32f4xx_hal_msp.c ****   /* USER CODE BEGIN I2C1_MspInit 1 */
  102:Src/stm32f4xx_hal_msp.c **** 
@@ -266,19 +266,19 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  105:Src/stm32f4xx_hal_msp.c **** 
  106:Src/stm32f4xx_hal_msp.c **** }
  149              		.loc 1 106 0
- 150 0044 07B0     		add	sp, sp, #28
+ 150 0042 07B0     		add	sp, sp, #28
  151              	.LCFI3:
  152              		.cfi_def_cfa_offset 4
  153              		@ sp needed
- 154 0046 5DF804FB 		ldr	pc, [sp], #4
+ 154 0044 5DF804FB 		ldr	pc, [sp], #4
  155              	.LVL11:
  156              	.L6:
  157              	.LCFI4:
  158              		.cfi_def_cfa_offset 0
  159              		.cfi_restore 14
- 160 004a 7047     		bx	lr
+ 160 0048 7047     		bx	lr
  161              	.L8:
- 162              		.align	2
+ 162 004a 00BF     		.align	2
  163              	.L7:
  164 004c 00540040 		.word	1073763328
  165 0050 00040240 		.word	1073873920
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  178              		.loc 1 109 0
  179              		.cfi_startproc
  180              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccT96zsI.s 			page 6
+ARM GAS  /tmp/ccX55lCW.s 			page 6
 
 
  181              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -314,7 +314,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  189 0002 0268     		ldr	r2, [r0]
  190 0004 064B     		ldr	r3, .L12
  191 0006 9A42     		cmp	r2, r3
- 192 0008 09D1     		bne	.L9
+ 192 0008 08D1     		bne	.L9
  112:Src/stm32f4xx_hal_msp.c ****   {
  113:Src/stm32f4xx_hal_msp.c ****   /* USER CODE BEGIN I2C1_MspDeInit 0 */
  114:Src/stm32f4xx_hal_msp.c **** 
@@ -328,20 +328,20 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  197 0012 1364     		str	r3, [r2, #64]
  118:Src/stm32f4xx_hal_msp.c ****   
  119:Src/stm32f4xx_hal_msp.c ****     /**I2C1 GPIO Configuration    
- 120:Src/stm32f4xx_hal_msp.c ****     PB8     ------> I2C1_SCL
- 121:Src/stm32f4xx_hal_msp.c ****     PB9     ------> I2C1_SDA 
+ 120:Src/stm32f4xx_hal_msp.c ****     PB6     ------> I2C1_SCL
+ 121:Src/stm32f4xx_hal_msp.c ****     PB7     ------> I2C1_SDA 
  122:Src/stm32f4xx_hal_msp.c ****     */
- 123:Src/stm32f4xx_hal_msp.c ****     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_8|GPIO_PIN_9);
+ 123:Src/stm32f4xx_hal_msp.c ****     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6|GPIO_PIN_7);
  198              		.loc 1 123 0
- 199 0014 4FF44071 		mov	r1, #768
- 200 0018 0348     		ldr	r0, .L12+8
+ 199 0014 C021     		movs	r1, #192
+ 200 0016 0448     		ldr	r0, .L12+8
  201              	.LVL13:
- 202 001a FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 202 0018 FFF7FEFF 		bl	HAL_GPIO_DeInit
  203              	.LVL14:
  204              	.L9:
- 205 001e 08BD     		pop	{r3, pc}
+ 205 001c 08BD     		pop	{r3, pc}
  206              	.L13:
- 207              		.align	2
+ 207 001e 00BF     		.align	2
  208              	.L12:
  209 0020 00540040 		.word	1073763328
  210 0024 00380240 		.word	1073887232
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  124:Src/stm32f4xx_hal_msp.c **** 
  125:Src/stm32f4xx_hal_msp.c ****   /* USER CODE BEGIN I2C1_MspDeInit 1 */
  126:Src/stm32f4xx_hal_msp.c **** 
-ARM GAS  /tmp/ccT96zsI.s 			page 7
+ARM GAS  /tmp/ccX55lCW.s 			page 7
 
 
  127:Src/stm32f4xx_hal_msp.c ****   /* USER CODE END I2C1_MspDeInit 1 */
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  255 0028 0393     		str	r3, [sp, #12]
  149:Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  256              		.loc 1 149 0
-ARM GAS  /tmp/ccT96zsI.s 			page 8
+ARM GAS  /tmp/ccX55lCW.s 			page 8
 
 
  257 002a 0223     		movs	r3, #2
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  167:Src/stm32f4xx_hal_msp.c ****     /**USART2 GPIO Configuration    
  168:Src/stm32f4xx_hal_msp.c ****     PA2     ------> USART2_TX
  169:Src/stm32f4xx_hal_msp.c ****     PA3     ------> USART2_RX 
-ARM GAS  /tmp/ccT96zsI.s 			page 9
+ARM GAS  /tmp/ccX55lCW.s 			page 9
 
 
  170:Src/stm32f4xx_hal_msp.c ****     */
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  329 0094 03F02003 		and	r3, r3, #32
  330 0098 0293     		str	r3, [sp, #8]
  331 009a 029B     		ldr	r3, [sp, #8]
-ARM GAS  /tmp/ccT96zsI.s 			page 10
+ARM GAS  /tmp/ccX55lCW.s 			page 10
 
 
  332              	.LBE5:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  368 00d0 00140140 		.word	1073812480
  369 00d4 00080240 		.word	1073874944
  370              		.cfi_endproc
-ARM GAS  /tmp/ccT96zsI.s 			page 11
+ARM GAS  /tmp/ccX55lCW.s 			page 11
 
 
  371              	.LFE127:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  224:Src/stm32f4xx_hal_msp.c **** 
  225:Src/stm32f4xx_hal_msp.c ****   /* USER CODE BEGIN USART1_MspDeInit 1 */
  226:Src/stm32f4xx_hal_msp.c **** 
-ARM GAS  /tmp/ccT96zsI.s 			page 12
+ARM GAS  /tmp/ccX55lCW.s 			page 12
 
 
  227:Src/stm32f4xx_hal_msp.c ****   /* USER CODE END USART1_MspDeInit 1 */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  254:Src/stm32f4xx_hal_msp.c ****   
  255:Src/stm32f4xx_hal_msp.c ****     /**USART6 GPIO Configuration    
  256:Src/stm32f4xx_hal_msp.c ****     PC6     ------> USART6_TX
-ARM GAS  /tmp/ccT96zsI.s 			page 13
+ARM GAS  /tmp/ccX55lCW.s 			page 13
 
 
  257:Src/stm32f4xx_hal_msp.c ****     PC7     ------> USART6_RX 
@@ -754,25 +754,25 @@ ARM GAS  /tmp/ccT96zsI.s 			page 1
  465              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
  466              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
  467              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
-ARM GAS  /tmp/ccT96zsI.s 			page 14
+ARM GAS  /tmp/ccX55lCW.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_msp.c
-     /tmp/ccT96zsI.s:22     .text.HAL_MspInit:00000000 $t
-     /tmp/ccT96zsI.s:27     .text.HAL_MspInit:00000000 HAL_MspInit
-     /tmp/ccT96zsI.s:90     .text.HAL_I2C_MspInit:00000000 $t
-     /tmp/ccT96zsI.s:95     .text.HAL_I2C_MspInit:00000000 HAL_I2C_MspInit
-     /tmp/ccT96zsI.s:164    .text.HAL_I2C_MspInit:0000004c $d
-     /tmp/ccT96zsI.s:171    .text.HAL_I2C_MspDeInit:00000000 $t
-     /tmp/ccT96zsI.s:176    .text.HAL_I2C_MspDeInit:00000000 HAL_I2C_MspDeInit
-     /tmp/ccT96zsI.s:209    .text.HAL_I2C_MspDeInit:00000020 $d
-     /tmp/ccT96zsI.s:216    .text.HAL_UART_MspInit:00000000 $t
-     /tmp/ccT96zsI.s:221    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-     /tmp/ccT96zsI.s:364    .text.HAL_UART_MspInit:000000c0 $d
-     /tmp/ccT96zsI.s:374    .text.HAL_UART_MspDeInit:00000000 $t
-     /tmp/ccT96zsI.s:379    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-     /tmp/ccT96zsI.s:448    .text.HAL_UART_MspDeInit:0000005c $d
+     /tmp/ccX55lCW.s:22     .text.HAL_MspInit:00000000 $t
+     /tmp/ccX55lCW.s:27     .text.HAL_MspInit:00000000 HAL_MspInit
+     /tmp/ccX55lCW.s:90     .text.HAL_I2C_MspInit:00000000 $t
+     /tmp/ccX55lCW.s:95     .text.HAL_I2C_MspInit:00000000 HAL_I2C_MspInit
+     /tmp/ccX55lCW.s:164    .text.HAL_I2C_MspInit:0000004c $d
+     /tmp/ccX55lCW.s:171    .text.HAL_I2C_MspDeInit:00000000 $t
+     /tmp/ccX55lCW.s:176    .text.HAL_I2C_MspDeInit:00000000 HAL_I2C_MspDeInit
+     /tmp/ccX55lCW.s:209    .text.HAL_I2C_MspDeInit:00000020 $d
+     /tmp/ccX55lCW.s:216    .text.HAL_UART_MspInit:00000000 $t
+     /tmp/ccX55lCW.s:221    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+     /tmp/ccX55lCW.s:364    .text.HAL_UART_MspInit:000000c0 $d
+     /tmp/ccX55lCW.s:374    .text.HAL_UART_MspDeInit:00000000 $t
+     /tmp/ccX55lCW.s:379    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+     /tmp/ccX55lCW.s:448    .text.HAL_UART_MspDeInit:0000005c $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
