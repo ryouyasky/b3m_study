@@ -185,6 +185,7 @@ SD_MPU6050_Result SD_MPU6050_SetAccelerometer(I2C_HandleTypeDef* I2Cx,SD_MPU6050
 				return SD_MPU6050_Result_Error;
 	}*/
 
+	//mpu6050内部ローパスフィルタ
 	/*
 	uint8_t lowp = 0x06;
 	while(HAL_I2C_Mem_Write(Handle, (uint16_t)address, (uint8_t)0x1A, 1, &lowp, 1, 1000) != HAL_OK);
