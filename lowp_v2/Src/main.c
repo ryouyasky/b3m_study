@@ -165,8 +165,9 @@ int main(void)
   uint8_t mpu_not[17] = {"MPU NOT WORKING\n"};
 
   int16_t diff = 0; //IMU出力角度
-  int16_t before = 0;
-  //int16_t tf = ;
+  int16_t dig_x = 0;
+  int16_t dig_y = 0;
+  int16_t dig_z = 0;
   int16_t lp = 0;
   /* MCU Configuration----------------------------------------------------------*/
 
@@ -203,7 +204,27 @@ int main(void)
   SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);
   SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
 
-  before = mpu1.Accelerometer_X;
+/*
+  int16_t bg_x = mpu1.Gyroscope_X;
+  int16_t bg_y = mpu1.Gyroscope_Y;
+  int16_t bg_z = mpu1.Gyroscope_Z;
+*/
+  float bg_x = 0;
+  float bg_y = 0;
+  float bg_z = 0;
+
+  float ba_x = 0;
+  float ba_y = 0;
+  float ba_z = 0;
+;
+  float g_x = 0;
+  float g_y = 0;
+  float g_z = 0;
+
+  int16_t a_x = mpu1.Accelerometer_X;
+  int16_t a_y = mpu1.Accelerometer_Y;
+  int16_t a_z = mpu1.Accelerometer_Z;
+
   /* Infinite loop */
   while (1)
   {
@@ -212,7 +233,6 @@ int main(void)
       B3M_RunNormal(huart6, SERVO_ID_6);
       HAL_Delay(100);
     }
-
     //setModeToNormal();
     //HAL_Delay(1000);
     // HAL_Delay(1);
@@ -230,19 +250,17 @@ int main(void)
     B3M_SetDesirePostion(huart6, SERVO_ID_0, -6000);
     HAL_Delay(1000);
     */
-
     char gyro[20], acc[20];
 
     SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
-    /*
-    int16_t g_x = mpu1.Gyroscope_X;
-    int16_t g_y = mpu1.Gyroscope_Y;
-    int16_t g_z = mpu1.Gyroscope_Z;
-    */
+    g_x = mpu1.Gyroscope_X;
+    g_y = mpu1.Gyroscope_Y;
+    g_z = mpu1.Gyroscope_Z;
     //default int16_t
     //HAL_UART_Transmit(&huart2, (uint16_t*)(&g_x), 16,HAL_MAX_DELAY);
 
     SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);
+
     /*
     int16_t a_x = mpu1.Accelerometer_X / 4095;
     int16_t a_y = mpu1.Accelerometer_Y / 4095;
@@ -262,7 +280,7 @@ int main(void)
     //sprintf(acc, " acc x: %i y: %i z: %i\n\r\n\r", acc_angle_x, acc_angle_y, acc_angle_z);
     //HAL_UART_Transmit(&huart2, (uint8_t*)acc, strlen(acc), HAL_MAX_DELAY);
     //HAL_Delay(50);
-
+/*
     diff   = 0.99 * before + (1 - 0.99) * mpu1.Accelerometer_X ;
     before = diff;
     diff   = diff * 0.549;
@@ -278,6 +296,29 @@ int main(void)
 
     B3M_SetDesirePostion(huart1, SERVO_ID_1, diff);
    //B3M_SetDesirePostion(huart6, SERVO_ID_6, diff);
+*/
+/*積算*/
+/*
+  dig_x += g_x * 0.001;
+  dig_y += g_y * 0.001;
+  dig_z += g_z * 0.001;
+*/
+//台形近似
+
+  dig_x += (bg_x + g_x) * 0.001 / 2 ;
+  dig_y += (bg_y + g_y) * 0.001 / 2 ;
+  dig_z += (bg_z + g_z) * 0.001 / 2 ;
+
+  //dig_x += dig_y * sin(g_z * 0.001 * 3.1415/180);
+  //dig_y += dig_x * sin(g_z * 0.001 * 3.1415/180);
+
+  bg_x = g_x;
+  bg_y = g_y;
+  bg_z = g_z;
+
+  //  sprintf(gyro, "x = %i, y = %i, z = %i\n\r", dig_x, dig_y, dig_z);
+  sprintf(gyro, "x = %i, y = %i, z = %i\n\r", dig_x, dig_y, dig_z);
+  HAL_UART_Transmit(&huart2, (uint8_t*)gyro, strlen(gyro), HAL_MAX_DELAY);
   }
 
 }
