@@ -68,6 +68,7 @@
 #define MPU6050_WHO_AM_I			0x75
 
 /* Gyro sensitivities in degrees/s */
+//ジャイロスケールレンジ
 #define MPU6050_GYRO_SENS_250		((float) 131)
 #define MPU6050_GYRO_SENS_500		((float) 65.5)
 #define MPU6050_GYRO_SENS_1000		((float) 32.8)
@@ -233,7 +234,7 @@ SD_MPU6050_Result SD_MPU6050_SetGyroscope(I2C_HandleTypeDef* I2Cx,SD_MPU6050* Da
 	/*{
 				return SD_MPU6050_Result_Error;
 	}*/
-
+//Gyromult ジャイロをdigree/sに変換
 	switch (GyroscopeSensitivity) {
 			case SD_MPU6050_Gyroscope_250s:
 				DataStruct->Gyro_Mult = (float)1 / MPU6050_GYRO_SENS_250;

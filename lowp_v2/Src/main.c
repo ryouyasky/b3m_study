@@ -164,11 +164,11 @@ int main(void)
   uint8_t mpu_ok[15] = {"MPU WORK FINE\n"};
   uint8_t mpu_not[17] = {"MPU NOT WORKING\n"};
 
-  int16_t diff = 0; //IMU出力角度
+  float diff = 0; //IMU出力角度
   int16_t dig_x = 0;
-  int16_t dig_y = 0;
+  float dig_y = 0;
   int16_t dig_z = 0;
-  int16_t lp = 0;
+  float lp;
   /* MCU Configuration----------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -216,14 +216,18 @@ int main(void)
   float ba_x = 0;
   float ba_y = 0;
   float ba_z = 0;
-;
+
   float g_x = 0;
   float g_y = 0;
   float g_z = 0;
 
-  int16_t a_x = mpu1.Accelerometer_X;
-  int16_t a_y = mpu1.Accelerometer_Y;
-  int16_t a_z = mpu1.Accelerometer_Z;
+  int16_t gy;
+
+  bg_x = mpu1.Gyroscope_X;
+  bg_y = mpu1.Gyroscope_Y;
+  bg_z = mpu1.Gyroscope_Z;
+
+  lp = 37;
 
   /* Infinite loop */
   while (1)
@@ -235,7 +239,7 @@ int main(void)
     }
     //setModeToNormal();
     //HAL_Delay(1000);
-    // HAL_Delay(1);
+     //HAL_Delay(1);
     //B3M_Write_1B(huart1, SERVO_ID_0, OPERATION_MODE_RunNormal, SERVO_TORQUE_ON);
     //HAL_Delay(100);
 
@@ -248,7 +252,7 @@ int main(void)
 
     B3M_SetDesirePostion(huart1, SERVO_ID_0, -1000);
     B3M_SetDesirePostion(huart6, SERVO_ID_0, -6000);
-    HAL_Delay(1000);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET);;
     */
     char gyro[20], acc[20];
 
@@ -256,10 +260,12 @@ int main(void)
     g_x = mpu1.Gyroscope_X;
     g_y = mpu1.Gyroscope_Y;
     g_z = mpu1.Gyroscope_Z;
+
+    //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, RESET);
     //default int16_t
     //HAL_UART_Transmit(&huart2, (uint16_t*)(&g_x), 16,HAL_MAX_DELAY);
 
-    SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);
+    //SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);//1125-915 = 210μs
 
     /*
     int16_t a_x = mpu1.Accelerometer_X / 4095;
@@ -273,7 +279,7 @@ int main(void)
 
     //ローパスフィルタ
     //y = exp(-st/tc) * (x-1) + (1-exp(-st/tc)) * val
-    lp = 0.549 * mpu1.Accelerometer_X;
+    //lp = 0.549 * mpu1.Accelerometer_X;
 
     //加速度角度表記
     //sprintf(acc, "%i\n\r", lp);
@@ -298,27 +304,46 @@ int main(void)
    //B3M_SetDesirePostion(huart6, SERVO_ID_6, diff);
 */
 /*積算*/
-/*
-  dig_x += g_x * 0.001;
-  dig_y += g_y * 0.001;
-  dig_z += g_z * 0.001;
-*/
+
+  //dig_x += g_x * 0.001;
+  //dig_y += (g_y - lp)* 0.00091;
+  //dig_z += g_z * 0.001;
+
 //台形近似
+  //dig_x += (bg_x + g_x) * 0.0001 / 2 ;
+  dig_y += (bg_y + g_y - lp) * 0.00091 / 2/108 ;//0.00091
+  //dig_z += (bg_z + g_z) * 0.0001 / 2 ;
 
-  dig_x += (bg_x + g_x) * 0.001 / 2 ;
-  dig_y += (bg_y + g_y) * 0.001 / 2 ;
-  dig_z += (bg_z + g_z) * 0.001 / 2 ;
+  //gy = 0.90 * gy + (1 - 0.90) * dig_y;
 
-  //dig_x += dig_y * sin(g_z * 0.001 * 3.1415/180);
-  //dig_y += dig_x * sin(g_z * 0.001 * 3.1415/180);
+  //dig_x += dig_y * sin(g_z * 0.0001 * 3.1415/180);
+  //dig_y += dig_x * sin(g_z * 0.0001 * 3.1415/180);
+
+  //ローパスフィルタ
+  //y = exp(-st/tc) * (x-1) + (1-exp(-st/tc)) * val
+  //lp = 0.549 * mpu1.Accelerometer_X;
 
   bg_x = g_x;
-  bg_y = g_y;
+  bg_y = g_y - lp;
   bg_z = g_z;
+  //diff = bg_y*100000;
+  //sprintf(gyro, "x = %i, y = %i, z = %i\n\r", dig_x, dig_y, dig_z);
+  //sprintf(gyro, " y = %i\n\r", mpu1.Gyroscope_Y);
 
-  //  sprintf(gyro, "x = %i, y = %i, z = %i\n\r", dig_x, dig_y, dig_z);
-  sprintf(gyro, "x = %i, y = %i, z = %i\n\r", dig_x, dig_y, dig_z);
+  //lp = mpu1.Gyroscope_Y;//あいだは2.5μで切り替わりが0.9ms
+  //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, SET);
+
+  gy = dig_y;
+  //sprintf(gyro, "%i\n\r", mpu1.Gyroscope_Y);
+  sprintf(gyro, " y = %i\n\r", gy);
   HAL_UART_Transmit(&huart2, (uint8_t*)gyro, strlen(gyro), HAL_MAX_DELAY);
+
+  //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, RESET);
+  //HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+  //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, SET);
+  //HAL_Delay(1);
+
+  //lp = mpu1.Gyroscope_Y;
   }
 
 }
@@ -496,8 +521,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -509,14 +535,28 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
     /*Configure GPIO pin : PC8 */
   GPIO_InitStruct.Pin = GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    /*Configure GPIO pin : PB3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /*Configure GPIO pin : PC9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }

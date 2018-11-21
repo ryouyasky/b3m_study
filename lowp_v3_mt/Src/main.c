@@ -165,9 +165,9 @@ int main(void)
   uint8_t mpu_not[17] = {"MPU NOT WORKING\n"};
 
   float diff = 0; //IMU出力角度
-  int16_t dig_x = 0;
+  float dig_x = 0;
   float dig_y = 0;
-  int16_t dig_z = 0;
+  float dig_z = 0;
   float lp;
   /* MCU Configuration----------------------------------------------------------*/
 
@@ -199,7 +199,7 @@ int main(void)
   }
 
   B3M_RunNormal(huart1, SERVO_ID_1);
-  B3M_RunNormal(huart6, SERVO_ID_6);
+  B3M_RunNormal(huart6, SERVO_ID_1);
 
   SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);
   SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
@@ -236,10 +236,12 @@ int main(void)
   while (1)
   {
     if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)==GPIO_PIN_RESET){
-      B3M_RunNormal(huart1, SERVO_ID_1);
-      B3M_RunNormal(huart6, SERVO_ID_6);
+      //B3M_RunNormal(huart1, SERVO_ID_1);
+      B3M_RunNormal(huart6, SERVO_ID_1);
       HAL_Delay(100);
     }
+
+    //B3M_RunNormal(huart6, SERVO_ID_1);
     //setModeToNormal();
     //HAL_Delay(1000);
      //HAL_Delay(1);
@@ -247,15 +249,15 @@ int main(void)
     //HAL_Delay(100);
 
     /*サーボ回転角度指定 */
-/*
-    B3M_SetDesirePostion(huart1, SERVO_ID_1, 500);
-    B3M_SetDesirePostion(huart6, SERVO_ID_6, 500);
-    HAL_Delay(200);
 
-    B3M_SetDesirePostion(huart1, SERVO_ID_1, -500);
-    B3M_SetDesirePostion(huart6, SERVO_ID_6, -500);
-    HAL_Delay(200);
-    */
+    //B3M_SetDesirePostion(huart1, SERVO_ID_1, 500);
+    //B3M_SetDesirePostion(huart6, SERVO_ID_1, 500);
+    //HAL_Delay(200);
+
+    //B3M_SetDesirePostion(huart1, SERVO_ID_1, -500);
+    //B3M_SetDesirePostion(huart6, SERVO_ID_1, -500);
+    //HAL_Delay(200);
+
     //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET);
 
     char gyro_x[20], gyro_y[20];
@@ -315,9 +317,9 @@ int main(void)
 
 //台形近似
   //dig_x += (bg_x + g_x - lp) * 0.00297 / 2/50;
-  dig_y += (bg_y + g_y - lp) * 0.00297 / 2/135;//0.00091
-//0.00297__sprintf_b3m
-//
+  dig_y += (bg_y + g_y - lp) * 0.001985 / 2/86;//0.00091(b3mなし)
+//0.00297__sprintf_b3m(/135)
+//0.00198__b3m1,500,000to300
 
   //dig_z += (bg_z + g_z) * 0.0001 / 2 ;
 
@@ -345,8 +347,8 @@ int main(void)
 
 
   //imu6050
-  sprintf(gyro_y, " y = %i\n\r", gy);
-  HAL_UART_Transmit(&huart2, (uint8_t*)gyro_y, strlen(gyro_y), HAL_MAX_DELAY);
+  //sprintf(gyro_y, " y = %i\n\r", gy);
+  //HAL_UART_Transmit(&huart2, (uint8_t*)gyro_y, strlen(gyro_y), HAL_MAX_DELAY);
 
   //sprintf(gyro_x, " x = %i\n\r", gx);
   //HAL_UART_Transmit(&huart2, (uint8_t*)gyro_x, strlen(gyro_x), HAL_MAX_DELAY);
@@ -355,10 +357,10 @@ int main(void)
   ey = dig_y * 100;
 
   //B3M_SetDesirePostion(huart1, SERVO_ID_1, ey);
-  B3M_SetDesirePostion(huart6, SERVO_ID_6, ey);
+  B3M_SetDesirePostion(huart6, SERVO_ID_1, ey);
 
   //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, RESET);
-  //HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
   //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, SET);
   //HAL_Delay(1);
 
@@ -492,7 +494,7 @@ static void MX_USART6_UART_Init(void)
 {
 
   huart6.Instance = USART6;
-  huart6.Init.BaudRate = 115200;
+  huart6.Init.BaudRate = 1500000;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;
