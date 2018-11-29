@@ -169,6 +169,7 @@ int main(void)
   float dig_y = 0;
   float dig_z = 0;
   float lp;
+  uint8_t i = 0;
   /* MCU Configuration----------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -262,7 +263,8 @@ int main(void)
 
     char gyro_x[20], gyro_y[20];
 
-    SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
+      SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
+
     g_x = mpu1.Gyroscope_X;
     g_y = mpu1.Gyroscope_Y;
     g_z = mpu1.Gyroscope_Z;
@@ -347,8 +349,8 @@ int main(void)
 
 
   //imu6050
-  //sprintf(gyro_y, " y = %i\n\r", gy);
-  //HAL_UART_Transmit(&huart2, (uint8_t*)gyro_y, strlen(gyro_y), HAL_MAX_DELAY);
+  sprintf(gyro_y, " y = %i\n\r", gy);
+  HAL_UART_Transmit(&huart2, (uint8_t*)gyro_y, strlen(gyro_y), HAL_MAX_DELAY);
 
   //sprintf(gyro_x, " x = %i\n\r", gx);
   //HAL_UART_Transmit(&huart2, (uint8_t*)gyro_x, strlen(gyro_x), HAL_MAX_DELAY);
@@ -358,6 +360,8 @@ int main(void)
 
   //B3M_SetDesirePostion(huart1, SERVO_ID_1, ey);
   B3M_SetDesirePostion(huart6, SERVO_ID_1, ey);
+//HAL_Delay(0.01);
+  //  B3M_SetDesirePostion(huart6, SERVO_ID_1, 1000);
 
   //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, RESET);
   HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
