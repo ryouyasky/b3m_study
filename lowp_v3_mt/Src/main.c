@@ -275,16 +275,6 @@ int main(void)
 
     //SD_MPU6050_ReadAccelerometer(&hi2c1,&mpu1);//1125-915 = 210μs
 
-    /*
-    int16_t a_x = mpu1.Accelerometer_X / 4095;
-    int16_t a_y = mpu1.Accelerometer_Y / 4095;
-    int16_t a_z = mpu1.Accelerometer_Z / 4095;
-
-    int16_t acc_angle_x = atan2(a_x, a_z) * 360 / 2.0 / 3.1415;
-    int16_t acc_angle_y = atan2(a_y, a_z) * 360 / 2.0 / 3.1415;
-    int16_t acc_angle_z = atan2(a_x, a_y) * 360 / 2.0 / 3.1415;
-    */
-
     //ローパスフィルタ
     //y = exp(-st/tc) * (x-1) + (1-exp(-st/tc)) * val
     //lp = 0.549 * mpu1.Accelerometer_X;
@@ -319,7 +309,8 @@ int main(void)
 
 //台形近似
   //dig_x += (bg_x + g_x - lp) * 0.00297 / 2/50;
-  dig_y += (bg_y + g_y - lp) * 0.001985 / 2/86;//0.00091(b3mなし)
+  dig_y += (bg_y + g_y - lp) * 0.000397 / 2/122;//0.00091(b3mなし)
+//0.00109以前 haldelay0.1+sprintf
 //0.00297__sprintf_b3m(/135)
 //0.00198__b3m1,500,000to300
 
@@ -349,8 +340,8 @@ int main(void)
 
 
   //imu6050
-  sprintf(gyro_y, " y = %i\n\r", gy);
-  HAL_UART_Transmit(&huart2, (uint8_t*)gyro_y, strlen(gyro_y), HAL_MAX_DELAY);
+  //sprintf(gyro_y, " y = %i\n\r", gy);
+  //HAL_UART_Transmit(&huart2, (uint8_t*)gyro_y, strlen(gyro_y), HAL_MAX_DELAY);
 
   //sprintf(gyro_x, " x = %i\n\r", gx);
   //HAL_UART_Transmit(&huart2, (uint8_t*)gyro_x, strlen(gyro_x), HAL_MAX_DELAY);
@@ -359,9 +350,11 @@ int main(void)
   ey = dig_y * 100;
 
   //B3M_SetDesirePostion(huart1, SERVO_ID_1, ey);
+
   B3M_SetDesirePostion(huart6, SERVO_ID_1, ey);
-//HAL_Delay(0.01);
-  //  B3M_SetDesirePostion(huart6, SERVO_ID_1, 1000);
+  //B3M_SetDesirePostion(huart6, SERVO_ID_1, 100);
+
+  //B3M_SetDesirePostion(huart6, SERVO_ID_1, 1000);
 
   //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, RESET);
   HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
@@ -421,7 +414,7 @@ void SystemClock_Config(void)
 
     /**Configure the Systick interrupt time
     */
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/10000);
 
     /**Configure the Systick
     */

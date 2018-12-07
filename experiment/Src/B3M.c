@@ -211,31 +211,62 @@ void B3M_Reset(UART_HandleTypeDef huart, uint8_t SERVO_ID, uint8_t TIME)
 uint8_t B3M_SetDesirePostion(UART_HandleTypeDef huart, uint8_t SERVO_ID, int16_t POSITION)
 {
     /* Local Variable */
-    uint8_t TxData[9];
+    //uint8_t TxData[9];
+		uint8_t TxData[12];
+
     uint8_t CheckSum = 0;
+
+		//
+		uint8_t SERVO_subID = 10;
+		//
 
     if(POSITION<0)
         POSITION = 65535+POSITION+1;
-
-    TxData[0] = SIZE_9b;                                // SIZE
+/*
+		TxData[0] = 0x09;//=SIZE_9b                                // SIZE
     TxData[1] = COMMAND_WRITE;                          // CMD
     TxData[2] = OPTION_DEFAULT;                         // OPTION
-    TxData[3] = SERVO_ID;                               // ID
+    TxData[3] = SERVO_ID;																// ID
     TxData[4] = (uint8_t)0x00FF & POSITION;             // POSITION_LSB
     TxData[5] = (uint8_t)0x00FF & (POSITION >> 8);      // POSITION_MSB
+
     TxData[6] =SERVO_DESIRED_POSITION;        			// ADR
     TxData[7] = COUNT;                                  // COUNT
 
+		for(uint8_t i=0; i<=7; i++){
+				CheckSum = CheckSum + TxData[i];                // XOR from ID to Data
+		}
+		CheckSum = (uint8_t)0x00FF & CheckSum;              // CHECKSUM
+
+		TxData[8] = CheckSum;
+
+		HAL_UART_Transmit(&huart, (uint8_t*)TxData, 9, HAL_MAX_DELAY);
+		HAL_Delay(0.1);
+		return 0;
+*/
+		TxData[0] = 0x0C;                               // SIZE
+		TxData[1] = COMMAND_WRITE;                          // CMD
+		TxData[2] = OPTION_DEFAULT;                         // OPTION
+		TxData[3] = SERVO_ID;																// ID
+		TxData[4] = (uint8_t)0x00FF & POSITION;             // POSITION_LSB
+		TxData[5] = (uint8_t)0x00FF & (POSITION >> 8);      // POSITION_MSB
+
+		TxData[6] = SERVO_subID;																// ID
+		TxData[7] = 0;             // POSITION_LSB
+		TxData[8] = 0;      // POSITION_MSB
+
+		TxData[9] =SERVO_DESIRED_POSITION;        			// ADR
+		TxData[10] = COUNT;                                  // COUNT
     /* CheckSum Calculation */
-    for(uint8_t i=0; i<=7; i++){
+    for(uint8_t i=0; i<=10; i++){
         CheckSum = CheckSum + TxData[i];                // XOR from ID to Data
     }
     CheckSum = (uint8_t)0x00FF & CheckSum;              // CHECKSUM
 
-    TxData[8] = CheckSum;
+    TxData[11] = CheckSum;
 
-    HAL_UART_Transmit(&huart, (uint8_t*)TxData, 9, HAL_MAX_DELAY);
-    HAL_Delay(0.01);
+    HAL_UART_Transmit(&huart, (uint8_t*)TxData, 12, HAL_MAX_DELAY);
+    HAL_Delay(0.1);
     return 0;
 }
 

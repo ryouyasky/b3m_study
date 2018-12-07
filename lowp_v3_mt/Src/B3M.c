@@ -235,7 +235,7 @@ uint8_t B3M_SetDesirePostion(UART_HandleTypeDef huart, uint8_t SERVO_ID, int16_t
     TxData[8] = CheckSum;
 
     HAL_UART_Transmit(&huart, (uint8_t*)TxData, 9, HAL_MAX_DELAY);
-    HAL_Delay(0.1);
+    HAL_Delay(1);
     return 0;
 }
 

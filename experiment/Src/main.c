@@ -241,14 +241,14 @@ int main(void)
       B3M_RunNormal(huart6, SERVO_ID_1);
       HAL_Delay(100);
     }
-
-
+      SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
+    //B3M_RunNormal(huart6, SERVO_ID_1);
     //for(i=0; i<5; i++){
       //SD_MPU6050_ReadGyroscope(&hi2c1,&mpu1);
       B3M_SetDesirePostion(huart6, SERVO_ID_1, 0);
-      //HAL_Delay(100);
-      //B3M_SetDesirePostion(huart6, SERVO_ID_1, 500);
-      //HAL_Delay(100);
+      HAL_Delay(1000);
+      B3M_SetDesirePostion(huart6, SERVO_ID_1, 500);
+      HAL_Delay(1000);
     //}
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
 
@@ -302,7 +302,7 @@ void SystemClock_Config(void)
 
     /**Configure the Systick interrupt time
     */
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/10000U);
 
     /**Configure the Systick
     */
