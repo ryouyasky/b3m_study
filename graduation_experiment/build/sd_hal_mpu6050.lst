@@ -1,0 +1,1599 @@
+ARM GAS  /tmp/ccfXFxqS.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 1
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.syntax unified
+  17              		.file	"sd_hal_mpu6050.c"
+  18              		.text
+  19              	.Ltext0:
+  20              		.cfi_sections	.debug_frame
+  21              		.section	.text.SD_MPU6050_SetDataRate,"ax",%progbits
+  22              		.align	2
+  23              		.global	SD_MPU6050_SetDataRate
+  24              		.thumb
+  25              		.thumb_func
+  27              	SD_MPU6050_SetDataRate:
+  28              	.LFB125:
+  29              		.file 1 "Src/sd_hal_mpu6050.c"
+   1:Src/sd_hal_mpu6050.c **** /*
+   2:Src/sd_hal_mpu6050.c ****  * sd_hal_mpu6050.c
+   3:Src/sd_hal_mpu6050.c ****  *
+   4:Src/sd_hal_mpu6050.c ****  *  Created on: Feb 19, 2016
+   5:Src/sd_hal_mpu6050.c ****  *      Author: Sina Darvishi
+   6:Src/sd_hal_mpu6050.c ****  */
+   7:Src/sd_hal_mpu6050.c **** 
+   8:Src/sd_hal_mpu6050.c **** /**
+   9:Src/sd_hal_mpu6050.c ****  * |----------------------------------------------------------------------
+  10:Src/sd_hal_mpu6050.c ****  * | Copyright (C) Sina Darvishi,2016
+  11:Src/sd_hal_mpu6050.c ****  * |
+  12:Src/sd_hal_mpu6050.c ****  * | This program is free software: you can redistribute it and/or modify
+  13:Src/sd_hal_mpu6050.c ****  * | it under the terms of the GNU General Public License as published by
+  14:Src/sd_hal_mpu6050.c ****  * | the Free Software Foundation, either version 3 of the License, or
+  15:Src/sd_hal_mpu6050.c ****  * | any later version.
+  16:Src/sd_hal_mpu6050.c ****  * |
+  17:Src/sd_hal_mpu6050.c ****  * | This program is distributed in the hope that it will be useful,
+  18:Src/sd_hal_mpu6050.c ****  * | but WITHOUT ANY WARRANTY; without even the implied warranty of
+  19:Src/sd_hal_mpu6050.c ****  * | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  20:Src/sd_hal_mpu6050.c ****  * | GNU General Public License for more details.
+  21:Src/sd_hal_mpu6050.c ****  * |
+  22:Src/sd_hal_mpu6050.c ****  * | You should have received a copy of the GNU General Public License
+  23:Src/sd_hal_mpu6050.c ****  * | along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  24:Src/sd_hal_mpu6050.c ****  * |----------------------------------------------------------------------
+  25:Src/sd_hal_mpu6050.c ****  */
+  26:Src/sd_hal_mpu6050.c **** 
+  27:Src/sd_hal_mpu6050.c **** #include "sd_hal_mpu6050.h"
+  28:Src/sd_hal_mpu6050.c **** 
+  29:Src/sd_hal_mpu6050.c **** /* Default I2C address */
+ARM GAS  /tmp/ccfXFxqS.s 			page 2
+
+
+  30:Src/sd_hal_mpu6050.c **** #define MPU6050_I2C_ADDR			0xD0
+  31:Src/sd_hal_mpu6050.c **** 
+  32:Src/sd_hal_mpu6050.c **** /* Who I am register value */
+  33:Src/sd_hal_mpu6050.c **** #define MPU6050_I_AM				0x68
+  34:Src/sd_hal_mpu6050.c **** 
+  35:Src/sd_hal_mpu6050.c **** /* MPU6050 registers */
+  36:Src/sd_hal_mpu6050.c **** #define MPU6050_AUX_VDDIO			0x01
+  37:Src/sd_hal_mpu6050.c **** #define MPU6050_SMPLRT_DIV			0x19
+  38:Src/sd_hal_mpu6050.c **** #define MPU6050_CONFIG				0x1A
+  39:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_CONFIG			0x1B
+  40:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCEL_CONFIG		0x1C
+  41:Src/sd_hal_mpu6050.c **** #define MPU6050_MOTION_THRESH		0x1F
+  42:Src/sd_hal_mpu6050.c **** #define MPU6050_INT_PIN_CFG			0x37
+  43:Src/sd_hal_mpu6050.c **** #define MPU6050_INT_ENABLE			0x38
+  44:Src/sd_hal_mpu6050.c **** #define MPU6050_INT_STATUS			0x3A
+  45:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCEL_XOUT_H		0x3B
+  46:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCEL_XOUT_L		0x3C
+  47:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCEL_YOUT_H		0x3D
+  48:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCEL_YOUT_L		0x3E
+  49:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCEL_ZOUT_H		0x3F
+  50:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCEL_ZOUT_L		0x40
+  51:Src/sd_hal_mpu6050.c **** #define MPU6050_TEMP_OUT_H			0x41
+  52:Src/sd_hal_mpu6050.c **** #define MPU6050_TEMP_OUT_L			0x42
+  53:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_XOUT_H			0x43
+  54:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_XOUT_L			0x44
+  55:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_YOUT_H			0x45
+  56:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_YOUT_L			0x46
+  57:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_ZOUT_H			0x47
+  58:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_ZOUT_L			0x48
+  59:Src/sd_hal_mpu6050.c **** #define MPU6050_MOT_DETECT_STATUS	0x61
+  60:Src/sd_hal_mpu6050.c **** #define MPU6050_SIGNAL_PATH_RESET	0x68
+  61:Src/sd_hal_mpu6050.c **** #define MPU6050_MOT_DETECT_CTRL		0x69
+  62:Src/sd_hal_mpu6050.c **** #define MPU6050_USER_CTRL			0x6A
+  63:Src/sd_hal_mpu6050.c **** #define MPU6050_PWR_MGMT_1			0x6B
+  64:Src/sd_hal_mpu6050.c **** #define MPU6050_PWR_MGMT_2			0x6C
+  65:Src/sd_hal_mpu6050.c **** #define MPU6050_FIFO_COUNTH			0x72
+  66:Src/sd_hal_mpu6050.c **** #define MPU6050_FIFO_COUNTL			0x73
+  67:Src/sd_hal_mpu6050.c **** #define MPU6050_FIFO_R_W			0x74
+  68:Src/sd_hal_mpu6050.c **** #define MPU6050_WHO_AM_I			0x75
+  69:Src/sd_hal_mpu6050.c **** 
+  70:Src/sd_hal_mpu6050.c **** /* Gyro sensitivities in degrees/s */
+  71:Src/sd_hal_mpu6050.c **** //ジャイロスケールレンジ
+  72:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_SENS_250		((float) 131)
+  73:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_SENS_500		((float) 65.5)
+  74:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_SENS_1000		((float) 32.8)
+  75:Src/sd_hal_mpu6050.c **** #define MPU6050_GYRO_SENS_2000		((float) 16.4)
+  76:Src/sd_hal_mpu6050.c **** 
+  77:Src/sd_hal_mpu6050.c **** /* Acce sensitivities in g/s */
+  78:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCE_SENS_2			((float) 16384)
+  79:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCE_SENS_4			((float) 8192)
+  80:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCE_SENS_8			((float) 4096)
+  81:Src/sd_hal_mpu6050.c **** #define MPU6050_ACCE_SENS_16		((float) 2048)
+  82:Src/sd_hal_mpu6050.c **** 
+  83:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_Init(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct, SD_MPU6050_Device
+  84:Src/sd_hal_mpu6050.c **** {
+  85:Src/sd_hal_mpu6050.c **** 	uint8_t WHO_AM_I = (uint8_t)MPU6050_WHO_AM_I;
+  86:Src/sd_hal_mpu6050.c **** 	uint8_t temp;
+ARM GAS  /tmp/ccfXFxqS.s 			page 3
+
+
+  87:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+  88:Src/sd_hal_mpu6050.c **** 	uint8_t d[2];
+  89:Src/sd_hal_mpu6050.c **** 
+  90:Src/sd_hal_mpu6050.c **** 
+  91:Src/sd_hal_mpu6050.c **** 	/* Format I2C address */
+  92:Src/sd_hal_mpu6050.c **** 	DataStruct->Address = MPU6050_I2C_ADDR | (uint8_t)DeviceNumber;
+  93:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+  94:Src/sd_hal_mpu6050.c **** 
+  95:Src/sd_hal_mpu6050.c **** 	/* Check if device is connected */
+  96:Src/sd_hal_mpu6050.c **** 	if(HAL_I2C_IsDeviceReady(Handle,address,2,5)!=HAL_OK)
+  97:Src/sd_hal_mpu6050.c **** 	{
+  98:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+  99:Src/sd_hal_mpu6050.c **** 	}
+ 100:Src/sd_hal_mpu6050.c **** 	/* Check who am I */
+ 101:Src/sd_hal_mpu6050.c **** 	//------------------
+ 102:Src/sd_hal_mpu6050.c **** 		/* Send address */
+ 103:Src/sd_hal_mpu6050.c **** 		if(HAL_I2C_Master_Transmit(Handle, address, &WHO_AM_I, 1, 1000) != HAL_OK)
+ 104:Src/sd_hal_mpu6050.c **** 		{
+ 105:Src/sd_hal_mpu6050.c **** 			return SD_MPU6050_Result_Error;
+ 106:Src/sd_hal_mpu6050.c **** 		}
+ 107:Src/sd_hal_mpu6050.c **** 
+ 108:Src/sd_hal_mpu6050.c **** 		/* Receive multiple byte */
+ 109:Src/sd_hal_mpu6050.c **** 		if(HAL_I2C_Master_Receive(Handle, address, &temp, 1, 1000) != HAL_OK)
+ 110:Src/sd_hal_mpu6050.c **** 		{
+ 111:Src/sd_hal_mpu6050.c **** 			return SD_MPU6050_Result_Error;
+ 112:Src/sd_hal_mpu6050.c **** 		}
+ 113:Src/sd_hal_mpu6050.c **** 
+ 114:Src/sd_hal_mpu6050.c **** 		/* Checking */
+ 115:Src/sd_hal_mpu6050.c **** 		while(temp != MPU6050_I_AM)
+ 116:Src/sd_hal_mpu6050.c **** 		{
+ 117:Src/sd_hal_mpu6050.c **** 				/* Return error */
+ 118:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_DeviceInvalid;
+ 119:Src/sd_hal_mpu6050.c **** 		}
+ 120:Src/sd_hal_mpu6050.c **** 	//------------------
+ 121:Src/sd_hal_mpu6050.c **** 
+ 122:Src/sd_hal_mpu6050.c **** 	/* Wakeup MPU6050 */
+ 123:Src/sd_hal_mpu6050.c **** 	//------------------
+ 124:Src/sd_hal_mpu6050.c **** 		/* Format array to send */
+ 125:Src/sd_hal_mpu6050.c **** 		d[0] = MPU6050_PWR_MGMT_1;
+ 126:Src/sd_hal_mpu6050.c **** 		d[1] = 0x00;
+ 127:Src/sd_hal_mpu6050.c **** 
+ 128:Src/sd_hal_mpu6050.c **** 		/* Try to transmit via I2C */
+ 129:Src/sd_hal_mpu6050.c **** 		if(HAL_I2C_Master_Transmit(Handle,(uint16_t)address , (uint8_t *)d, 2, 1000) != HAL_OK)
+ 130:Src/sd_hal_mpu6050.c **** 		{
+ 131:Src/sd_hal_mpu6050.c **** 					return SD_MPU6050_Result_Error;
+ 132:Src/sd_hal_mpu6050.c **** 		}
+ 133:Src/sd_hal_mpu6050.c **** 	//------------------
+ 134:Src/sd_hal_mpu6050.c **** 
+ 135:Src/sd_hal_mpu6050.c **** 	/* Set sample rate to 1kHz */
+ 136:Src/sd_hal_mpu6050.c **** 	SD_MPU6050_SetDataRate(I2Cx,DataStruct, SD_MPU6050_DataRate_1KHz);
+ 137:Src/sd_hal_mpu6050.c **** 
+ 138:Src/sd_hal_mpu6050.c **** 	/* Config accelerometer */
+ 139:Src/sd_hal_mpu6050.c **** 	SD_MPU6050_SetAccelerometer(I2Cx,DataStruct, AccelerometerSensitivity);
+ 140:Src/sd_hal_mpu6050.c **** 
+ 141:Src/sd_hal_mpu6050.c **** 	/* Config Gyroscope */
+ 142:Src/sd_hal_mpu6050.c **** 	SD_MPU6050_SetGyroscope(I2Cx,DataStruct, GyroscopeSensitivity);
+ 143:Src/sd_hal_mpu6050.c **** 
+ARM GAS  /tmp/ccfXFxqS.s 			page 4
+
+
+ 144:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 145:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 146:Src/sd_hal_mpu6050.c **** }
+ 147:Src/sd_hal_mpu6050.c **** 
+ 148:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_SetDataRate(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct, uint8_t ra
+ 149:Src/sd_hal_mpu6050.c **** {
+  30              		.loc 1 149 0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 8
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              	.LVL0:
+  35 0000 30B5     		push	{r4, r5, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 12
+  38              		.cfi_offset 4, -12
+  39              		.cfi_offset 5, -8
+  40              		.cfi_offset 14, -4
+  41 0002 85B0     		sub	sp, sp, #20
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 32
+  44 0004 0546     		mov	r5, r0
+  45              	.LVL1:
+ 150:Src/sd_hal_mpu6050.c **** 	uint8_t d[2];
+ 151:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 152:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+  46              		.loc 1 152 0
+  47 0006 0C78     		ldrb	r4, [r1]	@ zero_extendqisi2
+  48              	.LVL2:
+ 153:Src/sd_hal_mpu6050.c **** 	/* Format array to send */
+ 154:Src/sd_hal_mpu6050.c **** 	d[0] = MPU6050_SMPLRT_DIV;
+  49              		.loc 1 154 0
+  50 0008 1923     		movs	r3, #25
+  51 000a 8DF80C30 		strb	r3, [sp, #12]
+ 155:Src/sd_hal_mpu6050.c **** 	d[1] = rate;
+  52              		.loc 1 155 0
+  53 000e 8DF80D20 		strb	r2, [sp, #13]
+  54              	.LVL3:
+  55              	.L2:
+ 156:Src/sd_hal_mpu6050.c **** 
+ 157:Src/sd_hal_mpu6050.c **** 	/* Set data sample rate */
+ 158:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle,(uint16_t)address,(uint8_t *)d,2,1000)!=HAL_OK);
+  56              		.loc 1 158 0 discriminator 1
+  57 0012 4FF47A73 		mov	r3, #1000
+  58 0016 0093     		str	r3, [sp]
+  59 0018 0223     		movs	r3, #2
+  60 001a 03AA     		add	r2, sp, #12
+  61 001c 2146     		mov	r1, r4
+  62 001e 2846     		mov	r0, r5
+  63 0020 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+  64              	.LVL4:
+  65 0024 0028     		cmp	r0, #0
+  66 0026 F4D1     		bne	.L2
+ 159:Src/sd_hal_mpu6050.c **** 	/*{
+ 160:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+ 161:Src/sd_hal_mpu6050.c **** 	}*/
+ 162:Src/sd_hal_mpu6050.c **** 
+ 163:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ARM GAS  /tmp/ccfXFxqS.s 			page 5
+
+
+ 164:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 165:Src/sd_hal_mpu6050.c **** }
+  67              		.loc 1 165 0
+  68 0028 05B0     		add	sp, sp, #20
+  69              	.LCFI2:
+  70              		.cfi_def_cfa_offset 12
+  71              		@ sp needed
+  72 002a 30BD     		pop	{r4, r5, pc}
+  73              		.cfi_endproc
+  74              	.LFE125:
+  76              		.section	.text.SD_MPU6050_SetAccelerometer,"ax",%progbits
+  77              		.align	2
+  78              		.global	SD_MPU6050_SetAccelerometer
+  79              		.thumb
+  80              		.thumb_func
+  82              	SD_MPU6050_SetAccelerometer:
+  83              	.LFB126:
+ 166:Src/sd_hal_mpu6050.c **** 
+ 167:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_SetAccelerometer(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct, SD_MP
+ 168:Src/sd_hal_mpu6050.c **** {
+  84              		.loc 1 168 0
+  85              		.cfi_startproc
+  86              		@ args = 0, pretend = 0, frame = 8
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88              	.LVL5:
+  89 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  90              	.LCFI3:
+  91              		.cfi_def_cfa_offset 24
+  92              		.cfi_offset 4, -24
+  93              		.cfi_offset 5, -20
+  94              		.cfi_offset 6, -16
+  95              		.cfi_offset 7, -12
+  96              		.cfi_offset 8, -8
+  97              		.cfi_offset 14, -4
+  98 0004 84B0     		sub	sp, sp, #16
+  99              	.LCFI4:
+ 100              		.cfi_def_cfa_offset 40
+ 101 0006 0546     		mov	r5, r0
+ 102 0008 8846     		mov	r8, r1
+ 103 000a 1746     		mov	r7, r2
+ 104              	.LVL6:
+ 169:Src/sd_hal_mpu6050.c **** 	uint8_t temp;
+ 170:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 171:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 105              		.loc 1 171 0
+ 106 000c 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 107              	.LVL7:
+ 172:Src/sd_hal_mpu6050.c **** 	uint8_t regAdd =(uint8_t )MPU6050_ACCEL_CONFIG;
+ 108              		.loc 1 172 0
+ 109 000e 1C23     		movs	r3, #28
+ 110 0010 8DF80E30 		strb	r3, [sp, #14]
+ 111              	.LVL8:
+ 112              	.L5:
+ 173:Src/sd_hal_mpu6050.c **** 
+ 174:Src/sd_hal_mpu6050.c **** 	/* Config accelerometer */
+ 175:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address,&regAdd, 1, 1000) != HAL_OK);
+ 113              		.loc 1 175 0 discriminator 1
+ARM GAS  /tmp/ccfXFxqS.s 			page 6
+
+
+ 114 0014 B4B2     		uxth	r4, r6
+ 115 0016 4FF47A73 		mov	r3, #1000
+ 116 001a 0093     		str	r3, [sp]
+ 117 001c 0123     		movs	r3, #1
+ 118 001e 0DF10E02 		add	r2, sp, #14
+ 119 0022 2146     		mov	r1, r4
+ 120 0024 2846     		mov	r0, r5
+ 121 0026 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 122              	.LVL9:
+ 123 002a 0028     		cmp	r0, #0
+ 124 002c F2D1     		bne	.L5
+ 125              	.L6:
+ 176:Src/sd_hal_mpu6050.c **** 	/*{
+ 177:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+ 178:Src/sd_hal_mpu6050.c **** 	}*/
+ 179:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, &temp, 1, 1000) != HAL_OK);
+ 126              		.loc 1 179 0 discriminator 1
+ 127 002e 4FF47A73 		mov	r3, #1000
+ 128 0032 0093     		str	r3, [sp]
+ 129 0034 0123     		movs	r3, #1
+ 130 0036 0DF10F02 		add	r2, sp, #15
+ 131 003a 2146     		mov	r1, r4
+ 132 003c 2846     		mov	r0, r5
+ 133 003e FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 134              	.LVL10:
+ 135 0042 0028     		cmp	r0, #0
+ 136 0044 F3D1     		bne	.L6
+ 180:Src/sd_hal_mpu6050.c **** 	/*{
+ 181:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+ 182:Src/sd_hal_mpu6050.c **** 	}*/
+ 183:Src/sd_hal_mpu6050.c **** 	temp = (temp & 0xE7) | (uint8_t)AccelerometerSensitivity << 3;
+ 137              		.loc 1 183 0
+ 138 0046 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2
+ 139 004a 23F01803 		bic	r3, r3, #24
+ 140 004e 43EAC703 		orr	r3, r3, r7, lsl #3
+ 141 0052 8DF80F30 		strb	r3, [sp, #15]
+ 142              	.L7:
+ 184:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address,&temp, 1, 1000) != HAL_OK);
+ 143              		.loc 1 184 0 discriminator 1
+ 144 0056 4FF47A73 		mov	r3, #1000
+ 145 005a 0093     		str	r3, [sp]
+ 146 005c 0123     		movs	r3, #1
+ 147 005e 0DF10F02 		add	r2, sp, #15
+ 148 0062 2146     		mov	r1, r4
+ 149 0064 2846     		mov	r0, r5
+ 150 0066 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 151              	.LVL11:
+ 152 006a 0028     		cmp	r0, #0
+ 153 006c F3D1     		bne	.L7
+ 185:Src/sd_hal_mpu6050.c **** 	/*{
+ 186:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+ 187:Src/sd_hal_mpu6050.c **** 	}*/
+ 188:Src/sd_hal_mpu6050.c **** 
+ 189:Src/sd_hal_mpu6050.c **** 	/* mpu6050内部ローパスフィルタ */
+ 190:Src/sd_hal_mpu6050.c **** 	/*
+ 191:Src/sd_hal_mpu6050.c **** 	uint8_t lowp = 0x06;
+ 192:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Mem_Write(Handle, (uint16_t)address, (uint8_t)0x1A, 1, &lowp, 1, 1000) != HAL_OK);
+ARM GAS  /tmp/ccfXFxqS.s 			page 7
+
+
+ 193:Src/sd_hal_mpu6050.c **** 	*/
+ 194:Src/sd_hal_mpu6050.c **** 	/* Set sensitivities for multiplying gyro and accelerometer data */
+ 195:Src/sd_hal_mpu6050.c **** 	switch (AccelerometerSensitivity) {
+ 154              		.loc 1 195 0
+ 155 006e 032F     		cmp	r7, #3
+ 156 0070 16D8     		bhi	.L8
+ 157 0072 DFE807F0 		tbb	[pc, r7]
+ 158              	.L10:
+ 159 0076 02       		.byte	(.L9-.L10)/2
+ 160 0077 07       		.byte	(.L11-.L10)/2
+ 161 0078 0C       		.byte	(.L12-.L10)/2
+ 162 0079 11       		.byte	(.L13-.L10)/2
+ 163              		.p2align 1
+ 164              	.L9:
+ 196:Src/sd_hal_mpu6050.c **** 		case SD_MPU6050_Accelerometer_2G:
+ 197:Src/sd_hal_mpu6050.c **** 			DataStruct->Acce_Mult = (float)1 / MPU6050_ACCE_SENS_2;
+ 165              		.loc 1 197 0
+ 166 007a 4FF06253 		mov	r3, #947912704
+ 167 007e C8F80830 		str	r3, [r8, #8]	@ float
+ 198:Src/sd_hal_mpu6050.c **** 			break;
+ 168              		.loc 1 198 0
+ 169 0082 0DE0     		b	.L8
+ 170              	.L11:
+ 199:Src/sd_hal_mpu6050.c **** 		case SD_MPU6050_Accelerometer_4G:
+ 200:Src/sd_hal_mpu6050.c **** 			DataStruct->Acce_Mult = (float)1 / MPU6050_ACCE_SENS_4;
+ 171              		.loc 1 200 0
+ 172 0084 4FF06453 		mov	r3, #956301312
+ 173 0088 C8F80830 		str	r3, [r8, #8]	@ float
+ 201:Src/sd_hal_mpu6050.c **** 			break;
+ 174              		.loc 1 201 0
+ 175 008c 08E0     		b	.L8
+ 176              	.L12:
+ 202:Src/sd_hal_mpu6050.c **** 		case SD_MPU6050_Accelerometer_8G:
+ 203:Src/sd_hal_mpu6050.c **** 			DataStruct->Acce_Mult = (float)1 / MPU6050_ACCE_SENS_8;
+ 177              		.loc 1 203 0
+ 178 008e 4FF06653 		mov	r3, #964689920
+ 179 0092 C8F80830 		str	r3, [r8, #8]	@ float
+ 204:Src/sd_hal_mpu6050.c **** 			break;
+ 180              		.loc 1 204 0
+ 181 0096 03E0     		b	.L8
+ 182              	.L13:
+ 205:Src/sd_hal_mpu6050.c **** 		case SD_MPU6050_Accelerometer_16G:
+ 206:Src/sd_hal_mpu6050.c **** 			DataStruct->Acce_Mult = (float)1 / MPU6050_ACCE_SENS_16;
+ 183              		.loc 1 206 0
+ 184 0098 4FF06853 		mov	r3, #973078528
+ 185 009c C8F80830 		str	r3, [r8, #8]	@ float
+ 186              	.L8:
+ 207:Src/sd_hal_mpu6050.c **** 			break;
+ 208:Src/sd_hal_mpu6050.c **** 		default:
+ 209:Src/sd_hal_mpu6050.c **** 			break;
+ 210:Src/sd_hal_mpu6050.c **** 		}
+ 211:Src/sd_hal_mpu6050.c **** 
+ 212:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 213:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 214:Src/sd_hal_mpu6050.c **** }
+ 187              		.loc 1 214 0
+ 188 00a0 0020     		movs	r0, #0
+ARM GAS  /tmp/ccfXFxqS.s 			page 8
+
+
+ 189 00a2 04B0     		add	sp, sp, #16
+ 190              	.LCFI5:
+ 191              		.cfi_def_cfa_offset 24
+ 192              		@ sp needed
+ 193 00a4 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 194              		.cfi_endproc
+ 195              	.LFE126:
+ 197              		.section	.text.SD_MPU6050_SetGyroscope,"ax",%progbits
+ 198              		.align	2
+ 199              		.global	SD_MPU6050_SetGyroscope
+ 200              		.thumb
+ 201              		.thumb_func
+ 203              	SD_MPU6050_SetGyroscope:
+ 204              	.LFB127:
+ 215:Src/sd_hal_mpu6050.c **** 
+ 216:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_SetGyroscope(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct, SD_MPU605
+ 217:Src/sd_hal_mpu6050.c **** {
+ 205              		.loc 1 217 0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 8
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              	.LVL12:
+ 210 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 211              	.LCFI6:
+ 212              		.cfi_def_cfa_offset 24
+ 213              		.cfi_offset 4, -24
+ 214              		.cfi_offset 5, -20
+ 215              		.cfi_offset 6, -16
+ 216              		.cfi_offset 7, -12
+ 217              		.cfi_offset 8, -8
+ 218              		.cfi_offset 14, -4
+ 219 0004 84B0     		sub	sp, sp, #16
+ 220              	.LCFI7:
+ 221              		.cfi_def_cfa_offset 40
+ 222 0006 0546     		mov	r5, r0
+ 223 0008 8846     		mov	r8, r1
+ 224 000a 1746     		mov	r7, r2
+ 225              	.LVL13:
+ 218:Src/sd_hal_mpu6050.c **** 	uint8_t temp;
+ 219:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 220:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 226              		.loc 1 220 0
+ 227 000c 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 228              	.LVL14:
+ 221:Src/sd_hal_mpu6050.c **** 	uint8_t regAdd =(uint8_t )MPU6050_GYRO_CONFIG;
+ 229              		.loc 1 221 0
+ 230 000e 1B23     		movs	r3, #27
+ 231 0010 8DF80E30 		strb	r3, [sp, #14]
+ 232              	.LVL15:
+ 233              	.L16:
+ 222:Src/sd_hal_mpu6050.c **** 
+ 223:Src/sd_hal_mpu6050.c **** 	/* Config gyroscope */
+ 224:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address,&regAdd, 1, 1000) != HAL_OK);
+ 234              		.loc 1 224 0 discriminator 1
+ 235 0014 B4B2     		uxth	r4, r6
+ 236 0016 4FF47A73 		mov	r3, #1000
+ 237 001a 0093     		str	r3, [sp]
+ARM GAS  /tmp/ccfXFxqS.s 			page 9
+
+
+ 238 001c 0123     		movs	r3, #1
+ 239 001e 0DF10E02 		add	r2, sp, #14
+ 240 0022 2146     		mov	r1, r4
+ 241 0024 2846     		mov	r0, r5
+ 242 0026 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 243              	.LVL16:
+ 244 002a 0028     		cmp	r0, #0
+ 245 002c F2D1     		bne	.L16
+ 246              	.L17:
+ 225:Src/sd_hal_mpu6050.c **** 	/*{
+ 226:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+ 227:Src/sd_hal_mpu6050.c **** 	}*/
+ 228:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, &temp, 1, 1000) != HAL_OK);
+ 247              		.loc 1 228 0 discriminator 1
+ 248 002e 4FF47A73 		mov	r3, #1000
+ 249 0032 0093     		str	r3, [sp]
+ 250 0034 0123     		movs	r3, #1
+ 251 0036 0DF10F02 		add	r2, sp, #15
+ 252 003a 2146     		mov	r1, r4
+ 253 003c 2846     		mov	r0, r5
+ 254 003e FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 255              	.LVL17:
+ 256 0042 0028     		cmp	r0, #0
+ 257 0044 F3D1     		bne	.L17
+ 229:Src/sd_hal_mpu6050.c **** 	/*{
+ 230:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+ 231:Src/sd_hal_mpu6050.c **** 	}*/
+ 232:Src/sd_hal_mpu6050.c **** 	temp = (temp & 0xE7) | (uint8_t)GyroscopeSensitivity << 3;
+ 258              		.loc 1 232 0
+ 259 0046 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2
+ 260 004a 23F01803 		bic	r3, r3, #24
+ 261 004e 43EAC703 		orr	r3, r3, r7, lsl #3
+ 262 0052 8DF80F30 		strb	r3, [sp, #15]
+ 263              	.L18:
+ 233:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address,&temp, 1, 1000) != HAL_OK);
+ 264              		.loc 1 233 0 discriminator 1
+ 265 0056 4FF47A73 		mov	r3, #1000
+ 266 005a 0093     		str	r3, [sp]
+ 267 005c 0123     		movs	r3, #1
+ 268 005e 0DF10F02 		add	r2, sp, #15
+ 269 0062 2146     		mov	r1, r4
+ 270 0064 2846     		mov	r0, r5
+ 271 0066 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 272              	.LVL18:
+ 273 006a 0028     		cmp	r0, #0
+ 274 006c F3D1     		bne	.L18
+ 234:Src/sd_hal_mpu6050.c **** 	/*{
+ 235:Src/sd_hal_mpu6050.c **** 				return SD_MPU6050_Result_Error;
+ 236:Src/sd_hal_mpu6050.c **** 	}*/
+ 237:Src/sd_hal_mpu6050.c **** //Gyromult ジャイロをdigree/sに変換
+ 238:Src/sd_hal_mpu6050.c **** 	switch (GyroscopeSensitivity) {
+ 275              		.loc 1 238 0
+ 276 006e 032F     		cmp	r7, #3
+ 277 0070 12D8     		bhi	.L19
+ 278 0072 DFE807F0 		tbb	[pc, r7]
+ 279              	.L21:
+ 280 0076 02       		.byte	(.L20-.L21)/2
+ARM GAS  /tmp/ccfXFxqS.s 			page 10
+
+
+ 281 0077 06       		.byte	(.L22-.L21)/2
+ 282 0078 0A       		.byte	(.L23-.L21)/2
+ 283 0079 0E       		.byte	(.L24-.L21)/2
+ 284              		.p2align 1
+ 285              	.L20:
+ 239:Src/sd_hal_mpu6050.c **** 			case SD_MPU6050_Gyroscope_250s:
+ 240:Src/sd_hal_mpu6050.c **** 				DataStruct->Gyro_Mult = (float)1 / MPU6050_GYRO_SENS_250;
+ 286              		.loc 1 240 0
+ 287 007a 094B     		ldr	r3, .L26
+ 288 007c C8F80430 		str	r3, [r8, #4]	@ float
+ 241:Src/sd_hal_mpu6050.c **** 				break;
+ 289              		.loc 1 241 0
+ 290 0080 0AE0     		b	.L19
+ 291              	.L22:
+ 242:Src/sd_hal_mpu6050.c **** 			case SD_MPU6050_Gyroscope_500s:
+ 243:Src/sd_hal_mpu6050.c **** 				DataStruct->Gyro_Mult = (float)1 / MPU6050_GYRO_SENS_500;
+ 292              		.loc 1 243 0
+ 293 0082 084B     		ldr	r3, .L26+4
+ 294 0084 C8F80430 		str	r3, [r8, #4]	@ float
+ 244:Src/sd_hal_mpu6050.c **** 				break;
+ 295              		.loc 1 244 0
+ 296 0088 06E0     		b	.L19
+ 297              	.L23:
+ 245:Src/sd_hal_mpu6050.c **** 			case SD_MPU6050_Gyroscope_1000s:
+ 246:Src/sd_hal_mpu6050.c **** 				DataStruct->Gyro_Mult = (float)1 / MPU6050_GYRO_SENS_1000;
+ 298              		.loc 1 246 0
+ 299 008a 074B     		ldr	r3, .L26+8
+ 300 008c C8F80430 		str	r3, [r8, #4]	@ float
+ 247:Src/sd_hal_mpu6050.c **** 				break;
+ 301              		.loc 1 247 0
+ 302 0090 02E0     		b	.L19
+ 303              	.L24:
+ 248:Src/sd_hal_mpu6050.c **** 			case SD_MPU6050_Gyroscope_2000s:
+ 249:Src/sd_hal_mpu6050.c **** 				DataStruct->Gyro_Mult = (float)1 / MPU6050_GYRO_SENS_2000;
+ 304              		.loc 1 249 0
+ 305 0092 064B     		ldr	r3, .L26+12
+ 306 0094 C8F80430 		str	r3, [r8, #4]	@ float
+ 307              	.L19:
+ 250:Src/sd_hal_mpu6050.c **** 				break;
+ 251:Src/sd_hal_mpu6050.c **** 			default:
+ 252:Src/sd_hal_mpu6050.c **** 				break;
+ 253:Src/sd_hal_mpu6050.c **** 		}
+ 254:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 255:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 256:Src/sd_hal_mpu6050.c **** }
+ 308              		.loc 1 256 0
+ 309 0098 0020     		movs	r0, #0
+ 310 009a 04B0     		add	sp, sp, #16
+ 311              	.LCFI8:
+ 312              		.cfi_def_cfa_offset 24
+ 313              		@ sp needed
+ 314 009c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 315              	.LVL19:
+ 316              	.L27:
+ 317              		.align	2
+ 318              	.L26:
+ 319 00a0 2D23FA3B 		.word	1006248749
+ARM GAS  /tmp/ccfXFxqS.s 			page 11
+
+
+ 320 00a4 2D237A3C 		.word	1014637357
+ 321 00a8 90C1F93C 		.word	1023000976
+ 322 00ac 90C1793D 		.word	1031389584
+ 323              		.cfi_endproc
+ 324              	.LFE127:
+ 326              		.section	.text.SD_MPU6050_Init,"ax",%progbits
+ 327              		.align	2
+ 328              		.global	SD_MPU6050_Init
+ 329              		.thumb
+ 330              		.thumb_func
+ 332              	SD_MPU6050_Init:
+ 333              	.LFB124:
+  84:Src/sd_hal_mpu6050.c **** 	uint8_t WHO_AM_I = (uint8_t)MPU6050_WHO_AM_I;
+ 334              		.loc 1 84 0
+ 335              		.cfi_startproc
+ 336              		@ args = 4, pretend = 0, frame = 8
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338              	.LVL20:
+ 339 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 340              	.LCFI9:
+ 341              		.cfi_def_cfa_offset 20
+ 342              		.cfi_offset 4, -20
+ 343              		.cfi_offset 5, -16
+ 344              		.cfi_offset 6, -12
+ 345              		.cfi_offset 7, -8
+ 346              		.cfi_offset 14, -4
+ 347 0002 85B0     		sub	sp, sp, #20
+ 348              	.LCFI10:
+ 349              		.cfi_def_cfa_offset 40
+ 350 0004 0646     		mov	r6, r0
+ 351 0006 0D46     		mov	r5, r1
+ 352 0008 1F46     		mov	r7, r3
+  85:Src/sd_hal_mpu6050.c **** 	uint8_t temp;
+ 353              		.loc 1 85 0
+ 354 000a 7523     		movs	r3, #117
+ 355              	.LVL21:
+ 356 000c 8DF80F30 		strb	r3, [sp, #15]
+ 357              	.LVL22:
+  92:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 358              		.loc 1 92 0
+ 359 0010 42F0D002 		orr	r2, r2, #208
+ 360              	.LVL23:
+ 361 0014 0A70     		strb	r2, [r1]
+ 362              	.LVL24:
+  96:Src/sd_hal_mpu6050.c **** 	{
+ 363              		.loc 1 96 0
+ 364 0016 94B2     		uxth	r4, r2
+ 365 0018 0523     		movs	r3, #5
+ 366 001a 0222     		movs	r2, #2
+ 367              	.LVL25:
+ 368 001c 2146     		mov	r1, r4
+ 369              	.LVL26:
+ 370 001e FFF7FEFF 		bl	HAL_I2C_IsDeviceReady
+ 371              	.LVL27:
+ 372 0022 D8BB     		cbnz	r0, .L30
+ 103:Src/sd_hal_mpu6050.c **** 		{
+ 373              		.loc 1 103 0
+ARM GAS  /tmp/ccfXFxqS.s 			page 12
+
+
+ 374 0024 4FF47A73 		mov	r3, #1000
+ 375 0028 0093     		str	r3, [sp]
+ 376 002a 0123     		movs	r3, #1
+ 377 002c 0DF10F02 		add	r2, sp, #15
+ 378 0030 2146     		mov	r1, r4
+ 379 0032 3046     		mov	r0, r6
+ 380 0034 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 381              	.LVL28:
+ 382 0038 90BB     		cbnz	r0, .L31
+ 109:Src/sd_hal_mpu6050.c **** 		{
+ 383              		.loc 1 109 0
+ 384 003a 4FF47A73 		mov	r3, #1000
+ 385 003e 0093     		str	r3, [sp]
+ 386 0040 0123     		movs	r3, #1
+ 387 0042 0DF10E02 		add	r2, sp, #14
+ 388 0046 2146     		mov	r1, r4
+ 389 0048 3046     		mov	r0, r6
+ 390 004a FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 391              	.LVL29:
+ 392 004e 48BB     		cbnz	r0, .L32
+ 115:Src/sd_hal_mpu6050.c **** 		{
+ 393              		.loc 1 115 0
+ 394 0050 9DF80E30 		ldrb	r3, [sp, #14]	@ zero_extendqisi2
+ 395 0054 682B     		cmp	r3, #104
+ 396 0056 27D1     		bne	.L33
+ 125:Src/sd_hal_mpu6050.c **** 		d[1] = 0x00;
+ 397              		.loc 1 125 0
+ 398 0058 6B23     		movs	r3, #107
+ 399 005a 8DF80C30 		strb	r3, [sp, #12]
+ 126:Src/sd_hal_mpu6050.c **** 
+ 400              		.loc 1 126 0
+ 401 005e 0023     		movs	r3, #0
+ 402 0060 8DF80D30 		strb	r3, [sp, #13]
+ 129:Src/sd_hal_mpu6050.c **** 		{
+ 403              		.loc 1 129 0
+ 404 0064 4FF47A73 		mov	r3, #1000
+ 405 0068 0093     		str	r3, [sp]
+ 406 006a 0223     		movs	r3, #2
+ 407 006c 03AA     		add	r2, sp, #12
+ 408 006e 2146     		mov	r1, r4
+ 409 0070 3046     		mov	r0, r6
+ 410 0072 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 411              	.LVL30:
+ 412 0076 C8B9     		cbnz	r0, .L34
+ 136:Src/sd_hal_mpu6050.c **** 
+ 413              		.loc 1 136 0
+ 414 0078 0722     		movs	r2, #7
+ 415 007a 2946     		mov	r1, r5
+ 416 007c 3046     		mov	r0, r6
+ 417 007e FFF7FEFF 		bl	SD_MPU6050_SetDataRate
+ 418              	.LVL31:
+ 139:Src/sd_hal_mpu6050.c **** 
+ 419              		.loc 1 139 0
+ 420 0082 3A46     		mov	r2, r7
+ 421 0084 2946     		mov	r1, r5
+ 422 0086 3046     		mov	r0, r6
+ 423 0088 FFF7FEFF 		bl	SD_MPU6050_SetAccelerometer
+ARM GAS  /tmp/ccfXFxqS.s 			page 13
+
+
+ 424              	.LVL32:
+ 142:Src/sd_hal_mpu6050.c **** 
+ 425              		.loc 1 142 0
+ 426 008c 9DF82820 		ldrb	r2, [sp, #40]	@ zero_extendqisi2
+ 427 0090 2946     		mov	r1, r5
+ 428 0092 3046     		mov	r0, r6
+ 429 0094 FFF7FEFF 		bl	SD_MPU6050_SetGyroscope
+ 430              	.LVL33:
+ 145:Src/sd_hal_mpu6050.c **** }
+ 431              		.loc 1 145 0
+ 432 0098 0020     		movs	r0, #0
+ 433 009a 08E0     		b	.L29
+ 434              	.L30:
+  98:Src/sd_hal_mpu6050.c **** 	}
+ 435              		.loc 1 98 0
+ 436 009c 0120     		movs	r0, #1
+ 437 009e 06E0     		b	.L29
+ 438              	.L31:
+ 105:Src/sd_hal_mpu6050.c **** 		}
+ 439              		.loc 1 105 0
+ 440 00a0 0120     		movs	r0, #1
+ 441 00a2 04E0     		b	.L29
+ 442              	.L32:
+ 111:Src/sd_hal_mpu6050.c **** 		}
+ 443              		.loc 1 111 0
+ 444 00a4 0120     		movs	r0, #1
+ 445 00a6 02E0     		b	.L29
+ 446              	.L33:
+ 118:Src/sd_hal_mpu6050.c **** 		}
+ 447              		.loc 1 118 0
+ 448 00a8 0320     		movs	r0, #3
+ 449 00aa 00E0     		b	.L29
+ 450              	.L34:
+ 131:Src/sd_hal_mpu6050.c **** 		}
+ 451              		.loc 1 131 0
+ 452 00ac 0120     		movs	r0, #1
+ 453              	.L29:
+ 146:Src/sd_hal_mpu6050.c **** 
+ 454              		.loc 1 146 0
+ 455 00ae 05B0     		add	sp, sp, #20
+ 456              	.LCFI11:
+ 457              		.cfi_def_cfa_offset 20
+ 458              		@ sp needed
+ 459 00b0 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 460              		.cfi_endproc
+ 461              	.LFE124:
+ 463 00b2 00BF     		.section	.text.SD_MPU6050_ReadAccelerometer,"ax",%progbits
+ 464              		.align	2
+ 465              		.global	SD_MPU6050_ReadAccelerometer
+ 466              		.thumb
+ 467              		.thumb_func
+ 469              	SD_MPU6050_ReadAccelerometer:
+ 470              	.LFB128:
+ 257:Src/sd_hal_mpu6050.c **** 
+ 258:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_ReadAccelerometer(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct)
+ 259:Src/sd_hal_mpu6050.c **** {
+ 471              		.loc 1 259 0
+ARM GAS  /tmp/ccfXFxqS.s 			page 14
+
+
+ 472              		.cfi_startproc
+ 473              		@ args = 0, pretend = 0, frame = 16
+ 474              		@ frame_needed = 0, uses_anonymous_args = 0
+ 475              	.LVL34:
+ 476 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 477              	.LCFI12:
+ 478              		.cfi_def_cfa_offset 20
+ 479              		.cfi_offset 4, -20
+ 480              		.cfi_offset 5, -16
+ 481              		.cfi_offset 6, -12
+ 482              		.cfi_offset 7, -8
+ 483              		.cfi_offset 14, -4
+ 484 0002 87B0     		sub	sp, sp, #28
+ 485              	.LCFI13:
+ 486              		.cfi_def_cfa_offset 48
+ 487 0004 0546     		mov	r5, r0
+ 488 0006 0F46     		mov	r7, r1
+ 260:Src/sd_hal_mpu6050.c **** 	uint8_t data[6];
+ 261:Src/sd_hal_mpu6050.c **** 	uint8_t reg = MPU6050_ACCEL_XOUT_H;
+ 489              		.loc 1 261 0
+ 490 0008 3B23     		movs	r3, #59
+ 491 000a 8DF80F30 		strb	r3, [sp, #15]
+ 492              	.LVL35:
+ 262:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 263:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 493              		.loc 1 263 0
+ 494 000e 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 495              	.LVL36:
+ 496              	.L37:
+ 264:Src/sd_hal_mpu6050.c **** 
+ 265:Src/sd_hal_mpu6050.c **** 	/* Read accelerometer data */
+ 266:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, &reg, 1, 1000) != HAL_OK);
+ 497              		.loc 1 266 0 discriminator 1
+ 498 0010 B4B2     		uxth	r4, r6
+ 499 0012 4FF47A73 		mov	r3, #1000
+ 500 0016 0093     		str	r3, [sp]
+ 501 0018 0123     		movs	r3, #1
+ 502 001a 0DF10F02 		add	r2, sp, #15
+ 503 001e 2146     		mov	r1, r4
+ 504 0020 2846     		mov	r0, r5
+ 505 0022 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 506              	.LVL37:
+ 507 0026 0028     		cmp	r0, #0
+ 508 0028 F2D1     		bne	.L37
+ 509              	.L38:
+ 267:Src/sd_hal_mpu6050.c **** 
+ 268:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, data, 6, 1000) != HAL_OK);
+ 510              		.loc 1 268 0 discriminator 1
+ 511 002a 4FF47A73 		mov	r3, #1000
+ 512 002e 0093     		str	r3, [sp]
+ 513 0030 0623     		movs	r3, #6
+ 514 0032 04AA     		add	r2, sp, #16
+ 515 0034 2146     		mov	r1, r4
+ 516 0036 2846     		mov	r0, r5
+ 517 0038 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 518              	.LVL38:
+ 519 003c 0028     		cmp	r0, #0
+ARM GAS  /tmp/ccfXFxqS.s 			page 15
+
+
+ 520 003e F4D1     		bne	.L38
+ 269:Src/sd_hal_mpu6050.c **** 
+ 270:Src/sd_hal_mpu6050.c **** 	/* Format */
+ 271:Src/sd_hal_mpu6050.c **** 	DataStruct->Accelerometer_X = (int16_t)(data[0] << 8 | data[1]);
+ 521              		.loc 1 271 0
+ 522 0040 9DF81020 		ldrb	r2, [sp, #16]	@ zero_extendqisi2
+ 523 0044 9DF81130 		ldrb	r3, [sp, #17]	@ zero_extendqisi2
+ 524 0048 43EA0223 		orr	r3, r3, r2, lsl #8
+ 525 004c BB81     		strh	r3, [r7, #12]	@ movhi
+ 272:Src/sd_hal_mpu6050.c **** 	DataStruct->Accelerometer_Y = (int16_t)(data[2] << 8 | data[3]);
+ 526              		.loc 1 272 0
+ 527 004e 9DF81220 		ldrb	r2, [sp, #18]	@ zero_extendqisi2
+ 528 0052 9DF81330 		ldrb	r3, [sp, #19]	@ zero_extendqisi2
+ 529 0056 43EA0223 		orr	r3, r3, r2, lsl #8
+ 530 005a FB81     		strh	r3, [r7, #14]	@ movhi
+ 273:Src/sd_hal_mpu6050.c **** 	DataStruct->Accelerometer_Z = (int16_t)(data[4] << 8 | data[5]);
+ 531              		.loc 1 273 0
+ 532 005c 9DF81420 		ldrb	r2, [sp, #20]	@ zero_extendqisi2
+ 533 0060 9DF81530 		ldrb	r3, [sp, #21]	@ zero_extendqisi2
+ 534 0064 43EA0223 		orr	r3, r3, r2, lsl #8
+ 535 0068 3B82     		strh	r3, [r7, #16]	@ movhi
+ 274:Src/sd_hal_mpu6050.c **** 
+ 275:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 276:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 277:Src/sd_hal_mpu6050.c **** }
+ 536              		.loc 1 277 0
+ 537 006a 07B0     		add	sp, sp, #28
+ 538              	.LCFI14:
+ 539              		.cfi_def_cfa_offset 20
+ 540              		@ sp needed
+ 541 006c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 542              		.cfi_endproc
+ 543              	.LFE128:
+ 545 006e 00BF     		.section	.text.SD_MPU6050_ReadGyroscope,"ax",%progbits
+ 546              		.align	2
+ 547              		.global	SD_MPU6050_ReadGyroscope
+ 548              		.thumb
+ 549              		.thumb_func
+ 551              	SD_MPU6050_ReadGyroscope:
+ 552              	.LFB129:
+ 278:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_ReadGyroscope(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct)
+ 279:Src/sd_hal_mpu6050.c **** {
+ 553              		.loc 1 279 0
+ 554              		.cfi_startproc
+ 555              		@ args = 0, pretend = 0, frame = 16
+ 556              		@ frame_needed = 0, uses_anonymous_args = 0
+ 557              	.LVL39:
+ 558 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 559              	.LCFI15:
+ 560              		.cfi_def_cfa_offset 20
+ 561              		.cfi_offset 4, -20
+ 562              		.cfi_offset 5, -16
+ 563              		.cfi_offset 6, -12
+ 564              		.cfi_offset 7, -8
+ 565              		.cfi_offset 14, -4
+ 566 0002 87B0     		sub	sp, sp, #28
+ 567              	.LCFI16:
+ARM GAS  /tmp/ccfXFxqS.s 			page 16
+
+
+ 568              		.cfi_def_cfa_offset 48
+ 569 0004 0546     		mov	r5, r0
+ 570 0006 0F46     		mov	r7, r1
+ 280:Src/sd_hal_mpu6050.c **** 	uint8_t data[6];
+ 281:Src/sd_hal_mpu6050.c **** 	uint8_t reg = MPU6050_GYRO_XOUT_H;
+ 571              		.loc 1 281 0
+ 572 0008 4323     		movs	r3, #67
+ 573 000a 8DF80F30 		strb	r3, [sp, #15]
+ 574              	.LVL40:
+ 282:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 283:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 575              		.loc 1 283 0
+ 576 000e 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 577              	.LVL41:
+ 578              	.L41:
+ 284:Src/sd_hal_mpu6050.c **** 
+ 285:Src/sd_hal_mpu6050.c **** 	/* Read gyroscope data */
+ 286:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, &reg, 1, 1000) != HAL_OK);
+ 579              		.loc 1 286 0 discriminator 1
+ 580 0010 B4B2     		uxth	r4, r6
+ 581 0012 4FF47A73 		mov	r3, #1000
+ 582 0016 0093     		str	r3, [sp]
+ 583 0018 0123     		movs	r3, #1
+ 584 001a 0DF10F02 		add	r2, sp, #15
+ 585 001e 2146     		mov	r1, r4
+ 586 0020 2846     		mov	r0, r5
+ 587 0022 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 588              	.LVL42:
+ 589 0026 0028     		cmp	r0, #0
+ 590 0028 F2D1     		bne	.L41
+ 591              	.L42:
+ 287:Src/sd_hal_mpu6050.c **** 
+ 288:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, data, 6, 1000) != HAL_OK);
+ 592              		.loc 1 288 0 discriminator 1
+ 593 002a 4FF47A73 		mov	r3, #1000
+ 594 002e 0093     		str	r3, [sp]
+ 595 0030 0623     		movs	r3, #6
+ 596 0032 04AA     		add	r2, sp, #16
+ 597 0034 2146     		mov	r1, r4
+ 598 0036 2846     		mov	r0, r5
+ 599 0038 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 600              	.LVL43:
+ 601 003c 0028     		cmp	r0, #0
+ 602 003e F4D1     		bne	.L42
+ 289:Src/sd_hal_mpu6050.c **** 
+ 290:Src/sd_hal_mpu6050.c **** 	/* Format */
+ 291:Src/sd_hal_mpu6050.c **** 	DataStruct->Gyroscope_X = (int16_t)(data[0] << 8 | data[1]);
+ 603              		.loc 1 291 0
+ 604 0040 9DF81020 		ldrb	r2, [sp, #16]	@ zero_extendqisi2
+ 605 0044 9DF81130 		ldrb	r3, [sp, #17]	@ zero_extendqisi2
+ 606 0048 43EA0223 		orr	r3, r3, r2, lsl #8
+ 607 004c 7B82     		strh	r3, [r7, #18]	@ movhi
+ 292:Src/sd_hal_mpu6050.c **** 	DataStruct->Gyroscope_Y = (int16_t)(data[2] << 8 | data[3]);
+ 608              		.loc 1 292 0
+ 609 004e 9DF81220 		ldrb	r2, [sp, #18]	@ zero_extendqisi2
+ 610 0052 9DF81330 		ldrb	r3, [sp, #19]	@ zero_extendqisi2
+ 611 0056 43EA0223 		orr	r3, r3, r2, lsl #8
+ARM GAS  /tmp/ccfXFxqS.s 			page 17
+
+
+ 612 005a BB82     		strh	r3, [r7, #20]	@ movhi
+ 293:Src/sd_hal_mpu6050.c **** 	DataStruct->Gyroscope_Z = (int16_t)(data[4] << 8 | data[5]);
+ 613              		.loc 1 293 0
+ 614 005c 9DF81420 		ldrb	r2, [sp, #20]	@ zero_extendqisi2
+ 615 0060 9DF81530 		ldrb	r3, [sp, #21]	@ zero_extendqisi2
+ 616 0064 43EA0223 		orr	r3, r3, r2, lsl #8
+ 617 0068 FB82     		strh	r3, [r7, #22]	@ movhi
+ 294:Src/sd_hal_mpu6050.c **** 
+ 295:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 296:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 297:Src/sd_hal_mpu6050.c **** }
+ 618              		.loc 1 297 0
+ 619 006a 07B0     		add	sp, sp, #28
+ 620              	.LCFI17:
+ 621              		.cfi_def_cfa_offset 20
+ 622              		@ sp needed
+ 623 006c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 624              		.cfi_endproc
+ 625              	.LFE129:
+ 627 006e 00BF     		.section	.text.SD_MPU6050_ReadTemperature,"ax",%progbits
+ 628              		.align	2
+ 629              		.global	SD_MPU6050_ReadTemperature
+ 630              		.thumb
+ 631              		.thumb_func
+ 633              	SD_MPU6050_ReadTemperature:
+ 634              	.LFB130:
+ 298:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_ReadTemperature(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct)
+ 299:Src/sd_hal_mpu6050.c **** {
+ 635              		.loc 1 299 0
+ 636              		.cfi_startproc
+ 637              		@ args = 0, pretend = 0, frame = 8
+ 638              		@ frame_needed = 0, uses_anonymous_args = 0
+ 639              	.LVL44:
+ 640 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 641              	.LCFI18:
+ 642              		.cfi_def_cfa_offset 20
+ 643              		.cfi_offset 4, -20
+ 644              		.cfi_offset 5, -16
+ 645              		.cfi_offset 6, -12
+ 646              		.cfi_offset 7, -8
+ 647              		.cfi_offset 14, -4
+ 648 0002 85B0     		sub	sp, sp, #20
+ 649              	.LCFI19:
+ 650              		.cfi_def_cfa_offset 40
+ 651 0004 0546     		mov	r5, r0
+ 652 0006 0F46     		mov	r7, r1
+ 300:Src/sd_hal_mpu6050.c **** 	uint8_t data[2];
+ 301:Src/sd_hal_mpu6050.c **** 	int16_t temp;
+ 302:Src/sd_hal_mpu6050.c **** 	uint8_t reg = MPU6050_TEMP_OUT_H;
+ 653              		.loc 1 302 0
+ 654 0008 4123     		movs	r3, #65
+ 655 000a 8DF80B30 		strb	r3, [sp, #11]
+ 656              	.LVL45:
+ 303:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 304:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 657              		.loc 1 304 0
+ 658 000e 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ARM GAS  /tmp/ccfXFxqS.s 			page 18
+
+
+ 659              	.LVL46:
+ 660              	.L45:
+ 305:Src/sd_hal_mpu6050.c **** 
+ 306:Src/sd_hal_mpu6050.c **** 	/* Read temperature */
+ 307:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, &reg, 1, 1000) != HAL_OK);
+ 661              		.loc 1 307 0 discriminator 1
+ 662 0010 B4B2     		uxth	r4, r6
+ 663 0012 4FF47A73 		mov	r3, #1000
+ 664 0016 0093     		str	r3, [sp]
+ 665 0018 0123     		movs	r3, #1
+ 666 001a 0DF10B02 		add	r2, sp, #11
+ 667 001e 2146     		mov	r1, r4
+ 668 0020 2846     		mov	r0, r5
+ 669 0022 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 670              	.LVL47:
+ 671 0026 0028     		cmp	r0, #0
+ 672 0028 F2D1     		bne	.L45
+ 673              	.L46:
+ 308:Src/sd_hal_mpu6050.c **** 
+ 309:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, data, 2, 1000) != HAL_OK);
+ 674              		.loc 1 309 0 discriminator 1
+ 675 002a 4FF47A73 		mov	r3, #1000
+ 676 002e 0093     		str	r3, [sp]
+ 677 0030 0223     		movs	r3, #2
+ 678 0032 03AA     		add	r2, sp, #12
+ 679 0034 2146     		mov	r1, r4
+ 680 0036 2846     		mov	r0, r5
+ 681 0038 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 682              	.LVL48:
+ 683 003c 0028     		cmp	r0, #0
+ 684 003e F4D1     		bne	.L46
+ 310:Src/sd_hal_mpu6050.c **** 
+ 311:Src/sd_hal_mpu6050.c **** 	/* Format temperature */
+ 312:Src/sd_hal_mpu6050.c **** 	temp = (data[0] << 8 | data[1]);
+ 685              		.loc 1 312 0
+ 686 0040 9DF80C20 		ldrb	r2, [sp, #12]	@ zero_extendqisi2
+ 687 0044 9DF80D30 		ldrb	r3, [sp, #13]	@ zero_extendqisi2
+ 688 0048 43EA0223 		orr	r3, r3, r2, lsl #8
+ 689 004c 1BB2     		sxth	r3, r3
+ 690              	.LVL49:
+ 313:Src/sd_hal_mpu6050.c **** 	DataStruct->Temperature = (float)((int16_t)temp / (float)340.0 + (float)36.53);
+ 691              		.loc 1 313 0
+ 692 004e 07EE903A 		vmov	s15, r3	@ int
+ 693 0052 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 694 0056 DFED066A 		vldr.32	s13, .L48
+ 695 005a 87EEA67A 		vdiv.f32	s14, s15, s13
+ 696 005e DFED057A 		vldr.32	s15, .L48+4
+ 697 0062 77EE277A 		vadd.f32	s15, s14, s15
+ 698 0066 C7ED067A 		vstr.32	s15, [r7, #24]
+ 314:Src/sd_hal_mpu6050.c **** 
+ 315:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 316:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 317:Src/sd_hal_mpu6050.c **** }
+ 699              		.loc 1 317 0
+ 700 006a 05B0     		add	sp, sp, #20
+ 701              	.LCFI20:
+ 702              		.cfi_def_cfa_offset 20
+ARM GAS  /tmp/ccfXFxqS.s 			page 19
+
+
+ 703              		@ sp needed
+ 704 006c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 705              	.LVL50:
+ 706              	.L49:
+ 707 006e 00BF     		.align	2
+ 708              	.L48:
+ 709 0070 0000AA43 		.word	1135214592
+ 710 0074 B81E1242 		.word	1108483768
+ 711              		.cfi_endproc
+ 712              	.LFE130:
+ 714              		.section	.text.SD_MPU6050_ReadAll,"ax",%progbits
+ 715              		.align	2
+ 716              		.global	SD_MPU6050_ReadAll
+ 717              		.thumb
+ 718              		.thumb_func
+ 720              	SD_MPU6050_ReadAll:
+ 721              	.LFB131:
+ 318:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_ReadAll(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct)
+ 319:Src/sd_hal_mpu6050.c **** {
+ 722              		.loc 1 319 0
+ 723              		.cfi_startproc
+ 724              		@ args = 0, pretend = 0, frame = 24
+ 725              		@ frame_needed = 0, uses_anonymous_args = 0
+ 726              	.LVL51:
+ 727 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 728              	.LCFI21:
+ 729              		.cfi_def_cfa_offset 20
+ 730              		.cfi_offset 4, -20
+ 731              		.cfi_offset 5, -16
+ 732              		.cfi_offset 6, -12
+ 733              		.cfi_offset 7, -8
+ 734              		.cfi_offset 14, -4
+ 735 0002 89B0     		sub	sp, sp, #36
+ 736              	.LCFI22:
+ 737              		.cfi_def_cfa_offset 56
+ 738 0004 0546     		mov	r5, r0
+ 739 0006 0F46     		mov	r7, r1
+ 320:Src/sd_hal_mpu6050.c **** 	uint8_t data[14];
+ 321:Src/sd_hal_mpu6050.c **** 	int16_t temp;
+ 322:Src/sd_hal_mpu6050.c **** 	uint8_t reg = MPU6050_ACCEL_XOUT_H;
+ 740              		.loc 1 322 0
+ 741 0008 3B23     		movs	r3, #59
+ 742 000a 8DF80F30 		strb	r3, [sp, #15]
+ 743              	.LVL52:
+ 323:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 324:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 744              		.loc 1 324 0
+ 745 000e 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 746              	.LVL53:
+ 747              	.L51:
+ 325:Src/sd_hal_mpu6050.c **** 
+ 326:Src/sd_hal_mpu6050.c **** 	/* Read full raw data, 14bytes */
+ 327:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, &reg, 1, 1000) != HAL_OK);
+ 748              		.loc 1 327 0 discriminator 1
+ 749 0010 B4B2     		uxth	r4, r6
+ 750 0012 4FF47A73 		mov	r3, #1000
+ 751 0016 0093     		str	r3, [sp]
+ARM GAS  /tmp/ccfXFxqS.s 			page 20
+
+
+ 752 0018 0123     		movs	r3, #1
+ 753 001a 0DF10F02 		add	r2, sp, #15
+ 754 001e 2146     		mov	r1, r4
+ 755 0020 2846     		mov	r0, r5
+ 756 0022 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 757              	.LVL54:
+ 758 0026 0028     		cmp	r0, #0
+ 759 0028 F2D1     		bne	.L51
+ 760              	.L52:
+ 328:Src/sd_hal_mpu6050.c **** 
+ 329:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, data, 14, 1000) != HAL_OK);
+ 761              		.loc 1 329 0 discriminator 1
+ 762 002a 4FF47A73 		mov	r3, #1000
+ 763 002e 0093     		str	r3, [sp]
+ 764 0030 0E23     		movs	r3, #14
+ 765 0032 04AA     		add	r2, sp, #16
+ 766 0034 2146     		mov	r1, r4
+ 767 0036 2846     		mov	r0, r5
+ 768 0038 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 769              	.LVL55:
+ 770 003c 0028     		cmp	r0, #0
+ 771 003e F4D1     		bne	.L52
+ 330:Src/sd_hal_mpu6050.c **** 
+ 331:Src/sd_hal_mpu6050.c **** 	/* Format accelerometer data */
+ 332:Src/sd_hal_mpu6050.c **** 	DataStruct->Accelerometer_X = (int16_t)(data[0] << 8 | data[1]);
+ 772              		.loc 1 332 0
+ 773 0040 9DF81020 		ldrb	r2, [sp, #16]	@ zero_extendqisi2
+ 774 0044 9DF81130 		ldrb	r3, [sp, #17]	@ zero_extendqisi2
+ 775 0048 43EA0223 		orr	r3, r3, r2, lsl #8
+ 776 004c BB81     		strh	r3, [r7, #12]	@ movhi
+ 333:Src/sd_hal_mpu6050.c **** 	DataStruct->Accelerometer_Y = (int16_t)(data[2] << 8 | data[3]);
+ 777              		.loc 1 333 0
+ 778 004e 9DF81220 		ldrb	r2, [sp, #18]	@ zero_extendqisi2
+ 779 0052 9DF81330 		ldrb	r3, [sp, #19]	@ zero_extendqisi2
+ 780 0056 43EA0223 		orr	r3, r3, r2, lsl #8
+ 781 005a FB81     		strh	r3, [r7, #14]	@ movhi
+ 334:Src/sd_hal_mpu6050.c **** 	DataStruct->Accelerometer_Z = (int16_t)(data[4] << 8 | data[5]);
+ 782              		.loc 1 334 0
+ 783 005c 9DF81420 		ldrb	r2, [sp, #20]	@ zero_extendqisi2
+ 784 0060 9DF81530 		ldrb	r3, [sp, #21]	@ zero_extendqisi2
+ 785 0064 43EA0223 		orr	r3, r3, r2, lsl #8
+ 786 0068 3B82     		strh	r3, [r7, #16]	@ movhi
+ 335:Src/sd_hal_mpu6050.c **** 
+ 336:Src/sd_hal_mpu6050.c **** 	/* Format temperature */
+ 337:Src/sd_hal_mpu6050.c **** 	temp = (data[6] << 8 | data[7]);
+ 787              		.loc 1 337 0
+ 788 006a 9DF81620 		ldrb	r2, [sp, #22]	@ zero_extendqisi2
+ 789 006e 9DF81730 		ldrb	r3, [sp, #23]	@ zero_extendqisi2
+ 790 0072 43EA0223 		orr	r3, r3, r2, lsl #8
+ 791 0076 1BB2     		sxth	r3, r3
+ 792              	.LVL56:
+ 338:Src/sd_hal_mpu6050.c **** 	DataStruct->Temperature = (float)((float)((int16_t)temp) / (float)340.0 + (float)36.53);
+ 793              		.loc 1 338 0
+ 794 0078 07EE903A 		vmov	s15, r3	@ int
+ 795 007c F8EEE77A 		vcvt.f32.s32	s15, s15
+ 796 0080 DFED106A 		vldr.32	s13, .L54
+ 797 0084 87EEA67A 		vdiv.f32	s14, s15, s13
+ARM GAS  /tmp/ccfXFxqS.s 			page 21
+
+
+ 798 0088 DFED0F7A 		vldr.32	s15, .L54+4
+ 799 008c 77EE277A 		vadd.f32	s15, s14, s15
+ 800 0090 C7ED067A 		vstr.32	s15, [r7, #24]
+ 339:Src/sd_hal_mpu6050.c **** 
+ 340:Src/sd_hal_mpu6050.c **** 	/* Format gyroscope data */
+ 341:Src/sd_hal_mpu6050.c **** 	DataStruct->Gyroscope_X = (int16_t)(data[8] << 8 | data[9]);
+ 801              		.loc 1 341 0
+ 802 0094 9DF81820 		ldrb	r2, [sp, #24]	@ zero_extendqisi2
+ 803 0098 9DF81930 		ldrb	r3, [sp, #25]	@ zero_extendqisi2
+ 804              	.LVL57:
+ 805 009c 43EA0223 		orr	r3, r3, r2, lsl #8
+ 806 00a0 7B82     		strh	r3, [r7, #18]	@ movhi
+ 807              	.LVL58:
+ 342:Src/sd_hal_mpu6050.c **** 	DataStruct->Gyroscope_Y = (int16_t)(data[10] << 8 | data[11]);
+ 808              		.loc 1 342 0
+ 809 00a2 9DF81A20 		ldrb	r2, [sp, #26]	@ zero_extendqisi2
+ 810 00a6 9DF81B30 		ldrb	r3, [sp, #27]	@ zero_extendqisi2
+ 811 00aa 43EA0223 		orr	r3, r3, r2, lsl #8
+ 812 00ae BB82     		strh	r3, [r7, #20]	@ movhi
+ 343:Src/sd_hal_mpu6050.c **** 	DataStruct->Gyroscope_Z = (int16_t)(data[12] << 8 | data[13]);
+ 813              		.loc 1 343 0
+ 814 00b0 9DF81C20 		ldrb	r2, [sp, #28]	@ zero_extendqisi2
+ 815 00b4 9DF81D30 		ldrb	r3, [sp, #29]	@ zero_extendqisi2
+ 816 00b8 43EA0223 		orr	r3, r3, r2, lsl #8
+ 817 00bc FB82     		strh	r3, [r7, #22]	@ movhi
+ 344:Src/sd_hal_mpu6050.c **** 
+ 345:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 346:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 347:Src/sd_hal_mpu6050.c **** }
+ 818              		.loc 1 347 0
+ 819 00be 09B0     		add	sp, sp, #36
+ 820              	.LCFI23:
+ 821              		.cfi_def_cfa_offset 20
+ 822              		@ sp needed
+ 823 00c0 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 824              	.LVL59:
+ 825              	.L55:
+ 826 00c2 00BF     		.align	2
+ 827              	.L54:
+ 828 00c4 0000AA43 		.word	1135214592
+ 829 00c8 B81E1242 		.word	1108483768
+ 830              		.cfi_endproc
+ 831              	.LFE131:
+ 833              		.section	.text.SD_MPU6050_EnableInterrupts,"ax",%progbits
+ 834              		.align	2
+ 835              		.global	SD_MPU6050_EnableInterrupts
+ 836              		.thumb
+ 837              		.thumb_func
+ 839              	SD_MPU6050_EnableInterrupts:
+ 840              	.LFB132:
+ 348:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_EnableInterrupts(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct)
+ 349:Src/sd_hal_mpu6050.c **** {
+ 841              		.loc 1 349 0
+ 842              		.cfi_startproc
+ 843              		@ args = 0, pretend = 0, frame = 8
+ 844              		@ frame_needed = 0, uses_anonymous_args = 0
+ 845              	.LVL60:
+ARM GAS  /tmp/ccfXFxqS.s 			page 22
+
+
+ 846 0000 70B5     		push	{r4, r5, r6, lr}
+ 847              	.LCFI24:
+ 848              		.cfi_def_cfa_offset 16
+ 849              		.cfi_offset 4, -16
+ 850              		.cfi_offset 5, -12
+ 851              		.cfi_offset 6, -8
+ 852              		.cfi_offset 14, -4
+ 853 0002 84B0     		sub	sp, sp, #16
+ 854              	.LCFI25:
+ 855              		.cfi_def_cfa_offset 32
+ 856 0004 0546     		mov	r5, r0
+ 350:Src/sd_hal_mpu6050.c **** 	uint8_t temp;
+ 351:Src/sd_hal_mpu6050.c **** 	uint8_t reg[2] = {MPU6050_INT_ENABLE,0x21};
+ 857              		.loc 1 351 0
+ 858 0006 224B     		ldr	r3, .L62
+ 859 0008 1B88     		ldrh	r3, [r3]	@ unaligned
+ 860 000a ADF80C30 		strh	r3, [sp, #12]	@ unaligned
+ 861              	.LVL61:
+ 352:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 353:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 862              		.loc 1 353 0
+ 863 000e 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 864              	.LVL62:
+ 865              	.L57:
+ 354:Src/sd_hal_mpu6050.c **** 
+ 355:Src/sd_hal_mpu6050.c **** 	/* Enable interrupts for data ready and motion detect */
+ 356:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, reg, 2, 1000) != HAL_OK);
+ 866              		.loc 1 356 0 discriminator 1
+ 867 0010 B4B2     		uxth	r4, r6
+ 868 0012 4FF47A73 		mov	r3, #1000
+ 869 0016 0093     		str	r3, [sp]
+ 870 0018 0223     		movs	r3, #2
+ 871 001a 03AA     		add	r2, sp, #12
+ 872 001c 2146     		mov	r1, r4
+ 873 001e 2846     		mov	r0, r5
+ 874 0020 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 875              	.LVL63:
+ 876 0024 0028     		cmp	r0, #0
+ 877 0026 F3D1     		bne	.L57
+ 357:Src/sd_hal_mpu6050.c **** 
+ 358:Src/sd_hal_mpu6050.c **** 	uint8_t mpu_reg= MPU6050_INT_PIN_CFG;
+ 878              		.loc 1 358 0
+ 879 0028 3723     		movs	r3, #55
+ 880 002a 8DF80B30 		strb	r3, [sp, #11]
+ 881              	.L58:
+ 359:Src/sd_hal_mpu6050.c **** 	/* Clear IRQ flag on any read operation */
+ 360:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, &mpu_reg, 1, 1000) != HAL_OK);
+ 882              		.loc 1 360 0 discriminator 1
+ 883 002e 4FF47A73 		mov	r3, #1000
+ 884 0032 0093     		str	r3, [sp]
+ 885 0034 0123     		movs	r3, #1
+ 886 0036 0DF10B02 		add	r2, sp, #11
+ 887 003a 2146     		mov	r1, r4
+ 888 003c 2846     		mov	r0, r5
+ 889 003e FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 890              	.LVL64:
+ 891 0042 0028     		cmp	r0, #0
+ARM GAS  /tmp/ccfXFxqS.s 			page 23
+
+
+ 892 0044 F3D1     		bne	.L58
+ 893              	.L59:
+ 361:Src/sd_hal_mpu6050.c **** 
+ 362:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, &temp, 14, 1000) != HAL_OK);
+ 894              		.loc 1 362 0 discriminator 1
+ 895 0046 4FF47A73 		mov	r3, #1000
+ 896 004a 0093     		str	r3, [sp]
+ 897 004c 0E23     		movs	r3, #14
+ 898 004e 0DF10F02 		add	r2, sp, #15
+ 899 0052 2146     		mov	r1, r4
+ 900 0054 2846     		mov	r0, r5
+ 901 0056 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 902              	.LVL65:
+ 903 005a 0028     		cmp	r0, #0
+ 904 005c F3D1     		bne	.L59
+ 363:Src/sd_hal_mpu6050.c **** 	temp |= 0x10;
+ 905              		.loc 1 363 0
+ 906 005e 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2
+ 907 0062 43F01003 		orr	r3, r3, #16
+ 908 0066 8DF80F30 		strb	r3, [sp, #15]
+ 364:Src/sd_hal_mpu6050.c **** 	reg[0] = MPU6050_INT_PIN_CFG;
+ 909              		.loc 1 364 0
+ 910 006a 3722     		movs	r2, #55
+ 911 006c 8DF80C20 		strb	r2, [sp, #12]
+ 365:Src/sd_hal_mpu6050.c **** 	reg[1] = temp;
+ 912              		.loc 1 365 0
+ 913 0070 8DF80D30 		strb	r3, [sp, #13]
+ 914              	.L60:
+ 366:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, reg, 2, 1000) != HAL_OK);
+ 915              		.loc 1 366 0 discriminator 1
+ 916 0074 4FF47A73 		mov	r3, #1000
+ 917 0078 0093     		str	r3, [sp]
+ 918 007a 0223     		movs	r3, #2
+ 919 007c 03AA     		add	r2, sp, #12
+ 920 007e 2146     		mov	r1, r4
+ 921 0080 2846     		mov	r0, r5
+ 922 0082 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 923              	.LVL66:
+ 924 0086 0028     		cmp	r0, #0
+ 925 0088 F4D1     		bne	.L60
+ 367:Src/sd_hal_mpu6050.c **** 
+ 368:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 369:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 370:Src/sd_hal_mpu6050.c **** }
+ 926              		.loc 1 370 0
+ 927 008a 04B0     		add	sp, sp, #16
+ 928              	.LCFI26:
+ 929              		.cfi_def_cfa_offset 16
+ 930              		@ sp needed
+ 931 008c 70BD     		pop	{r4, r5, r6, pc}
+ 932              	.LVL67:
+ 933              	.L63:
+ 934 008e 00BF     		.align	2
+ 935              	.L62:
+ 936 0090 00000000 		.word	.LANCHOR0
+ 937              		.cfi_endproc
+ 938              	.LFE132:
+ARM GAS  /tmp/ccfXFxqS.s 			page 24
+
+
+ 940              		.section	.text.SD_MPU6050_DisableInterrupts,"ax",%progbits
+ 941              		.align	2
+ 942              		.global	SD_MPU6050_DisableInterrupts
+ 943              		.thumb
+ 944              		.thumb_func
+ 946              	SD_MPU6050_DisableInterrupts:
+ 947              	.LFB133:
+ 371:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_DisableInterrupts(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct)
+ 372:Src/sd_hal_mpu6050.c **** {
+ 948              		.loc 1 372 0
+ 949              		.cfi_startproc
+ 950              		@ args = 0, pretend = 0, frame = 8
+ 951              		@ frame_needed = 0, uses_anonymous_args = 0
+ 952              	.LVL68:
+ 953 0000 30B5     		push	{r4, r5, lr}
+ 954              	.LCFI27:
+ 955              		.cfi_def_cfa_offset 12
+ 956              		.cfi_offset 4, -12
+ 957              		.cfi_offset 5, -8
+ 958              		.cfi_offset 14, -4
+ 959 0002 85B0     		sub	sp, sp, #20
+ 960              	.LCFI28:
+ 961              		.cfi_def_cfa_offset 32
+ 962 0004 0546     		mov	r5, r0
+ 373:Src/sd_hal_mpu6050.c **** 	uint8_t reg[2] = {MPU6050_INT_ENABLE,0x00};
+ 963              		.loc 1 373 0
+ 964 0006 3823     		movs	r3, #56
+ 965 0008 8DF80C30 		strb	r3, [sp, #12]
+ 966 000c 0023     		movs	r3, #0
+ 967 000e 8DF80D30 		strb	r3, [sp, #13]
+ 968              	.LVL69:
+ 374:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 375:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 969              		.loc 1 375 0
+ 970 0012 0C78     		ldrb	r4, [r1]	@ zero_extendqisi2
+ 971              	.LVL70:
+ 972              	.L65:
+ 376:Src/sd_hal_mpu6050.c **** 
+ 377:Src/sd_hal_mpu6050.c **** 	/* Disable interrupts */
+ 378:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle,(uint16_t)address,reg,2,1000)!=HAL_OK);
+ 973              		.loc 1 378 0 discriminator 1
+ 974 0014 4FF47A73 		mov	r3, #1000
+ 975 0018 0093     		str	r3, [sp]
+ 976 001a 0223     		movs	r3, #2
+ 977 001c 03AA     		add	r2, sp, #12
+ 978 001e 2146     		mov	r1, r4
+ 979 0020 2846     		mov	r0, r5
+ 980 0022 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 981              	.LVL71:
+ 982 0026 0028     		cmp	r0, #0
+ 983 0028 F4D1     		bne	.L65
+ 379:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 380:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 381:Src/sd_hal_mpu6050.c **** }
+ 984              		.loc 1 381 0
+ 985 002a 05B0     		add	sp, sp, #20
+ 986              	.LCFI29:
+ARM GAS  /tmp/ccfXFxqS.s 			page 25
+
+
+ 987              		.cfi_def_cfa_offset 12
+ 988              		@ sp needed
+ 989 002c 30BD     		pop	{r4, r5, pc}
+ 990              		.cfi_endproc
+ 991              	.LFE133:
+ 993 002e 00BF     		.section	.text.SD_MPU6050_ReadInterrupts,"ax",%progbits
+ 994              		.align	2
+ 995              		.global	SD_MPU6050_ReadInterrupts
+ 996              		.thumb
+ 997              		.thumb_func
+ 999              	SD_MPU6050_ReadInterrupts:
+ 1000              	.LFB134:
+ 382:Src/sd_hal_mpu6050.c **** SD_MPU6050_Result SD_MPU6050_ReadInterrupts(I2C_HandleTypeDef* I2Cx,SD_MPU6050* DataStruct, SD_MPU6
+ 383:Src/sd_hal_mpu6050.c **** {
+ 1001              		.loc 1 383 0
+ 1002              		.cfi_startproc
+ 1003              		@ args = 0, pretend = 0, frame = 8
+ 1004              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1005              	.LVL72:
+ 1006 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1007              	.LCFI30:
+ 1008              		.cfi_def_cfa_offset 20
+ 1009              		.cfi_offset 4, -20
+ 1010              		.cfi_offset 5, -16
+ 1011              		.cfi_offset 6, -12
+ 1012              		.cfi_offset 7, -8
+ 1013              		.cfi_offset 14, -4
+ 1014 0002 85B0     		sub	sp, sp, #20
+ 1015              	.LCFI31:
+ 1016              		.cfi_def_cfa_offset 40
+ 1017 0004 0546     		mov	r5, r0
+ 1018 0006 1746     		mov	r7, r2
+ 384:Src/sd_hal_mpu6050.c **** 	uint8_t read;
+ 385:Src/sd_hal_mpu6050.c **** 
+ 386:Src/sd_hal_mpu6050.c **** 	/* Reset structure */
+ 387:Src/sd_hal_mpu6050.c **** 	InterruptsStruct->Status = 0;
+ 1019              		.loc 1 387 0
+ 1020 0008 0023     		movs	r3, #0
+ 1021 000a 1370     		strb	r3, [r2]
+ 388:Src/sd_hal_mpu6050.c **** 	uint8_t reg = MPU6050_INT_STATUS;
+ 1022              		.loc 1 388 0
+ 1023 000c 3A23     		movs	r3, #58
+ 1024 000e 8DF80E30 		strb	r3, [sp, #14]
+ 1025              	.LVL73:
+ 389:Src/sd_hal_mpu6050.c **** 	I2C_HandleTypeDef* Handle = I2Cx;
+ 390:Src/sd_hal_mpu6050.c **** 	uint8_t address = DataStruct->Address;
+ 1026              		.loc 1 390 0
+ 1027 0012 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 1028              	.LVL74:
+ 1029              	.L68:
+ 391:Src/sd_hal_mpu6050.c **** 
+ 392:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Transmit(Handle, (uint16_t)address, &reg, 1, 1000) != HAL_OK);
+ 1030              		.loc 1 392 0 discriminator 1
+ 1031 0014 B4B2     		uxth	r4, r6
+ 1032 0016 4FF47A73 		mov	r3, #1000
+ 1033 001a 0093     		str	r3, [sp]
+ 1034 001c 0123     		movs	r3, #1
+ARM GAS  /tmp/ccfXFxqS.s 			page 26
+
+
+ 1035 001e 0DF10E02 		add	r2, sp, #14
+ 1036 0022 2146     		mov	r1, r4
+ 1037 0024 2846     		mov	r0, r5
+ 1038 0026 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 1039              	.LVL75:
+ 1040 002a 0028     		cmp	r0, #0
+ 1041 002c F2D1     		bne	.L68
+ 1042              	.L69:
+ 393:Src/sd_hal_mpu6050.c **** 
+ 394:Src/sd_hal_mpu6050.c **** 	while(HAL_I2C_Master_Receive(Handle, (uint16_t)address, &read, 14, 1000) != HAL_OK);
+ 1043              		.loc 1 394 0 discriminator 1
+ 1044 002e 4FF47A73 		mov	r3, #1000
+ 1045 0032 0093     		str	r3, [sp]
+ 1046 0034 0E23     		movs	r3, #14
+ 1047 0036 0DF10F02 		add	r2, sp, #15
+ 1048 003a 2146     		mov	r1, r4
+ 1049 003c 2846     		mov	r0, r5
+ 1050 003e FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 1051              	.LVL76:
+ 1052 0042 0028     		cmp	r0, #0
+ 1053 0044 F3D1     		bne	.L69
+ 395:Src/sd_hal_mpu6050.c **** 
+ 396:Src/sd_hal_mpu6050.c **** 	/* Fill value */
+ 397:Src/sd_hal_mpu6050.c **** 	InterruptsStruct->Status = read;
+ 1054              		.loc 1 397 0
+ 1055 0046 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2
+ 1056 004a 3B70     		strb	r3, [r7]
+ 398:Src/sd_hal_mpu6050.c **** 	/* Return OK */
+ 399:Src/sd_hal_mpu6050.c **** 	return SD_MPU6050_Result_Ok;
+ 400:Src/sd_hal_mpu6050.c **** }
+ 1057              		.loc 1 400 0
+ 1058 004c 05B0     		add	sp, sp, #20
+ 1059              	.LCFI32:
+ 1060              		.cfi_def_cfa_offset 20
+ 1061              		@ sp needed
+ 1062 004e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1063              		.cfi_endproc
+ 1064              	.LFE134:
+ 1066              		.section	.rodata
+ 1067              		.align	2
+ 1068              		.set	.LANCHOR0,. + 0
+ 1069              	.LC0:
+ 1070 0000 38       		.byte	56
+ 1071 0001 21       		.byte	33
+ 1072              		.text
+ 1073              	.Letext0:
+ 1074              		.file 2 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/machine/
+ 1075              		.file 3 "/home/ryouya/STM32Toolchain/gcc-arm-none-eabi-5_4-2016q3.2/arm-none-eabi/include/sys/_std
+ 1076              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 1077              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1078              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1079              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 1080              		.file 8 "Inc/sd_hal_mpu6050.h"
+ 1081              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ARM GAS  /tmp/ccfXFxqS.s 			page 27
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sd_hal_mpu6050.c
+     /tmp/ccfXFxqS.s:22     .text.SD_MPU6050_SetDataRate:00000000 $t
+     /tmp/ccfXFxqS.s:27     .text.SD_MPU6050_SetDataRate:00000000 SD_MPU6050_SetDataRate
+     /tmp/ccfXFxqS.s:77     .text.SD_MPU6050_SetAccelerometer:00000000 $t
+     /tmp/ccfXFxqS.s:82     .text.SD_MPU6050_SetAccelerometer:00000000 SD_MPU6050_SetAccelerometer
+     /tmp/ccfXFxqS.s:159    .text.SD_MPU6050_SetAccelerometer:00000076 $d
+     /tmp/ccfXFxqS.s:163    .text.SD_MPU6050_SetAccelerometer:0000007a $t
+     /tmp/ccfXFxqS.s:198    .text.SD_MPU6050_SetGyroscope:00000000 $t
+     /tmp/ccfXFxqS.s:203    .text.SD_MPU6050_SetGyroscope:00000000 SD_MPU6050_SetGyroscope
+     /tmp/ccfXFxqS.s:280    .text.SD_MPU6050_SetGyroscope:00000076 $d
+     /tmp/ccfXFxqS.s:284    .text.SD_MPU6050_SetGyroscope:0000007a $t
+     /tmp/ccfXFxqS.s:319    .text.SD_MPU6050_SetGyroscope:000000a0 $d
+     /tmp/ccfXFxqS.s:327    .text.SD_MPU6050_Init:00000000 $t
+     /tmp/ccfXFxqS.s:332    .text.SD_MPU6050_Init:00000000 SD_MPU6050_Init
+     /tmp/ccfXFxqS.s:464    .text.SD_MPU6050_ReadAccelerometer:00000000 $t
+     /tmp/ccfXFxqS.s:469    .text.SD_MPU6050_ReadAccelerometer:00000000 SD_MPU6050_ReadAccelerometer
+     /tmp/ccfXFxqS.s:546    .text.SD_MPU6050_ReadGyroscope:00000000 $t
+     /tmp/ccfXFxqS.s:551    .text.SD_MPU6050_ReadGyroscope:00000000 SD_MPU6050_ReadGyroscope
+     /tmp/ccfXFxqS.s:628    .text.SD_MPU6050_ReadTemperature:00000000 $t
+     /tmp/ccfXFxqS.s:633    .text.SD_MPU6050_ReadTemperature:00000000 SD_MPU6050_ReadTemperature
+     /tmp/ccfXFxqS.s:709    .text.SD_MPU6050_ReadTemperature:00000070 $d
+     /tmp/ccfXFxqS.s:715    .text.SD_MPU6050_ReadAll:00000000 $t
+     /tmp/ccfXFxqS.s:720    .text.SD_MPU6050_ReadAll:00000000 SD_MPU6050_ReadAll
+     /tmp/ccfXFxqS.s:828    .text.SD_MPU6050_ReadAll:000000c4 $d
+     /tmp/ccfXFxqS.s:834    .text.SD_MPU6050_EnableInterrupts:00000000 $t
+     /tmp/ccfXFxqS.s:839    .text.SD_MPU6050_EnableInterrupts:00000000 SD_MPU6050_EnableInterrupts
+     /tmp/ccfXFxqS.s:936    .text.SD_MPU6050_EnableInterrupts:00000090 $d
+     /tmp/ccfXFxqS.s:941    .text.SD_MPU6050_DisableInterrupts:00000000 $t
+     /tmp/ccfXFxqS.s:946    .text.SD_MPU6050_DisableInterrupts:00000000 SD_MPU6050_DisableInterrupts
+     /tmp/ccfXFxqS.s:994    .text.SD_MPU6050_ReadInterrupts:00000000 $t
+     /tmp/ccfXFxqS.s:999    .text.SD_MPU6050_ReadInterrupts:00000000 SD_MPU6050_ReadInterrupts
+     /tmp/ccfXFxqS.s:1067   .rodata:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+HAL_I2C_Master_Transmit
+HAL_I2C_Master_Receive
+HAL_I2C_IsDeviceReady
